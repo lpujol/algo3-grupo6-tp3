@@ -4,14 +4,14 @@ import java.awt.Point;
 
 public abstract class Entidad {
 	
-	private Direccion direccion;
-	private int velocidad;
-	private Point posicion;
+	//protected Direccion direccion;
+	protected int velocidad;
+	protected Point posicion;
+	protected Laberinto laberinto;
 	
-	
-	public Direccion getDireccion()	{
+	/**public Direccion getDireccion()	{
 		return direccion;
-	}
+	}**/
 	
 	public Point getPosicion(){
 		return posicion;
@@ -22,20 +22,35 @@ public abstract class Entidad {
 	}
 	
 	public boolean irHaciaLaDerecha(){
+		double posicionVertical=this.posicion.getY();
+		double posicionHorizontal=this.posicion.getX();
+		this.posicion.setLocation(posicionHorizontal+1,posicionVertical);
 		return false;
 	}
 	
 	public boolean irHaciaLaIzquierda(){
+		double posicionVertical=this.posicion.getY();
+		double posicionHorizontal=this.posicion.getX();
+		this.posicion.setLocation(posicionHorizontal-1,posicionVertical);
 		return false;
 	}
 	public boolean irHaciaArriba(){
+		double posicionVertical=this.posicion.getY();
+		double posicionHorizontal=this.posicion.getX();
+		this.posicion.setLocation(posicionHorizontal,posicionVertical+1);
 		return false;
 	}
 	
 	public boolean irHaciaAbajo(){
+		double posicionVertical=this.posicion.getY();
+		double posicionHorizontal=this.posicion.getX();
+		this.posicion.setLocation(posicionHorizontal,posicionVertical-1);
 		return false;
 	}
 
+
+
+/**
 	public void mover() {
 		switch(direccion){
 		case Arriba:
@@ -53,4 +68,5 @@ public abstract class Entidad {
 		}
 				
 	}
+**/
 }
