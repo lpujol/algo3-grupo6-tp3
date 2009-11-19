@@ -2,20 +2,10 @@ package modelo;
 
 import java.awt.Point;
 
-public class Pared implements Bloque {
+public class Pared extends Bloque {
 
-	private Point posicion;
-	
-	public Pared(Point posicion) {
-		this.posicion = posicion;
-	}
-	
-	public boolean comer() {
-		return false;
-	}
-
-	public boolean ocupar() {
-		return false;
+	public Pared(int x, int y) {
+		super(x, y);
 	}
 	
 }
