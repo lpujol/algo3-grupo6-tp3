@@ -7,58 +7,43 @@ import modelo.Laberinto;
 import modelo.Nivel;
 
 public class Juego {
-	
 	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
-	private int puntosAcumulados;
+	private double puntosAcumulados;
 	private Nivel nivel;
-	private EstrategiaFantasma estrategia;
 	
-	private int nivelActual=1;
+	private CargadorDeNiveles cargadorDeNiveles;
+	private int cantidadVidas;
+
 	
 	
 	public Juego(){
-		
-		this.nivel= new Nivel(nivelActual);
+		this.cargadorDeNiveles=new CargadorDeNiveles();
+		this.nivel= cargadorDeNiveles.getSiguiente();
 		this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
-		estrategia= new EstrategiaXPerseguir();
-		this.crearLaberinto(this.nivel);
-	}
-	
-	
-	public void crearLaberinto(Nivel nivel,int ancho , int alto){
-		laberinto= new Laberinto(ancho, alto);
-	}
-	
-	
-	public void crearLaberinto(Nivel nivel){
-		laberinto=new Laberinto(nivel)
-	}
-	
-	
-     void cambiarEstrategia(){
-    	 
-    	 if(this.puntoDePoderActivo)
-    		 estrategia=new EstrategiaXEscapar();
-    		 
-    	 else estrategia=new EstrategiaXPerseguir();
 		
+		this.crearLaberinto();
 	}
-     
+	
+	
+	public void crearLaberinto(){
+		laberinto= new Laberinto(this.nivel);
+	}
+	
+	  
 	
 	public void pasarNivel(){
 		
-		if((laberinto.estaSinPuntos())&&(laberinto.getPacMan().cantidadVidas()>0)){
-			nivel=new Nivel(nivelActual++);
+			nivel=this.cargadorDeNiveles.getSiguiente();
 			laberinto= new Laberinto(this.nivel);
-			this.nivelActual=nivelActual++;
-		}
+			
+		
 	}
 	
 	
 	public boolean perdido(){
-		if(laberinto.getPacMan().cantidadVidas()>0)
+		if(this.cantidadVidas>0)
 			return false;
 		else return true;
 	}
@@ -74,7 +59,7 @@ public class Juego {
 	}
 	
 	
-	public int getPuntosAcumulados(){
+	public double getPuntosAcumulados(){
 		return this.puntosAcumulados;
 	}
 	
@@ -83,23 +68,24 @@ public class Juego {
 		return this.nivel;
 	}
 	
-	
-	public EstrategiaFantasma getEstrategia(){
-		return this.estrategia;
-	}
-	
-	
-	/*------------------------metodos privados--------------*/
-	
-	
-	public void setPuntosAcumulados(int PuntosAcumulados){
+			
+	public void setPuntosAcumulados(int puntosAcumulados){
 		this.puntosAcumulados=puntosAcumulados;
 	}
-
 
 	public void fantasmaComido(Fantasma fantasma) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	
+
+
+	public void puntoDePoderComido() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }
