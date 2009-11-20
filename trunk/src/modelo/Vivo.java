@@ -1,6 +1,5 @@
 package modelo;
 
-import java.awt.Point;
 
 public abstract class Vivo {
 	
@@ -22,29 +21,21 @@ public abstract class Vivo {
 	}
 	
 	public boolean irHaciaLaDerecha(){
-		double posicionVertical=this.posicion.getY();
-		double posicionHorizontal=this.posicion.getX();
-		this.posicion.setLocation(posicionHorizontal+1,posicionVertical);
+		posicion.avanzarHorizontal(velocidad);
 		return false;
 	}
 	
 	public boolean irHaciaLaIzquierda(){
-		double posicionVertical=this.posicion.getY();
-		double posicionHorizontal=this.posicion.getX();
-		this.posicion.setLocation(posicionHorizontal-1,posicionVertical);
+		posicion.retrocederHorizontal(velocidad);
 		return false;
 	}
 	public boolean irHaciaArriba(){
-		double posicionVertical=this.posicion.getY();
-		double posicionHorizontal=this.posicion.getX();
-		this.posicion.setLocation(posicionHorizontal,posicionVertical+1);
+		posicion.retrocederVertical(velocidad);
 		return false;
 	}
-	
+		
 	public boolean irHaciaAbajo(){
-		double posicionVertical=this.posicion.getY();
-		double posicionHorizontal=this.posicion.getX();
-		this.posicion.setLocation(posicionHorizontal,posicionVertical-1);
+		posicion.avanzarVertical(velocidad);
 		return false;
 	}
 

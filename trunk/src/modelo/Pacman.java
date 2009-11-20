@@ -7,9 +7,7 @@ public class Pacman extends Vivo{
 	private IEstrategia estrategia;
 	
 	public Pacman(Posicion posicion){
-		
-		this.vidas=3;
-		
+		this.vidas=3;		
 	}
 	
 	public boolean mover(Posicion posicion){
@@ -30,8 +28,7 @@ public class Pacman extends Vivo{
 	}
 
 	private IEstrategia getEstrategia() {
-		// TODO Auto-generated method stub
-		return null;
+		return estrategia;
 	};
 
 }

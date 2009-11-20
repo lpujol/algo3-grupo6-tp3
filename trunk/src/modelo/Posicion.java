@@ -1,15 +1,37 @@
 package modelo;
 
 public class Posicion {
-
-	public double getY() {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	private int x;
+	private int y;
+	
+	public Posicion(int x,int y){
+		this.x=x;
+		this.y=y;
 	}
 
-	public double getX() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getY() {
+		return y;
+	}
+
+	public int getX() {
+		return x;
+	}
+	
+	public void avanzarHorizontal(int cantidad){
+		x+=cantidad;
+	}
+	
+	public void retrocederHorizontal(int cantidad){
+		x-=cantidad;
+	}
+	
+	public void avanzarVertical(int cantidad){
+		y+=cantidad;
+	}
+	
+	public void retrocederVertical(int cantidad){
+		y-=cantidad;
 	}
 
 	public void setLocation(double d, double posicionVertical) {
