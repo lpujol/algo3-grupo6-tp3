@@ -6,6 +6,7 @@ public class Nivel {
 
 	private int numero;
 	private ArrayList<Bloque> bloques;
+	private ArrayList<Vivo> entidades;
 	
 	public Nivel(int numero) {
 		this.numero = numero;
@@ -17,6 +18,10 @@ public class Nivel {
 		
 	public ArrayList<Bloque> getBloques() {
 		return this.bloques;
+	}
+	
+	public ArrayList<Vivo> getEntidades() {
+		return this.entidades;
 	}
 	
 	public int getNumero() {
