@@ -2,18 +2,18 @@ package modelo;
 
 import java.awt.Point;
 
-public abstract class Entidad {
+public abstract class Vivo {
 	
 	protected Direccion direccion;
 	protected int velocidad;
-	protected Point posicion;
+	protected Posicion posicion;
 	protected Laberinto laberinto;
 	
 	public Direccion getDireccion()	{
 		return direccion;
 	}
 	
-	public Point getPosicion(){
+	public Posicion getPosicion(){
 		return posicion;
 	}
 	
@@ -48,25 +48,9 @@ public abstract class Entidad {
 		return false;
 	}
 
+	abstract public void vivir();
 
-
-
-	public void mover() {
-		switch(direccion){
-		case Arriba:
-			irHaciaArriba();
-			break;
-		case Abajo:
-			irHaciaAbajo();
-			break;
-		case Derecha:
-			irHaciaLaDerecha();
-			break;
-		case Izquierda:
-			irHaciaLaIzquierda();
-			break;
-		}
 				
-	}
+	
 
 }
