@@ -14,7 +14,7 @@ public class Juego {
 	
 	
 	public Juego(){
-		this.cargadorDeNiveles=new CargadorDeNiveles();
+		this.cargadorDeNiveles = new CargadorDeNiveles(this);
 		this.nivel= cargadorDeNiveles.getSiguiente();
 		this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
