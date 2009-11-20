@@ -49,4 +49,9 @@ public class Laberinto {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Posicion obtenerPosicionCasa() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
