@@ -1,8 +1,7 @@
 package modelo;
 
-import java.awt.Point;
 
-public class EstrategiaEmboscador implements Estrategia {
+public class EstrategiaEmboscador implements IEstrategia {
 
 	private Fantasma fantasma;
 	
@@ -10,14 +9,14 @@ public class EstrategiaEmboscador implements Estrategia {
 		this.fantasma=fantasma;
 	}
 	
-	@Override
-	public void vivir() {
+	
+	public Posicion getDestino() {
 		
 		Laberinto laberinto=fantasma.getLaberinto();
-		Point posicionPacman=laberinto.getPosicionPacman();
+		Posicion posicionPacman=laberinto.getPacman().getPosicion();
 		Direccion direccionDePacman=laberinto.getPacman().getDireccion();
-		Point interseccion=laberinto.getInterseccionMasCercana(posicionPacman,direccionDePacman);
-		this.fantasma.mover(interseccion);		
+		return laberinto.getInterseccionMasCercana(posicionPacman,direccionDePacman);
+			
 		
 	}
 

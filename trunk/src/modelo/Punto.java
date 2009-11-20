@@ -2,7 +2,7 @@ package modelo;
 
 public class Punto extends Bloque {
 
-	private boolean comido;
+	protected boolean comido;
 	
 	public Punto(int x, int y) {
 		super(x, y);

@@ -15,6 +15,8 @@ public abstract class Bloque {
 		}
 		this.comido = false;
 	}
+
+	
 	
 	public boolean esOcupable() {
 		return true;

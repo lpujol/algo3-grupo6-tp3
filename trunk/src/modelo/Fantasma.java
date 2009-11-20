@@ -1,13 +1,13 @@
 package modelo;
 
-import java.awt.Point;
 
-public class Fantasma extends Entidad {
 
-	private Estrategia estrategiaNativa;
-	private Estrategia estrategiaActual;
+public class Fantasma extends Vivo {
 
-	public Fantasma(Estrategia estrategia,Laberinto laberinto,int velocidad){
+	private IEstrategia estrategiaNativa;
+	private IEstrategia estrategiaActual;
+
+	public Fantasma(IEstrategia estrategia,Laberinto laberinto,int velocidad){
 		this.laberinto=laberinto;
 		this.estrategiaActual=estrategia;
 		this.estrategiaNativa=estrategia;
@@ -15,11 +15,11 @@ public class Fantasma extends Entidad {
 		this.velocidad=velocidad;
 	};
 	
-	public void setEstrategiaActual(Estrategia unaEstrategia){
+	public void setEstrategiaActual(IEstrategia unaEstrategia){
 		this.estrategiaActual=unaEstrategia;
 	}
 	
-	public Estrategia getEstrategiaActual(){
+	public IEstrategia getEstrategiaActual(){
 		return estrategiaActual;
 		
 	}
@@ -28,6 +28,10 @@ public class Fantasma extends Entidad {
 		this.estrategiaActual=estrategiaNativa;
 				
 	}
+	
+	public void vivir(){
+		this.mover(this.estrategiaActual.getDestino());
+	};
 	
 	public void comer(){
 		Juego juegoActual=this.laberinto.getJuego();
@@ -39,12 +43,12 @@ public class Fantasma extends Entidad {
 		return this.laberinto;
 	}
 
-	public void mover(Point nuevaPosicion) {
-		while(this.getPosicion().distance(nuevaPosicion)!=0){
-			this.acercarHorizontalmente(nuevaPosicion.getX());
-			this.acercarVerticalmente(nuevaPosicion.getY());
+	public void mover(Posicion posicion) {
+	
+			this.acercarHorizontalmente(posicion.getX());
+			this.acercarVerticalmente(posicion.getY());
 		
-		};
+	
 				
 	};
 	
@@ -55,7 +59,7 @@ public class Fantasma extends Entidad {
 			else 
 				nuevaCoordenadaX=this.getPosicion().getX()-1;
 
-		if (laberinto.getBloqueEnPosicion(nuevaCoordenadaX,this.getPosicion().getY()).ocupable())
+		if (laberinto.getBloqueEnPosicion(nuevaCoordenadaX,this.getPosicion().getY()).esOcupable())
 				this.getPosicion().setLocation(nuevaCoordenadaX,this.getPosicion().getY());
 	
 	};
@@ -68,7 +72,7 @@ public class Fantasma extends Entidad {
 			else 
 				nuevaCoordenadaY=this.getPosicion().getY()-1;
 
-		if (laberinto.getBloqueEnPosicion(this.getPosicion().getX(),nuevaCoordenadaY).ocupable())
+		if (laberinto.getBloqueEnPosicion(this.getPosicion().getX(),nuevaCoordenadaY).esOcupable())
 				this.getPosicion().setLocation(this.getPosicion().getX(),nuevaCoordenadaY);
 	
 	};

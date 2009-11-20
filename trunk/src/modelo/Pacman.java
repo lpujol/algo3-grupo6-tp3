@@ -1,29 +1,37 @@
 package modelo;
 
-import java.awt.Point;
 
-public class Pacman extends Entidad {
+public class Pacman extends Vivo{
 	
-    private int vidas;
+	private int vidas;
+	private IEstrategia estrategia;
 	
-	
-	public PacMan(Point posicion){
+	public Pacman(Posicion posicion){
 		
-		super(posicion);
 		this.vidas=3;
 		
 	}
 	
-	public boolean mover(Point versor){
-		
-		this.setPosicion(new Point(this.getPosicion().getX()+versor.getX(),
-				this.getPosicion().getY()+versor.getY()));
-				
+	public boolean mover(Posicion posicion){
+	/**	
+		this.setPosicion(new Point(this.getPosicion().getX()+posicion.getX(),
+				this.getPosicion().getY()+posicion.getY()));
+		**/	
+		return false;
 	}
 	
 	public int getCantidadVidas(){
 		return this.vidas; 
 	}
 	
+	public void vivir(){
+		mover(this.getEstrategia().getDestino());
+		
+	}
+
+	private IEstrategia getEstrategia() {
+		// TODO Auto-generated method stub
+		return null;
+	};
 
 }

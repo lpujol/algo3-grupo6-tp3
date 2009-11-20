@@ -1,12 +1,8 @@
 package modelo;
 
-import modelo.EstrategiaFantasma;
-import modelo.EstrategiaXEscapar;
-import modelo.EstrategiaXPerseguir;
-import modelo.Laberinto;
-import modelo.Nivel;
-
 public class Juego {
+
+
 	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
 	private double puntosAcumulados;
@@ -85,7 +81,5 @@ public class Juego {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
 
 }
