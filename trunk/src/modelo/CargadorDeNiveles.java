@@ -26,7 +26,7 @@ public class CargadorDeNiveles {
 		int caracter;
 		Nivel nivel = new Nivel(nivelSiguiente);
 		BufferedReader input = null;
-		File nivelFile = new File("nivel"+nivelSiguiente+"txt");
+		File nivelFile = new File("nivel"+nivelSiguiente+".txt");
 		try {
 			input = new BufferedReader(new FileReader(nivelFile));
 		} catch (FileNotFoundException e) {
@@ -51,32 +51,30 @@ public class CargadorDeNiveles {
 	}
 	
 	private int getCantidadDeNiveles() {
-		int cantidad = 0;
-		File nivelFile = new File("nivel"+cantidad+1+"txt");
+		int i = 1;
+		File nivelFile = new File("nivel"+i+".txt");
 		while (nivelFile.exists()) {
-			cantidad++;
-			nivelFile = new File("nivel"+cantidad+1+"txt");
+			i++;
+			nivelFile = new File("nivel"+i+".txt");
 		}
-		return cantidad;
+		return i-1;
 	}
 
 	private void agregarObjeto(int caracter, Nivel nivel, int x, int y) {
-		Bloque bloque = null;
 		switch (caracter) {
 			case 35:
-				bloque = new Pared(x, y);
+				nivel.agregarBloque(new Pared(x, y));
 				break;
 			case 111:
-				bloque = new Punto(x, y);
+				nivel.agregarBloque(new Punto(x, y));
 				break;
 			case 79:
-				bloque = new PuntoDePoder(x, y, juego);
+				nivel.agregarBloque(new PuntoDePoder(x, y, juego));
 				break;
 			case 45:
-				bloque = new Puerta(x, y);
+				nivel.agregarBloque(new Puerta(x, y));
 				break;
-		}
-		nivel.agregarBloque(bloque);		
+		}		
 	}
 	
 }
