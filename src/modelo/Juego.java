@@ -24,7 +24,7 @@ public class Juego {
 	
 	
 	public void crearLaberinto(){
-		laberinto= new Laberinto(this.nivel);
+		laberinto= new Laberinto(this.nivel, this);
 	}
 	
 	  
@@ -32,7 +32,7 @@ public class Juego {
 	public void pasarNivel(){
 		
 			nivel=this.cargadorDeNiveles.getSiguiente();
-			laberinto= new Laberinto(this.nivel);
+			laberinto= new Laberinto(this.nivel, this);
 			
 		
 	}

@@ -10,6 +10,7 @@ public class Nivel {
 	
 	public Nivel(int numero) {
 		this.numero = numero;
+		bloques = new ArrayList<Bloque>();
 	}
 
 	public void agregarBloque(Bloque bloque) {

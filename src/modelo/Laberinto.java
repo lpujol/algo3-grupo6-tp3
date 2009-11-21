@@ -8,21 +8,20 @@ public class Laberinto {
 	private  int ancho;
 	private ArrayList<Bloque> bloques;
 	private ArrayList<Vivo> entidades;
-
 	private Pacman pacman;
-
 	private Nivel nivel;
+	private Juego juego;
 
-	public Laberinto(Nivel nivel) {
+	public Laberinto(Nivel nivel, Juego juego) {
 		this.ancho = 28;
 		this.alto = 31;
-		this.bloques = new ArrayList<Bloque>();
-		// TODO: Inicializar array entidades.
+		this.nivel = nivel;
+		this.bloques = this.nivel.getBloques();
+		this.juego = juego;
 	}
 
 	public Juego getJuego() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.juego;
 	}
 
 	//Este metodo debe ser adaptado a la coleccion de entidades
@@ -31,7 +30,7 @@ public class Laberinto {
 	}
 
 	public Posicion getPosicionPacman() {
-		// TODO Auto-generated method stub
+		pacman.getPosicion();
 		return null;
 	}
 
