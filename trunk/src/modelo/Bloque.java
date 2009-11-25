@@ -2,14 +2,12 @@ package modelo;
 
 public abstract class Bloque {
 	
-	protected int x;
-	protected int y;
+	Posicion posicion;
 	protected boolean comido;
 	
-	public Bloque(int x, int y) throws IllegalArgumentException {
-		if ((x > 0) && (y > 0)) {
-			this.x = x;
-			this.y = y;
+	public Bloque(Posicion posicion) throws IllegalArgumentException {
+		if ((posicion.getX() > 0) && (posicion.getY() > 0)) {
+			this.posicion = posicion;
 		} else {
 			throw new IllegalArgumentException();
 		}
@@ -22,20 +20,18 @@ public abstract class Bloque {
 		return true;
 	}
 
-	public int getX() {
-		return this.x;
+	public Posicion getPosicion() {
+		return this.posicion;
 	}
 
-	public int getY() {
-		return this.y;
+	public void setPosicion(Posicion posicionNueva) {
+		this.posicion = posicionNueva;
 	}
 
 
 
 	public boolean ocupar() {
 		return comido;
-		// TODO Auto-generated method stub
-		
 	}
 	
 }
