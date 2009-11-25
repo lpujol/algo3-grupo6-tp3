@@ -29,5 +29,13 @@ public abstract class Bloque {
 	public int getY() {
 		return this.y;
 	}
+
+
+
+	public boolean ocupar() {
+		return comido;
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
