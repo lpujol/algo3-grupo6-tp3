@@ -28,8 +28,8 @@ public class CargadorDeNivelesTests extends TestCase {
 		nivel = cargador.getSiguiente();
 		ArrayList<Bloque> bloques = nivel.getBloques();
 		Bloque bloque = bloques.remove(bloques.size() - 1);
-		assertTrue(bloque.getX() == 28);
-		assertTrue(bloque.getY() == 31);
+		assertTrue(bloque.getPosicion().getX() == 28);
+		assertTrue(bloque.getPosicion().getY() == 31);
 		Bloque bloque2 = bloques.remove(29);
 		assertTrue(bloque2.esOcupable());
 	}

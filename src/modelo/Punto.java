@@ -4,8 +4,8 @@ public class Punto extends Bloque {
 
 	protected boolean comido;
 	
-	public Punto(int x, int y) {
-		super(x, y);
+	public Punto(Posicion posicion) {
+		super(posicion);
 		this.comido = false;
 	}
 	

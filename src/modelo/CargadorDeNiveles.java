@@ -36,7 +36,7 @@ public class CargadorDeNiveles {
 			for (x = 1; x <= 28; x++) {
 				try {
 					caracter = input.read();
-					agregarObjeto(caracter, nivel, x, y);
+					agregarObjeto(caracter, nivel, new Posicion(x, y));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -60,19 +60,19 @@ public class CargadorDeNiveles {
 		return i-1;
 	}
 
-	private void agregarObjeto(int caracter, Nivel nivel, int x, int y) {
+	private void agregarObjeto(int caracter, Nivel nivel, Posicion posicion) {
 		switch (caracter) {
 			case 35:
-				nivel.agregarBloque(new Pared(x, y));
+				nivel.agregarBloque(new Pared(posicion));
 				break;
 			case 111:
-				nivel.agregarBloque(new Punto(x, y));
+				nivel.agregarBloque(new Punto(posicion));
 				break;
 			case 79:
-				nivel.agregarBloque(new PuntoDePoder(x, y, juego));
+				nivel.agregarBloque(new PuntoDePoder(posicion, juego));
 				break;
 			case 45:
-				nivel.agregarBloque(new Puerta(x, y));
+				nivel.agregarBloque(new Puerta(posicion));
 				break;
 		}		
 	}
