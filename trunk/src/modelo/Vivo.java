@@ -46,23 +46,27 @@ public abstract class Vivo {
 		switch(direccion){
 		case Arriba:{
 			siguientePosicion.avanzarVertical(velocidad);
-			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
-			irHaciaArriba();};
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable()){
+			irHaciaArriba();
+			laberinto.getBloqueEnPosicion(siguientePosicion).ocupar();}};
 			break;
 		case Abajo:{
 			siguientePosicion.retrocederVertical(velocidad);
-			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
-			irHaciaArriba();};
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable()){
+			irHaciaArriba();
+			laberinto.getBloqueEnPosicion(siguientePosicion).ocupar();}};
 			break;
 		case Derecha:{
 			siguientePosicion.avanzarHorizontal(velocidad);
-			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
-			irHaciaArriba();};
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable()){
+			irHaciaArriba();
+			laberinto.getBloqueEnPosicion(siguientePosicion).ocupar();}};
 			break;
 		case Izquierda:{
 			siguientePosicion.retrocederHorizontal(velocidad);
-			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
-			irHaciaArriba();};
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable()){
+			irHaciaArriba();
+			laberinto.getBloqueEnPosicion(siguientePosicion).ocupar();}};
 			break;
 		}
 				
