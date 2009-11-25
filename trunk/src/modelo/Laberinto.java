@@ -53,4 +53,9 @@ public class Laberinto {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public Bloque getBloqueEnPosicion(Posicion siguientePosicion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

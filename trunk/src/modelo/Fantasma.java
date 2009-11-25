@@ -30,7 +30,7 @@ public class Fantasma extends Vivo {
 	}
 	
 	public void vivir(){
-		this.mover(this.estrategiaActual.getDestino());
+		this.estrategiaActual.getDestino();
 	};
 	
 	public void comer(){
@@ -42,8 +42,10 @@ public class Fantasma extends Vivo {
 	public Laberinto getLaberinto() {
 		return this.laberinto;
 	}
+	
+	
 
-	public void mover(Posicion posicion) {
+	/*public void mover(Posicion posicion) {
 	
 			this.acercarHorizontalmente(posicion.getX());
 			this.acercarVerticalmente(posicion.getY());
@@ -76,7 +78,7 @@ public class Fantasma extends Vivo {
 				this.getPosicion().setLocation(this.getPosicion().getX(),nuevaCoordenadaY);
 	
 	};
-	
+	*/
 
 }
 	

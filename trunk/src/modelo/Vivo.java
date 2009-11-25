@@ -41,6 +41,32 @@ public abstract class Vivo {
 
 	abstract public void vivir();
 
+	public void mover() {
+		Posicion siguientePosicion=this.posicion;
+		switch(direccion){
+		case Arriba:{
+			siguientePosicion.avanzarVertical(velocidad);
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
+			irHaciaArriba();};
+			break;
+		case Abajo:{
+			siguientePosicion.retrocederVertical(velocidad);
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
+			irHaciaArriba();};
+			break;
+		case Derecha:{
+			siguientePosicion.avanzarHorizontal(velocidad);
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
+			irHaciaArriba();};
+			break;
+		case Izquierda:{
+			siguientePosicion.retrocederHorizontal(velocidad);
+			if (this.laberinto.getBloqueEnPosicion(siguientePosicion).esOcupable())
+			irHaciaArriba();};
+			break;
+		}
+				
+	}
 				
 	
 
