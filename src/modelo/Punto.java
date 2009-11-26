@@ -1,25 +1,20 @@
 package modelo;
 
-public class Punto extends Bloque {
+public class Punto extends Comestible {
 
 	protected boolean comido;
 	
-	public Punto(Posicion posicion) {
-		super(posicion);
+	public Punto(Posicion posicion, Laberinto laberinto) {
 		this.comido = false;
-	}
-	
-	public boolean comer() {
-		this.comido = true;
-		return true;
-	}
-	
-	public boolean comido() {
-		return this.comido;
+		this.laberinto=laberinto;
+		this.posicion=posicion;
 	}
 
-	public boolean ocupar() {
-		return true;
+	public void comer() {
+		this.comido=true;
+		this.laberinto.getJuego().puntoComido();
+		
 	}
+	
 	
 }

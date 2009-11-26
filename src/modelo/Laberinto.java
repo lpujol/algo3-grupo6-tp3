@@ -8,7 +8,7 @@ public class Laberinto {
 	private int anchoEnBloques;
 	private int tamanoDelBloque;
 	private ArrayList<Bloque> bloques;
-	private ArrayList<Vivo> entidades;
+	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
 	private Nivel nivel;
 	private Juego juego;
@@ -18,9 +18,12 @@ public class Laberinto {
 		this.altoEnBloques = 31;
 		this.tamanoDelBloque = 16;
 		this.nivel = nivel;
+		this.pacman=nivel.getPacman();
 		this.bloques = this.nivel.getBloques();
 		actualizarPosicionesDeBloques();
 		this.juego = juego;
+		this.fantasmas=nivel.getFantasmas();
+	
 	}
 
 	// A las posiciones de los bloques creadas por nivel les actualiza la
@@ -55,7 +58,7 @@ public class Laberinto {
 	// bloque al que pertenece. Devuelve false en cualquier otro caso.
 	public boolean cambioDeDireccionPermitido(Posicion posicionEntidad) {
 		Posicion posicionBloque = aCoordenadasDeBloque(posicionEntidad);
-		if (posicionBloque != posicionEntidad) {
+		if (posicionBloque.equals(posicionEntidad)==false) {
 			return false;
 		}
 		return true;
@@ -120,5 +123,43 @@ public class Laberinto {
 		Posicion posicionDeBloque2=this.aCoordenadasDeBloque(posicion2);
 		return((posicionDeBloque1.getX()==posicionDeBloque2.getX())&(posicionDeBloque1.getY()==posicionDeBloque2.getY()));
 			
+	}
+
+	public ArrayList<Fantasma> buscarFantasmasEn(Posicion posicionBuscada) {
+		ArrayList<Fantasma> fantasmas=new ArrayList<Fantasma>();
+		
+		for (int i = 0; i < this.fantasmas.size(); i++) {
+			Fantasma fantasmaActual = fantasmas.get(i);
+			if ((fantasmaActual.getPosicion().getX() == posicionBuscada.getX())
+					&& (fantasmaActual.getPosicion().getY() == posicionBuscada.getY())) {
+				fantasmas.add(fantasmaActual);
+			}
+		}
+		return fantasmas;
+	}
+	
+	public ArrayList<Fantasma> getFantasmas() {
+	return this.fantasmas;
+	}
+
+	public Posicion getPosicionBloqueAnteriorHorizontal(Posicion posicion) {
+		return aCoordenadasDeBloque(posicion.getPosicionAnteriorHorizontal(16));
+		
+	}
+
+	public Posicion getPosicionBloqueAnteriorVertical(Posicion posicion) {
+		return aCoordenadasDeBloque(posicion.getPosicionAnteriorVertical(16));
+		
+	}
+
+	public Posicion getPosicionBloqueSiguienteHorizontal(Posicion posicion) {
+		
+		return aCoordenadasDeBloque(posicion.getPosicionSiguienteHorizontal(16));
+	
+	}
+
+	public Posicion getPosicionBloqueSiguienteVertical(Posicion posicion) {
+		return aCoordenadasDeBloque(posicion.getPosicionSiguienteVertical(16));
+
 	}
 }

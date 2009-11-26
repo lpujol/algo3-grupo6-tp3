@@ -1,38 +1,88 @@
 package modelo;
 
+import java.util.ArrayList;
+
 
 public class Pacman extends Vivo{
 	
 	private int vidas;
-	private IEstrategia estrategia;
+//	private IEstrategia estrategia;
 	
-	public Pacman(Posicion posicion){
-		this.vidas=3;		
+	public Pacman(Posicion posicion, Laberinto laberinto){
+		this.vidas=3;	
+		this.posicion=posicion;
+		this.laberinto=laberinto;
+		this.direccion=Direccion.Derecha;
 	}
 	
-	public boolean mover(Posicion posicion){
-	/**	
-		this.setPosicion(new Point(this.getPosicion().getX()+posicion.getX(),
-				this.getPosicion().getY()+posicion.getY()));
-		**/	
-		return false;
+	public Pacman(int coordenadaX,int coordenadaY, Laberinto laberinto){
+		this.vidas=3;	
+		this.posicion=new Posicion(coordenadaX,coordenadaY);
+		this.laberinto=laberinto;
+		this.direccion=Direccion.Derecha;
 	}
 	
+	
+		
 	public int getCantidadVidas(){
 		return this.vidas; 
 	}
 	
 	public void vivir(){
-		mover(this.getEstrategia().getDestino());
-		
+		moverse();
+		ArrayList<Fantasma> fantasmasEnElMismoBloque=this.laberinto.buscarFantasmasEn(posicion);
+		if (fantasmasEnElMismoBloque.isEmpty()==false)
+			if(this.laberinto.getJuego().puntoDePoderActivo()){ 
+				for (int i = 0; i < fantasmasEnElMismoBloque.size(); i++) {
+					fantasmasEnElMismoBloque.get(i).comer();
+				};
+			}
+			else{
+				this.laberinto.getPacman().comer();
+			}
 	}
 
-	private IEstrategia getEstrategia() {
-		return estrategia;
+	public void moverse(){
+		if(posicionSiguienteOcupable()){
+			mover();
+			if(this.laberinto.getBloqueEnPosicion(posicion).comido()==false)
+				this.laberinto.getBloqueEnPosicion(posicion).comer();
+		}
+			
+	};
+	
+	private boolean posicionSiguienteOcupable() {
+		Boolean esOcupable=false;
+		switch(direccion){
+		case Arriba:{
+			Posicion posicionPosibleArriba=posicion.getPosicionSiguienteVertical(velocidad);
+			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleArriba).esOcupable());
+			};
+			break;
+		case Abajo:{
+			Posicion posicionPosibleAbajo=posicion.getPosicionAnteriorVertical(velocidad);
+			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleAbajo).esOcupable());
+			};
+			break;
+		case Derecha:{
+			Posicion posicionPosibleDerecha=posicion.getPosicionSiguienteHorizontal(velocidad);
+			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleDerecha).esOcupable());
+			};
+			break;
+		case Izquierda:{
+			Posicion posicionPosibleIzquierda=posicion.getPosicionAnteriorHorizontal(velocidad);
+			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleIzquierda).esOcupable());
+			};
+			break;
+		}
+		return esOcupable;
 	}
+
+
+
 
 	public void comer() {
-		// TODO Auto-generated method stub
+		this.laberinto.getJuego().pacmanComido();
 		
 	};
 
