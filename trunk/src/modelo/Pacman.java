@@ -29,6 +29,11 @@ public class Pacman extends Vivo{
 
 	private IEstrategia getEstrategia() {
 		return estrategia;
+	}
+
+	public void comer() {
+		// TODO Auto-generated method stub
+		
 	};
 
 }

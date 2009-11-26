@@ -96,6 +96,15 @@ public class Laberinto {
 		return null;
 	}
 
+	public double distancia(Bloque bloque1,Bloque bloque2){
+		int coordenadaXBloque1=bloque1.getPosicion().getX();
+		int coordenadaYBloque1=bloque1.getPosicion().getY();
+		int coordenadaXBloque2=bloque2.getPosicion().getX();
+		int coordenadaYBloque2=bloque2.getPosicion().getY();
+		
+		return Math.hypot(coordenadaXBloque2-coordenadaXBloque1,coordenadaYBloque2 -coordenadaYBloque1);
+	};
+	
 	public Posicion getPosicionFantasma(Fantasma fantasma) {
 		// TODO Auto-generated method stub
 		return null;
@@ -104,5 +113,12 @@ public class Laberinto {
 	public Posicion obtenerPosicionCasa() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public boolean mismoBloque(Posicion posicion, Posicion posicion2) {
+		Posicion posicionDeBloque1=this.aCoordenadasDeBloque(posicion);
+		Posicion posicionDeBloque2=this.aCoordenadasDeBloque(posicion2);
+		return((posicionDeBloque1.getX()==posicionDeBloque2.getX())&(posicionDeBloque1.getY()==posicionDeBloque2.getY()));
+			
 	}
 }

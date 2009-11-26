@@ -39,9 +39,27 @@ public class Posicion {
 		
 	}
 
-	public int distancia(Posicion posicion) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	public Posicion getPosicionSiguienteHorizontal() {
+		Posicion nuevaPosicion=this;
+		nuevaPosicion.avanzarHorizontal(1);
+		return nuevaPosicion;
 	}
 
+	public Posicion getPosicionAnteriorHorizontal() {
+		Posicion nuevaPosicion=this;
+		nuevaPosicion.retrocederHorizontal(1);
+		return nuevaPosicion;
+	}
+	public Posicion getPosicionSiguienteVertical() {
+		Posicion nuevaPosicion=this;
+		nuevaPosicion.avanzarVertical(1);
+		return nuevaPosicion;
+	}
+	public Posicion getPosicionAnteriorVertical() {
+		Posicion nuevaPosicion=this;
+		nuevaPosicion.retrocederVertical(1);
+		return nuevaPosicion;
+	}
+	
 }

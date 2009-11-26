@@ -2,19 +2,13 @@ package modelo;
 
 
 
-public class Fantasma extends Vivo {
 
-	private IEstrategia estrategiaNativa;
-	private IEstrategia estrategiaActual;
+public abstract class Fantasma extends Vivo {
 
-	public Fantasma(IEstrategia estrategia,Laberinto laberinto,int velocidad){
-		this.laberinto=laberinto;
-		this.estrategiaActual=estrategia;
-		this.estrategiaNativa=estrategia;
-		this.posicion=this.laberinto.getPosicionFantasma(this);
-		this.velocidad=velocidad;
-	};
-	
+	protected IEstrategia estrategiaNativa;
+	protected IEstrategia estrategiaActual;
+
+		
 	public void setEstrategiaActual(IEstrategia unaEstrategia){
 		this.estrategiaActual=unaEstrategia;
 	}
@@ -30,7 +24,17 @@ public class Fantasma extends Vivo {
 	}
 	
 	public void vivir(){
-		this.estrategiaActual.getDestino();
+		
+		if (laberinto.cambioDeDireccionPermitido(this.posicion))
+			this.moverse(this.estrategiaActual.getDestino());
+		if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
+				if(this.laberinto.getJuego().puntoDePoderActivo()){ 
+					this.comer();}
+				else{
+					this.laberinto.getPacman().comer();
+				}
+					
+					
 	};
 	
 	public void comer(){
@@ -43,43 +47,41 @@ public class Fantasma extends Vivo {
 		return this.laberinto;
 	}
 	
-	
-
-	/*public void mover(Posicion posicion) {
-	
-			this.acercarHorizontalmente(posicion.getX());
-			this.acercarVerticalmente(posicion.getY());
+	public void moverse(Posicion destino){
 		
-	
+		Posicion posicionPosibleIzquierda=posicion.getPosicionAnteriorHorizontal();
+		Posicion posicionPosibleAbajo=posicion.getPosicionAnteriorVertical();
+		Posicion posicionPosibleDerecha=posicion.getPosicionSiguienteHorizontal();
+		Posicion posicionPosibleArriba=posicion.getPosicionSiguienteVertical();
+		double distanciaMinima=1000;
+		if (esAdecuadoMoverse(destino, posicionPosibleArriba, distanciaMinima)){
+			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleArriba),laberinto.getBloqueEnPosicion(destino));
+			direccion=Direccion.Arriba;
+		}
+		if (esAdecuadoMoverse(destino, posicionPosibleAbajo, distanciaMinima)){
+			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleAbajo),laberinto.getBloqueEnPosicion(destino));
+			direccion=Direccion.Abajo;
+		}
+		if (esAdecuadoMoverse(destino, posicionPosibleDerecha, distanciaMinima)){
+			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleDerecha),laberinto.getBloqueEnPosicion(destino));
+			direccion=Direccion.Derecha;
+		}
+		if (esAdecuadoMoverse(destino, posicionPosibleIzquierda, distanciaMinima)){
+			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleIzquierda),laberinto.getBloqueEnPosicion(destino));
+			direccion=Direccion.Izquierda;
+		}
+		this.mover();	
 				
-	};
-	
-	private void acercarHorizontalmente(double posicionHorizontal){
-		double nuevaCoordenadaX;
-		if (this.getPosicion().getX()<posicionHorizontal){ 
-			nuevaCoordenadaX = this.getPosicion().getX()+1;}
-			else 
-				nuevaCoordenadaX=this.getPosicion().getX()-1;
+	}
 
-		if (laberinto.getBloqueEnPosicion(nuevaCoordenadaX,this.getPosicion().getY()).esOcupable())
-				this.getPosicion().setLocation(nuevaCoordenadaX,this.getPosicion().getY());
+	private boolean esAdecuadoMoverse(Posicion destino,
+			Posicion posicionPosible, double distanciaMinima) {
+		
+		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable())& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
+			
+		
+	}
 	
-	};
-	
-	
-	private void acercarVerticalmente(double posicionVertical){
-		double nuevaCoordenadaY;
-		if (this.getPosicion().getY()<posicionVertical){ 
-			nuevaCoordenadaY = this.getPosicion().getY()+1;}
-			else 
-				nuevaCoordenadaY=this.getPosicion().getY()-1;
-
-		if (laberinto.getBloqueEnPosicion(this.getPosicion().getX(),nuevaCoordenadaY).esOcupable())
-				this.getPosicion().setLocation(this.getPosicion().getX(),nuevaCoordenadaY);
-	
-	};
-	*/
-
 }
-	
 
+	
