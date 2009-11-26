@@ -6,15 +6,7 @@ public class Pared extends NoComestible {
 		super(posicion, laberinto);
 	}
 
-	@Override
-	public void comer() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public boolean esOcupable() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 	
