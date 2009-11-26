@@ -8,7 +8,7 @@ public class EstrategiaIrACasa implements IEstrategia {
 		this.fantasma=fantasma;
 	}
 	
-	@Override
+	
 	public Posicion getDestino() {
 		return fantasma.getLaberinto().obtenerPosicionCasa();
 	}

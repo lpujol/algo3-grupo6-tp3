@@ -27,6 +27,8 @@ public abstract class Fantasma extends Vivo {
 		
 		if (laberinto.cambioDeDireccionPermitido(this.posicion))
 			this.moverse(this.estrategiaActual.getDestino());
+		else 
+			mover();
 		if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
 				if(this.laberinto.getJuego().puntoDePoderActivo()){ 
 					this.comer();}
@@ -49,10 +51,10 @@ public abstract class Fantasma extends Vivo {
 	
 	public void moverse(Posicion destino){
 		
-		Posicion posicionPosibleIzquierda=posicion.getPosicionAnteriorHorizontal();
-		Posicion posicionPosibleAbajo=posicion.getPosicionAnteriorVertical();
-		Posicion posicionPosibleDerecha=posicion.getPosicionSiguienteHorizontal();
-		Posicion posicionPosibleArriba=posicion.getPosicionSiguienteVertical();
+		Posicion posicionPosibleIzquierda=laberinto.getPosicionBloqueAnteriorHorizontal(posicion);
+		Posicion posicionPosibleAbajo=laberinto.getPosicionBloqueAnteriorVertical(posicion);
+		Posicion posicionPosibleDerecha=laberinto.getPosicionBloqueSiguienteHorizontal(posicion);
+		Posicion posicionPosibleArriba=laberinto.getPosicionBloqueSiguienteVertical(posicion);
 		double distanciaMinima=1000;
 		if (esAdecuadoMoverse(destino, posicionPosibleArriba, distanciaMinima)){
 			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleArriba),laberinto.getBloqueEnPosicion(destino));
@@ -77,7 +79,7 @@ public abstract class Fantasma extends Vivo {
 	private boolean esAdecuadoMoverse(Posicion destino,
 			Posicion posicionPosible, double distanciaMinima) {
 		
-		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable())& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
+		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable())&& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
 			
 		
 	}

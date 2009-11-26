@@ -2,10 +2,11 @@ package modelo;
 
 public abstract class Bloque {
 	
-	Posicion posicion;
+	protected Laberinto laberinto;
+	protected Posicion posicion;
 	protected boolean comido;
 	
-	public Bloque(Posicion posicion) throws IllegalArgumentException {
+/**	public Bloque(Posicion posicion) throws IllegalArgumentException {
 		if ((posicion.getX() > 0) && (posicion.getY() > 0)) {
 			this.posicion = posicion;
 		} else {
@@ -13,12 +14,10 @@ public abstract class Bloque {
 		}
 		this.comido = false;
 	}
-
+**/
 	
 	
-	public boolean esOcupable() {
-		return true;
-	}
+	public abstract boolean esOcupable();
 
 	public Posicion getPosicion() {
 		return this.posicion;
@@ -28,9 +27,10 @@ public abstract class Bloque {
 		this.posicion = posicionNueva;
 	}
 
+	public abstract void comer();
 
-
-	public boolean ocupar() {
+	public boolean comido() {
+		
 		return comido;
 	}
 	

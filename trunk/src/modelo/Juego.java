@@ -3,6 +3,8 @@ package modelo;
 public class Juego {
 
 
+	private static final int VALOR_BONUS = 1000;
+	private static final int VALOR_PUNTO = 10;
 	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
 	private double puntosAcumulados;
@@ -70,7 +72,7 @@ public class Juego {
 	}
 
 	public void fantasmaComido(Fantasma fantasma) {
-		// TODO Auto-generated method stub
+		fantasma.setEstrategiaActual(new EstrategiaIrACasa(fantasma));
 		
 	}
 
@@ -78,7 +80,24 @@ public class Juego {
 
 
 	public void puntoDePoderComido() {
-		// TODO Auto-generated method stub
+		this.puntoDePoderActivo=true;
+		
+	}
+
+
+	public void pacmanComido() {
+		this.cantidadVidas --;
+		
+	}
+
+
+	public void puntoComido() {
+		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*nivel.getNumero();
+		
+	}
+
+	public void bonusComido() {
+		puntosAcumulados=puntosAcumulados+VALOR_BONUS*nivel.getNumero();
 		
 	}
 

@@ -2,18 +2,18 @@ package modelo;
 
 
 
-public class PuntoDePoder extends Punto {
+public class PuntoDePoder extends Comestible {
 	
-	private Juego juego;
-	
-	PuntoDePoder(Posicion posicion, Juego juego) {
-		super(posicion);
-		this.juego = juego;
+		
+	PuntoDePoder(Posicion posicion,Laberinto laberinto) {
+		this.comido = false;
+		this.laberinto=laberinto;
+		this.posicion=posicion;
+		
 	}
 	
-	public boolean comer() {
+	public void comer() {
 		this.comido = true;
-		juego.puntoDePoderComido();
-		return true;
+		this.laberinto.getJuego().puntoDePoderComido();
 	}
 }

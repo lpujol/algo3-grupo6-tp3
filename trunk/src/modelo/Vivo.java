@@ -60,6 +60,11 @@ public abstract class Vivo {
 				
 	}
 	
+	public void setLaberinto(Laberinto nuevoLaberinto){
+		this.laberinto=nuevoLaberinto;
+		
+		
+	};
 				
 	
 

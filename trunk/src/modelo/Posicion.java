@@ -34,32 +34,35 @@ public class Posicion {
 		y-=cantidad;
 	}
 
-	public void setLocation(double d, double posicionVertical) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	
-	public Posicion getPosicionSiguienteHorizontal() {
-		Posicion nuevaPosicion=this;
-		nuevaPosicion.avanzarHorizontal(1);
+	public Posicion getPosicionSiguienteHorizontal(int cantidad) {
+		Posicion nuevaPosicion= new Posicion(this.x,this.y);
+		nuevaPosicion.avanzarHorizontal(cantidad);
 		return nuevaPosicion;
 	}
 
-	public Posicion getPosicionAnteriorHorizontal() {
-		Posicion nuevaPosicion=this;
-		nuevaPosicion.retrocederHorizontal(1);
+	public Posicion getPosicionAnteriorHorizontal(int cantidad) {
+		Posicion nuevaPosicion= new Posicion(this.x,this.y);
+		nuevaPosicion.retrocederHorizontal(cantidad);
 		return nuevaPosicion;
 	}
-	public Posicion getPosicionSiguienteVertical() {
-		Posicion nuevaPosicion=this;
-		nuevaPosicion.avanzarVertical(1);
+	public Posicion getPosicionSiguienteVertical(int cantidad) {
+		Posicion nuevaPosicion= new Posicion(this.x,this.y);
+		nuevaPosicion.avanzarVertical(cantidad);
 		return nuevaPosicion;
 	}
-	public Posicion getPosicionAnteriorVertical() {
-		Posicion nuevaPosicion=this;
-		nuevaPosicion.retrocederVertical(1);
+	public Posicion getPosicionAnteriorVertical(int cantidad) {
+		Posicion nuevaPosicion= new Posicion(this.x,this.y);
+		nuevaPosicion.retrocederVertical(cantidad);
 		return nuevaPosicion;
 	}
+	
+	public boolean equals(Posicion posicion){
+		return((this.x==posicion.getX())&& (this.y==posicion.getY()));
+				
+		
+		
+		
+	};
 	
 }
