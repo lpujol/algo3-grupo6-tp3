@@ -108,8 +108,12 @@ public class Laberinto {
 		return Math.hypot(coordenadaXBloque2-coordenadaXBloque1,coordenadaYBloque2 -coordenadaYBloque1);
 	};
 	
+	
+	//tiene sentido este metodo?
 	public Posicion getPosicionFantasma(Fantasma fantasma) {
-		// TODO Auto-generated method stub
+		for(Fantasma f: fantasmas)
+			if(f==fantasma)
+				return f.getPosicion();
 		return null;
 	}
 

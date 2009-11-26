@@ -6,8 +6,8 @@ public class FantasmaRojo extends Fantasma {
 			int velocidad) {
 
 		this.laberinto=laberinto;
-		this.estrategiaActual=new EstrategiaEmboscador(this);
-		this.estrategiaNativa=new EstrategiaEmboscador(this);
+		this.estrategiaActual=new EstrategiaPerseguidor(this);
+		this.estrategiaNativa=new EstrategiaPerseguidor(this);
 		this.posicion=this.laberinto.getPosicionFantasma(this);
 		this.velocidad=velocidad;
 	}
