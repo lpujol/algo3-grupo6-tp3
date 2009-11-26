@@ -9,5 +9,9 @@ public abstract class Comestible extends Bloque {
 	public boolean esOcupable() {
 		return true;
 	}
+	
+	public void comer() {
+		this.comido = true;
+	}
 
 }

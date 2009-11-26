@@ -6,8 +6,8 @@ public abstract class NoComestible extends Bloque {
 		super(posicion, laberinto);
 	}
 	
-	public boolean esOcupable() {
-		return false;
+	public void comer() {
+		this.comido = false;
 	}
 
 }

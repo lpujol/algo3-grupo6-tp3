@@ -6,6 +6,7 @@ public class Punto extends Comestible {
 		super(posicion, laberinto);
 	}
 
+	@Override
 	public void comer() {
 		this.comido = true;
 		this.laberinto.getJuego().puntoComido();
