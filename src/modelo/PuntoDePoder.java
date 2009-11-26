@@ -5,11 +5,8 @@ package modelo;
 public class PuntoDePoder extends Comestible {
 	
 		
-	PuntoDePoder(Posicion posicion,Laberinto laberinto) {
-		this.comido = false;
-		this.laberinto=laberinto;
-		this.posicion=posicion;
-		
+	PuntoDePoder(Posicion posicion, Laberinto laberinto) {
+		super(posicion, laberinto);
 	}
 	
 	public void comer() {

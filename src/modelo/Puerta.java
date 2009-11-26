@@ -2,8 +2,8 @@ package modelo;
 
 public class Puerta extends NoComestible {
 
-	public Puerta(Posicion posicion) throws IllegalArgumentException {
-	
+	public Puerta(Posicion posicion, Laberinto laberinto) {
+		super(posicion, laberinto);
 	}
 
 	

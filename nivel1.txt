@@ -10,10 +10,10 @@
 ######o##### ## #####o######
      #o##### ## #####o#     
      #o##          ##o#     
-     #o## ###--### ##o#
-     #o## #      # ##o#
-     #o   #      #   o#
-     #o## #      # ##o#
+     #o## ###--### ##o#     
+     #o## #      # ##o#     
+     #o   #      #   o#     
+     #o## #      # ##o#     
      #o## ######## ##o#     
      #o##          ##o#     
      #o## ######## ##o#     
@@ -21,7 +21,7 @@
 #oooooooooooo##oooooooooooo#
 #o####o#####o##o#####o####o#
 #o####o#####o##o#####o####o#
-#Ooo##ooooooo  ooooooo##ooO#
+#Ooo##ooooooo Pooooooo##ooO#
 ###o##o##o########o##o##o###
 ###o##o##o########o##o##o###
 #oooooo##oooo##oooo##oooooo#

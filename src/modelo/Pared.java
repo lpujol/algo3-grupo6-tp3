@@ -3,9 +3,7 @@ package modelo;
 public class Pared extends NoComestible {
 
 	public Pared(Posicion posicion,Laberinto laberinto) {
-		this.comido = false;
-		this.laberinto=laberinto;
-		this.posicion=posicion;
+		super(posicion, laberinto);
 	}
 
 	@Override

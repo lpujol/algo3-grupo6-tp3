@@ -29,8 +29,8 @@ public class LaberintoTests extends TestCase {
 	public void testObtenerBloque() {
 		Bloque bloque1 = this.laberinto.getBloqueEnPosicion(new Posicion(8,8));
 		assertTrue(bloque1.getClass().getSimpleName().equals("Pared"));
-		Bloque bloque2 = this.laberinto.getBloqueEnPosicion(new Posicion(24,8));
-		assertTrue(bloque2.getClass().getSimpleName().equals("Pared"));
+		Bloque bloque2 = this.laberinto.getBloqueEnPosicion(new Posicion(24,24));
+		assertTrue(bloque2.getClass().getSimpleName().equals("Punto"));
 	}
 	
 	// Testea que sea posible obtener exactamente el mismo bloque desde distintas
