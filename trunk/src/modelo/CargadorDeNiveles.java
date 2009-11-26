@@ -44,6 +44,12 @@ public class CargadorDeNiveles {
 					e.printStackTrace();
 				}
 			}
+			try {
+				input.readLine();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
         return nivel;
 	}
@@ -74,7 +80,11 @@ public class CargadorDeNiveles {
 				nivel.agregarBloque(new PuntoDePoder(posicion, laberinto));
 				break;
 			case 45:
-				nivel.agregarBloque(new Puerta(posicion));
+				nivel.agregarBloque(new Puerta(posicion, laberinto));
+				break;
+			case 32:
+				// Es un espacio vacio pero por ahora hago esto
+				nivel.agregarBloque(new Pared(posicion, laberinto));
 				break;
 		}		
 	}

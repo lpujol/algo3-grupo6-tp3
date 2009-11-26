@@ -1,17 +1,29 @@
 package modeloTests;
 
 import junit.framework.TestCase;
+import modelo.CargadorDeNiveles;
+import modelo.Juego;
 import modelo.Laberinto;
+import modelo.Nivel;
 import modelo.Posicion;
 import modelo.Punto;
 
 public class PuntoTests extends TestCase {
 
+	private Juego juego;
+	private Nivel nivel;
+	private CargadorDeNiveles cargador;
 	private Laberinto laberinto;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
+		super.setUp();
+		this.juego = new Juego();
+		this.nivel = null;
 		this.laberinto = null;
+		this.cargador = new CargadorDeNiveles(juego, this.laberinto);
+		this.nivel = cargador.getSiguiente();
+		this.laberinto = new Laberinto(nivel, juego);
 	}
 	
 	// Testea que un punto creado en una posicion valida tenga asignada la
