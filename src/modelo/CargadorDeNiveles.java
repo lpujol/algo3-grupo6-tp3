@@ -10,11 +10,13 @@ import java.io.IOException;
 public class CargadorDeNiveles {
 	
 	Juego juego;
+	Laberinto laberinto;
 	int nivelSiguiente;
 	int cantidadDeNiveles;
 	
-	public CargadorDeNiveles(Juego juego) {
+	public CargadorDeNiveles(Juego juego, Laberinto laberinto) {
 		this.juego = juego;
+		this.laberinto = laberinto;
 		this.nivelSiguiente = 1;
 		this.cantidadDeNiveles = getCantidadDeNiveles();
 		
@@ -63,13 +65,13 @@ public class CargadorDeNiveles {
 	private void agregarObjeto(int caracter, Nivel nivel, Posicion posicion) {
 		switch (caracter) {
 			case 35:
-				nivel.agregarBloque(new Pared(posicion));
+				nivel.agregarBloque(new Pared(posicion, laberinto));
 				break;
 			case 111:
-				nivel.agregarBloque(new Punto(posicion));
+				nivel.agregarBloque(new Punto(posicion, laberinto));
 				break;
 			case 79:
-				nivel.agregarBloque(new PuntoDePoder(posicion, juego));
+				nivel.agregarBloque(new PuntoDePoder(posicion, laberinto));
 				break;
 			case 45:
 				nivel.agregarBloque(new Puerta(posicion));
