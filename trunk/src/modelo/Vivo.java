@@ -60,6 +60,14 @@ public abstract class Vivo {
 				
 	}
 	
+	public void cambiarDireccion(Direccion unaDireccion){
+		
+		this.direccion=unaDireccion;
+	}
+	
+	
+	
+	
 	public void setLaberinto(Laberinto nuevoLaberinto){
 		this.laberinto=nuevoLaberinto;
 		
