@@ -8,16 +8,13 @@ public class Juego {
 	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
 	private double puntosAcumulados;
-	private Nivel nivel;
 	
-	private CargadorDeNiveles cargadorDeNiveles;
 	private int cantidadVidas;
 
 	
 	
 	public Juego(){
-		this.cargadorDeNiveles = new CargadorDeNiveles(this, this.laberinto);
-		this.nivel= cargadorDeNiveles.getSiguiente();
+	
 		this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
 		
@@ -26,15 +23,15 @@ public class Juego {
 	
 	
 	public void crearLaberinto(){
-		laberinto= new Laberinto(this.nivel, this);
+		laberinto= new Laberinto(this);
 	}
 	
 	  
 	
 	public void pasarNivel(){
 		
-			nivel=this.cargadorDeNiveles.getSiguiente();
-			laberinto= new Laberinto(this.nivel, this);
+			Nivel nivel=this.laberinto.pasarNivel();
+			laberinto= new Laberinto(this);
 			
 		
 	}
@@ -62,12 +59,11 @@ public class Juego {
 	}
 	
 	
-	public Nivel getNivel(){
-		return this.nivel;
-	}
 	
 			
 	public void setPuntosAcumulados(int puntosAcumulados){
+		if (puntosAcumulados<0)
+			throw new IllegalArgumentException();
 		this.puntosAcumulados=puntosAcumulados;
 	}
 
@@ -92,12 +88,12 @@ public class Juego {
 
 
 	public void puntoComido() {
-		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*nivel.getNumero();
+		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();
 		
 	}
 
 	public void bonusComido() {
-		puntosAcumulados=puntosAcumulados+VALOR_BONUS*nivel.getNumero();
+		puntosAcumulados=puntosAcumulados+VALOR_BONUS*laberinto.getNivel().getNumero();
 		
 	}
 
