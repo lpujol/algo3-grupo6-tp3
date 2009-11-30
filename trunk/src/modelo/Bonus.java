@@ -13,4 +13,9 @@ public class Bonus extends Comestible {
 		this.laberinto.getJuego().bonusComido();
 	}
 
+	@Override
+	public boolean esOcupablePorPacman() {
+		return true;
+	}
+
 }

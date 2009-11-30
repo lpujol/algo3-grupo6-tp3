@@ -18,6 +18,8 @@ public abstract class Bloque {
 	}
 
 	public abstract boolean esOcupable();
+	
+	public abstract boolean esOcupablePorPacman();
 
 	public Posicion getPosicion() {
 		return this.posicion;
