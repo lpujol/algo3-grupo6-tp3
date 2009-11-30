@@ -13,6 +13,7 @@ public class Pacman extends Vivo{
 		this.posicion=posicion;
 		this.laberinto=laberinto;
 		this.direccion=Direccion.Derecha;
+		
 	}
 	
 	public Pacman(int coordenadaX,int coordenadaY, Laberinto laberinto){
@@ -20,6 +21,7 @@ public class Pacman extends Vivo{
 		this.posicion=new Posicion(coordenadaX,coordenadaY);
 		this.laberinto=laberinto;
 		this.direccion=Direccion.Derecha;
+		this.velocidad=1;
 	}
 	
 	
@@ -42,7 +44,7 @@ public class Pacman extends Vivo{
 			}
 	}
 
-	public void moverse(){
+	public void moverse(){		
 		if(posicionSiguienteOcupable()){
 			mover();
 			if(this.laberinto.getBloqueEnPosicion(posicion).comido()==false)

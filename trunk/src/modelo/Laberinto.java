@@ -34,6 +34,10 @@ public class Laberinto {
 	public Pacman getPacman() {
 		return this.pacman;
 	}
+	
+	public ArrayList<Bloque> getBloques(){
+		return this.bloques;
+	}
 
 	// Devuelve true si la posicion pasada por parametro esta en el centro del
 	// bloque al que pertenece. Devuelve false en cualquier otro caso.

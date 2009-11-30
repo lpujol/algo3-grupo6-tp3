@@ -14,5 +14,6 @@ public class Pared extends NoComestible {
 	public boolean esOcupablePorPacman() {
 		return false;
 	}
+
 	
 }

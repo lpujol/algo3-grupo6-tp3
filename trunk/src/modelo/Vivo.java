@@ -1,7 +1,10 @@
 package modelo;
 
+import ar.uba.fi.algo3.titiritero.ObjetoVivo;
+import ar.uba.fi.algo3.titiritero.Posicionable;
 
-public abstract class Vivo {
+
+public abstract class Vivo implements Posicionable,ObjetoVivo {
 	
 	protected Direccion direccion;
 	protected int velocidad;
@@ -73,6 +76,16 @@ public abstract class Vivo {
 		
 		
 	};
+	
+	@Override
+	public int getX() {
+		return this.posicion.getX();
+	}
+
+	@Override
+	public int getY() {
+		return this.posicion.getY();
+	}
 				
 	
 
