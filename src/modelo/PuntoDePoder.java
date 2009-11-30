@@ -11,4 +11,9 @@ public class PuntoDePoder extends Comestible {
 		this.comido = true;
 		this.laberinto.getJuego().puntoDePoderComido();
 	}
+
+	@Override
+	public boolean esOcupablePorPacman() {
+		return true;
+	}
 }

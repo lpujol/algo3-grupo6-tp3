@@ -9,4 +9,9 @@ public class Puerta extends NoComestible {
 	public boolean esOcupable() {
 		return false;
 	}
+
+	@Override
+	public boolean esOcupablePorPacman() {
+		return false;
+	}
 }
