@@ -8,9 +8,12 @@ public class Nivel {
 	private ArrayList<Bloque> bloques;
 	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
+	private CargadorDeNiveles cargadorDeNiveles;
 	
-	public Nivel(int numero) {
-		this.numero = numero;
+	public Nivel(String rutaNivel, Juego juego, Laberinto laberinto) {
+		this.cargadorDeNiveles = new CargadorDeNiveles(juego, laberinto);
+		cargadorDeNiveles.cargar(this, rutaNivel);
+		this.numero = 1;
 		bloques = new ArrayList<Bloque>();
 		fantasmas = new ArrayList<Fantasma>();
 	}
@@ -42,6 +45,10 @@ public class Nivel {
 
 	public Pacman getPacman() {
 		return pacman;
+	}
+	
+	public void pasarDeNivel() {
+		this.numero++;
 	}
 
 }

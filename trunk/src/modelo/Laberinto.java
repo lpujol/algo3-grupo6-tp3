@@ -6,44 +6,25 @@ public class Laberinto {
 
 	private int altoEnBloques;
 	private int anchoEnBloques;
-	private int tamanoDelBloque;
+	private static final int TAMANO_DEL_BLOQUE = 16;
 	private ArrayList<Bloque> bloques;
 	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
 	private Nivel nivel;
 	private Juego juego;
 
-	public Laberinto(Nivel nivel, Juego juego) {
-		this.anchoEnBloques = 28;
-		this.altoEnBloques = 31;
-		this.tamanoDelBloque = 16;
-		this.nivel = nivel;
-		this.pacman=nivel.getPacman();
+	public Laberinto(Juego juego) {
+	
+		this.nivel = new Nivel("nivel.txt", juego, this);
+		this.pacman = nivel.getPacman();
 		this.bloques = this.nivel.getBloques();
-		actualizarPosicionesDeBloques();
 		this.juego = juego;
 		this.fantasmas=nivel.getFantasmas();
 	
 	}
 
-	// A las posiciones de los bloques creadas por nivel les actualiza la
-	// posicion considerando el tamano de los bloques
-	private void actualizarPosicionesDeBloques() {
-		Bloque bloque;
-		Posicion posicionVieja;
-		Posicion posicionNueva;
-		int x;
-		int y;
-		for (int i = 0; i < this.bloques.size(); i++) {
-			bloque = bloques.get(i);
-			posicionVieja = bloque.getPosicion();
-			x = posicionVieja.getX() * this.tamanoDelBloque
-					- this.tamanoDelBloque / 2;
-			y = posicionVieja.getY() * this.tamanoDelBloque
-					- this.tamanoDelBloque / 2;
-			posicionNueva = new Posicion(x, y);
-			bloque.setPosicion(posicionNueva);
-		}
+	public static int getTamanoDelBloque() {
+		return TAMANO_DEL_BLOQUE;
 	}
 
 	public Juego getJuego() {
@@ -79,10 +60,10 @@ public class Laberinto {
 	private Posicion aCoordenadasDeBloque(Posicion posicionGlobal) {
 		// Al castear a int trunca el numero. Le sumo 1 porque nuestras
 		// coordenadas empiezan en (1,1)
-		int xBloque = ((int) (posicionGlobal.getX() / this.tamanoDelBloque) + 1)
-				* this.tamanoDelBloque - this.tamanoDelBloque / 2;
-		int yBloque = ((int) (posicionGlobal.getY() / this.tamanoDelBloque) + 1)
-				* this.tamanoDelBloque - this.tamanoDelBloque / 2;
+		int xBloque = ((int) (posicionGlobal.getX() / TAMANO_DEL_BLOQUE) + 1)
+				* TAMANO_DEL_BLOQUE - TAMANO_DEL_BLOQUE / 2;
+		int yBloque = ((int) (posicionGlobal.getY() / TAMANO_DEL_BLOQUE) + 1)
+				* TAMANO_DEL_BLOQUE - TAMANO_DEL_BLOQUE / 2;
 		Posicion posicionBloque = new Posicion(xBloque, yBloque);
 		return posicionBloque;
 	}
@@ -166,4 +147,21 @@ public class Laberinto {
 		return aCoordenadasDeBloque(posicion.getPosicionSiguienteVertical(16));
 
 	}
+	
+	public int getAltoEnBloques() {
+		return altoEnBloques;
+	}
+
+	public int getAnchoEnBloques() {
+		return anchoEnBloques;
+	}
+
+	public void setAltoEnBloques(int altoEnBloques) {
+		this.altoEnBloques = altoEnBloques;
+	}
+
+	public void setAnchoEnBloques(int anchoEnBloques) {
+		this.anchoEnBloques = anchoEnBloques;
+	}
+	
 }
