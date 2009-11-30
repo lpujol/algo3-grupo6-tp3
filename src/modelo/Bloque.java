@@ -1,6 +1,8 @@
 package modelo;
 
-public abstract class Bloque {
+import ar.uba.fi.algo3.titiritero.Posicionable;
+
+public abstract class Bloque implements Posicionable {
 
 	protected Laberinto laberinto;
 	protected Posicion posicion;
@@ -33,6 +35,16 @@ public abstract class Bloque {
 
 	public boolean comido() {
 		return comido;
+	}
+	
+	@Override
+	public int getX() {
+		return this.posicion.getX();
+	}
+
+	@Override
+	public int getY() {
+		return this.posicion.getY();
 	}
 
 }

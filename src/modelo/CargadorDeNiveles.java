@@ -2,6 +2,7 @@ package modelo;
 
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -73,7 +74,7 @@ public class CargadorDeNiveles {
 				break;
 			case 32:
 				// Es un espacio vacio pero por ahora hago esto
-				nivel.agregarBloque(new Pared(posicion, laberinto));
+				nivel.agregarBloque(new Puerta(posicion, laberinto));
 				break;
 		}		
 	}

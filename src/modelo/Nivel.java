@@ -12,10 +12,11 @@ public class Nivel {
 	
 	public Nivel(String rutaNivel, Juego juego, Laberinto laberinto) {
 		this.cargadorDeNiveles = new CargadorDeNiveles(juego, laberinto);
-		cargadorDeNiveles.cargar(this, rutaNivel);
-		this.numero = 1;
 		bloques = new ArrayList<Bloque>();
+		cargadorDeNiveles.cargar(this, rutaNivel);
+		this.numero = 1;		
 		fantasmas = new ArrayList<Fantasma>();
+		this.pacman=new Pacman(240,343,laberinto);
 	}
 
 	public void agregarBloque(Bloque bloque) {
