@@ -163,5 +163,9 @@ public class Laberinto {
 	public void setAnchoEnBloques(int anchoEnBloques) {
 		this.anchoEnBloques = anchoEnBloques;
 	}
+
+	public Nivel getNivel() {
+		return this.nivel;
+	}
 	
 }

@@ -8,34 +8,21 @@ public class Juego {
 	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
 	private double puntosAcumulados;
-	
 	private int cantidadVidas;
 
 	
 	
 	public Juego(){
-	
+
 		this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
+		this.laberinto = new Laberinto(this);
 		
-		this.crearLaberinto();
-	}
-	
-	
-	public void crearLaberinto(){
-		laberinto= new Laberinto(this);
-	}
-	
-	  
+	}	
 	
 	public void pasarNivel(){
-		
-			Nivel nivel=this.laberinto.pasarNivel();
-			laberinto= new Laberinto(this);
-			
-		
+			this.laberinto.getNivel().pasarDeNivel();
 	}
-	
 	
 	public boolean perdido(){
 		if(this.cantidadVidas>0)
