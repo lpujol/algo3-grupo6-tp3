@@ -1,5 +1,9 @@
 package modelo;
 
+import java.util.ArrayList;
+
+import vista.VistaPunto;
+
 public class Juego {
 
 
@@ -9,6 +13,7 @@ public class Juego {
 	private Laberinto laberinto;
 	private double puntosAcumulados;
 	private int cantidadVidas;
+	private ArrayList<VistaPunto> vistaPuntos;
 
 	
 	
@@ -81,14 +86,24 @@ public class Juego {
 	}
 
 
-	public void puntoComido() {
+	public void puntoComido(Punto punto) {
 		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();
-		
+		for(VistaPunto p:vistaPuntos)
+		{
+			if(p.getPosicionable()==punto)
+			{
+				p.setNombreArchivoImagen("negro.jpg");
+			}
+		}
 	}
 
 	public void bonusComido() {
 		puntosAcumulados=puntosAcumulados+VALOR_BONUS*laberinto.getNivel().getNumero();
 		
+	}
+
+	public void vistaPuntos(ArrayList<VistaPunto> vistaPuntos) {
+		this.vistaPuntos=vistaPuntos;
 	}
 
 }

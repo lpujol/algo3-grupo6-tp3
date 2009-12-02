@@ -10,6 +10,10 @@ public class Nivel {
 	private Pacman pacman;
 	private CargadorDeNiveles cargadorDeNiveles;
 	private Posicion pocisionInicial;
+	private int puntoscomidos;
+	private int cantidadPuntos;
+	private boolean finNivel;
+	
 	
 	public Nivel(String rutaNivel, Juego juego, Laberinto laberinto) {
 		this.cargadorDeNiveles = new CargadorDeNiveles(juego, laberinto);
@@ -67,6 +71,21 @@ public class Nivel {
 	public void setPosicionInicialPacman(Posicion posicion) {
 		this.pocisionInicial=posicion;
 		
+	}
+
+	public void puntoComido() {
+		this.puntoscomidos++;
+		if(puntoscomidos>=cantidadPuntos)
+		finNivel=true;	
+	}
+
+	public void sumarPuntos() {
+		this.cantidadPuntos++;
+		
+	}
+
+	public boolean isFinNivel() {
+		return finNivel;
 	}	
 	
 
