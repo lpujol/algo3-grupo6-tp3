@@ -48,12 +48,12 @@ public class Posicion {
 	}
 	public Posicion getPosicionSiguienteVertical(int cantidad) {
 		Posicion nuevaPosicion= new Posicion(this.x,this.y);
-		nuevaPosicion.avanzarVertical(cantidad);
+		nuevaPosicion.retrocederVertical(cantidad);
 		return nuevaPosicion;
 	}
 	public Posicion getPosicionAnteriorVertical(int cantidad) {
 		Posicion nuevaPosicion= new Posicion(this.x,this.y);
-		nuevaPosicion.retrocederVertical(cantidad);
+		nuevaPosicion.avanzarVertical(cantidad);
 		return nuevaPosicion;
 	}
 	

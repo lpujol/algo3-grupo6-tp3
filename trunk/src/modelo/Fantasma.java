@@ -25,10 +25,12 @@ public abstract class Fantasma extends Vivo {
 	
 	public void vivir(){
 		
-		if (laberinto.cambioDeDireccionPermitido(this.posicion))
-			this.moverse(this.estrategiaActual.getDestino());
-		else 
+		if (laberinto.cambioDeDireccionPermitido(this.posicion)){
+			this.moverse(this.estrategiaActual.getDestino());			
+		}
+		else {
 			mover();
+		}
 		if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
 				if(this.laberinto.getJuego().puntoDePoderActivo()){ 
 					this.comer();}
@@ -49,8 +51,7 @@ public abstract class Fantasma extends Vivo {
 		return this.laberinto;
 	}
 	
-	public void moverse(Posicion destino){
-		
+	public void moverse(Posicion destino){		
 		Posicion posicionPosibleIzquierda=laberinto.getPosicionBloqueAnteriorHorizontal(posicion);
 		Posicion posicionPosibleAbajo=laberinto.getPosicionBloqueAnteriorVertical(posicion);
 		Posicion posicionPosibleDerecha=laberinto.getPosicionBloqueSiguienteHorizontal(posicion);

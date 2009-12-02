@@ -74,8 +74,11 @@ public class CargadorDeNiveles {
 				break;
 			case 32:
 				// Es un espacio vacio pero por ahora hago esto
-				nivel.agregarBloque(new Puerta(posicion, laberinto));
+				nivel.agregarBloque(new Punto(posicion, laberinto));
 				break;
+				//en Texto hay 1 2 3 4
+			default:
+				nivel.agregarBloque(new Punto(posicion,laberinto));
 		}		
 	}
 	

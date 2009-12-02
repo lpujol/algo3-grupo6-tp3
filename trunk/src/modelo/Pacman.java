@@ -57,22 +57,22 @@ public class Pacman extends Vivo{
 		Boolean esOcupable=false;
 		switch(direccion){
 		case Arriba:{
-			Posicion posicionPosibleArriba=posicion.getPosicionSiguienteVertical(velocidad);
+			Posicion posicionPosibleArriba=posicion.getPosicionSiguienteVertical(8);
 			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleArriba).esOcupablePorPacman());
 			};
 			break;
 		case Abajo:{
-			Posicion posicionPosibleAbajo=posicion.getPosicionAnteriorVertical(velocidad);
+			Posicion posicionPosibleAbajo=posicion.getPosicionAnteriorVertical(8);
 			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleAbajo).esOcupablePorPacman());
 			};
 			break;
 		case Derecha:{
-			Posicion posicionPosibleDerecha=posicion.getPosicionSiguienteHorizontal(velocidad);
+			Posicion posicionPosibleDerecha=posicion.getPosicionSiguienteHorizontal(8);
 			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleDerecha).esOcupablePorPacman());
 			};
 			break;
 		case Izquierda:{
-			Posicion posicionPosibleIzquierda=posicion.getPosicionAnteriorHorizontal(velocidad);
+			Posicion posicionPosibleIzquierda=posicion.getPosicionAnteriorHorizontal(8);
 			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleIzquierda).esOcupablePorPacman());
 			};
 			break;

@@ -14,8 +14,8 @@ import junit.framework.TestCase;
 public class FantasmaCelesteTest extends TestCase {
 
 	public void testMovimiento(){
-		Nivel miNivel=new Nivel(1);		
-		Laberinto miLaberinto=new Laberinto(miNivel, null);
+		Nivel miNivel=new Nivel("nivel.txt", null, null);	
+		Laberinto miLaberinto=new Laberinto(null);
 		Fantasma miFantasma=new FantasmaCeleste(24,40,null,4);
 		Pacman miPacman= new Pacman(40,24,null);
 		miNivel.agregarFantasma(miFantasma);
@@ -52,7 +52,7 @@ public class FantasmaCelesteTest extends TestCase {
 		miNivel.agregarBloque(bloque14);
 		miNivel.agregarBloque(bloque15);
 		miNivel.agregarBloque(bloque16);
-		miLaberinto=new Laberinto(miNivel, null);
+		miLaberinto=new Laberinto(null);
 		miPacman.setLaberinto(miLaberinto);
 		miFantasma=miLaberinto.getFantasmas().get(0);
 		miFantasma.setLaberinto(miLaberinto);
