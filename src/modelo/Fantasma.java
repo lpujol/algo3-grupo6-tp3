@@ -41,6 +41,10 @@ public abstract class Fantasma extends Vivo {
 					
 	};
 	
+	/* Le informa al juego que el fantasma fue comido.
+	  
+	 */
+	
 	public void comer(){
 		Juego juegoActual=this.laberinto.getJuego();
 		juegoActual.fantasmaComido(this);
@@ -51,7 +55,14 @@ public abstract class Fantasma extends Vivo {
 		return this.laberinto;
 	}
 	
-	public void moverse(Posicion destino){		
+
+	/* Los fantasmas se mueven eligiendo el casillero que menor distancia tiene a su objetivo
+	  
+	 */
+	
+	public void moverse(Posicion destino){
+		
+
 		Posicion posicionPosibleIzquierda=laberinto.getPosicionBloqueAnteriorHorizontal(posicion);
 		Posicion posicionPosibleAbajo=laberinto.getPosicionBloqueAnteriorVertical(posicion);
 		Posicion posicionPosibleDerecha=laberinto.getPosicionBloqueSiguienteHorizontal(posicion);
