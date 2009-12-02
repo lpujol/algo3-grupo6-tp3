@@ -20,7 +20,7 @@ public class VentanaPrincipal extends Frame {
 	public VentanaPrincipal(ControladorJuego unControladorJuego,final Pacman pacman) {
 		this.controladorJuego = unControladorJuego;
 		this.setTitle("Pacman");
-		this.setSize(450, 500);
+		this.setSize(470, 545);
 		this.setResizable(false);
 		panel = new Panel(448,496,controladorJuego);
 		this.add(panel);

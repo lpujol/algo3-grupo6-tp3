@@ -2,6 +2,7 @@ package modelo;
 
 
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -62,6 +63,30 @@ public class CargadorDeNiveles {
 			case 35:
 				nivel.agregarBloque(new Pared(posicion, laberinto));
 				break;
+			case 40:
+				nivel.agregarBloque(new ParedVerticalIzquierda(posicion, laberinto));
+				break;
+			case 41:
+				nivel.agregarBloque(new ParedVerticalDerecha(posicion, laberinto));
+				break;
+			case 45:
+				nivel.agregarBloque(new ParedHorizontalArriba(posicion, laberinto));
+				break;
+			case 95:
+				nivel.agregarBloque(new ParedHorizontalAbajo(posicion, laberinto));
+				break;
+			case 106:
+				nivel.agregarBloque(new ParedVerticalDerechaHorizontalAbajo(posicion, laberinto));
+				break;
+			case 76:
+				nivel.agregarBloque(new ParedVerticalIzquierdaHorizontalAbajo(posicion, laberinto));
+				break;
+			case 114:
+				nivel.agregarBloque(new ParedVerticalIzquierdaHorizontalArriba(posicion, laberinto));
+				break;
+			case 113:
+				nivel.agregarBloque(new ParedVerticalDerechaHorizontalArriba(posicion, laberinto));
+				break;
 			case 111:
 				nivel.agregarBloque(new Punto(posicion, laberinto));
 				break;
@@ -72,7 +97,7 @@ public class CargadorDeNiveles {
 			case 79:
 				nivel.agregarBloque(new PuntoDePoder(posicion, laberinto));
 				break;
-			case 45:
+			case 46:
 				nivel.agregarBloque(new Puerta(posicion, laberinto));
 				break;
 			case 32:

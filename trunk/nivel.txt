@@ -1,33 +1,33 @@
 28
 31
 ############################
-#oooooooooooo##oooooooooooo#
-#o####o#####o##o#####o####o#
-#O#  #o#   #o##o#   #o#  #O#
-#o####o#####o##o#####o####o#
+#oooooooooooo()oooooooooooo#
+#or--qor---qo()or---qor--qo#
+#O(  )o(   )o()o(   )o(  )O#
+#oL__joL___joLjoL___joL__jo#
 #oooooooooooooooooooooooooo#
-#o####o##o########o##o####o#
-#o####o##o########o##o####o#
-#oooooo##oooo##oooo##oooooo#
-######o##### ## #####o######
-     #o##### ## #####o#     
-     #o## 1 2  3 4 ##o#     
-     #o## ###--### ##o#
-     #o## #      # ##o#
-     #o   #      #   o#
-     #o## #      # ##o#
-     #o## ######## ##o#     
-     #o##          ##o#     
-     #o## ######## ##o#     
-######o## ######## ##o######
-#oooooooooooo##oooooooooooo#
-#o####o#####o##o#####o####o#
-#o####o#####o##o#####o####o#
-#Ooo##ooooooop ooooooo##ooO#
-###o##o##o########o##o##o###
-###o##o##o########o##o##o###
-#oooooo##oooo##oooo##oooooo#
-#o##########o##o##########o#
-#o##########o##o##########o#
+#or--qorqor------qorqor--qo#
+#oL__jo()oL__qr__jo()oL__jo#
+#oooooo()oooo()oooo()oooooo#
+######o(L--q () r--j)o######
+     #o(r__j Lj L__q)o#     
+     #o() 1 2  3 4 ()o#     
+     #o() ###..### ()o#    
+     #oLj #      # Ljo#    
+     #o   #      #   o#    
+     #orq #      # rqo#    
+     #o() ######## ()o#     
+     #o()          ()o#     
+     #o() r------q ()o#     
+######oLj L__qr__j Ljo######
+#oooooooooooo()oooooooooooo#
+#or--qor---qo()or---qor--qo#
+#oL_q)oL___joLjoL___jo(r_jo#
+#Ooo()ooooooop  ooooooo()ooO#
+#-qo()orqor------qorqo()or-#
+#_joLjo()oL__qr__jo()oLjoL_#
+#oooooo()oooo()oooo()oooooo#
+#or----jL--qo()or--jL----qo#
+#oL________joLjoL________jo#
 #oooooooooooooooooooooooooo#
 ############################
