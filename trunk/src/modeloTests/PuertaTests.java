@@ -1,9 +1,7 @@
 package modeloTests;
 
-import modelo.CargadorDeNiveles;
 import modelo.Juego;
 import modelo.Laberinto;
-import modelo.Nivel;
 import modelo.Posicion;
 import modelo.Puerta;
 import junit.framework.TestCase;
@@ -11,15 +9,12 @@ import junit.framework.TestCase;
 public class PuertaTests extends TestCase {
 
 	private Juego juego;
-	private Nivel nivel;
-	private CargadorDeNiveles cargador;
 	private Laberinto laberinto;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		super.setUp();
 		this.juego = new Juego();
-		this.nivel = juego.getLaberinto().getNivel();
 		this.laberinto = juego.getLaberinto();
 
 	}
@@ -35,6 +30,7 @@ public class PuertaTests extends TestCase {
 	// Testea que una puerta creada en una posicion invalida lance una excepcion
 	public void testCrearPuertadEnPosicionInvalida() {
 		try {
+			@SuppressWarnings("unused")
 			Puerta puerta = new Puerta(new Posicion(0, -1), this.laberinto);
 			fail();
 		} catch (IllegalArgumentException e) {

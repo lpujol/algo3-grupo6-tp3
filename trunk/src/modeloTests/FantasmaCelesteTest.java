@@ -1,14 +1,9 @@
 package modeloTests;
 
-import modelo.Bloque;
 import modelo.Fantasma;
 import modelo.FantasmaCeleste;
 import modelo.Laberinto;
-import modelo.Nivel;
-import modelo.Pacman;
-import modelo.Pared;
 import modelo.Posicion;
-import modelo.Punto;
 import junit.framework.TestCase;
 
 public class FantasmaCelesteTest extends TestCase {

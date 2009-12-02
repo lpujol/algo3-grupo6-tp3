@@ -1,33 +1,18 @@
 package modeloTests;
 
-import modelo.CargadorDeNiveles;
-import modelo.Estrategia;
 import modelo.FantasmaRojo;
 import modelo.IEstrategia;
 import modelo.Juego;
-import modelo.Laberinto;
 import modelo.Nivel;
-import modelo.Pacman;
-import modelo.Posicion;
 import junit.framework.TestCase;
 
 public class JuegoTest extends TestCase {
 	
 	private Juego unJuego;
-	private Nivel nivel;
-	private CargadorDeNiveles cargador;
-	private Laberinto laberinto;
-	private Pacman unPacman;
-	private Posicion unaPosicion;
 	
 		protected void setUp() throws Exception {
-	        super.setUp();
-	        
-	        unaPosicion=  new Posicion(40,20);
+	        super.setUp();	        
 	        unJuego = new Juego();
-	        nivel = null;
-	        laberinto = null;
-	        unPacman= new Pacman(unaPosicion,unJuego.getLaberinto());
 	        
 
 	}

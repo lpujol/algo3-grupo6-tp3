@@ -1,25 +1,20 @@
 package modeloTests;
 
 import junit.framework.TestCase;
-import modelo.CargadorDeNiveles;
 import modelo.Juego;
 import modelo.Laberinto;
-import modelo.Nivel;
 import modelo.Posicion;
 import modelo.Punto;
 
 public class PuntoTests extends TestCase {
 
 	private Juego juego;
-	private Nivel nivel;
-	private CargadorDeNiveles cargador;
 	private Laberinto laberinto;
 	
 	protected void setUp() throws Exception {
 		super.setUp();
 		super.setUp();
 		this.juego = new Juego();
-		this.nivel = juego.getLaberinto().getNivel();
 		this.laberinto = juego.getLaberinto();
 		
 	}
@@ -35,6 +30,7 @@ public class PuntoTests extends TestCase {
 	// Testea que un punto creado en una posicion invalida lance una excepcion
 	public void testCrearPuntoEnPosicionInvalida() {
 		try {
+			@SuppressWarnings("unused")
 			Punto punto = new Punto(new Posicion(0, -1), this.laberinto);
 			fail();
 		} catch (IllegalArgumentException e) {

@@ -2,7 +2,6 @@ package modelo;
 
 
 import java.io.BufferedReader;
-import java.io.Console;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -66,6 +65,10 @@ public class CargadorDeNiveles {
 			case 111:
 				nivel.agregarBloque(new Punto(posicion, laberinto));
 				break;
+			case 112:
+				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				nivel.setPosicionInicialPacman(posicion);
+				break;
 			case 79:
 				nivel.agregarBloque(new PuntoDePoder(posicion, laberinto));
 				break;
@@ -74,7 +77,7 @@ public class CargadorDeNiveles {
 				break;
 			case 32:
 				// Es un espacio vacio pero por ahora hago esto
-				nivel.agregarBloque(new Punto(posicion, laberinto));
+				nivel.agregarBloque(new EspacioVacio(posicion, laberinto));
 				break;
 				//en Texto hay 1 2 3 4
 			default:

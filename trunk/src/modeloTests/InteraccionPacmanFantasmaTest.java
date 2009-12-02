@@ -36,8 +36,8 @@ public class InteraccionPacmanFantasmaTest extends TestCase {
 		miFantasma.vivir();
 		miFantasma.vivir();
 		miFantasma.vivir();
-		this.assertEquals(vidas, pacman.getCantidadVidas());
-		this.assertNotSame(estrategiaFantasma, miFantasma.getEstrategiaActual());
+		assertEquals(vidas, pacman.getCantidadVidas());
+		assertNotSame(estrategiaFantasma, miFantasma.getEstrategiaActual());
 		
 	}
 
