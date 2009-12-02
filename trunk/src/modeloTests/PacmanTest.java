@@ -26,8 +26,7 @@ public class PacmanTest extends TestCase {
 		public void testVivir() {
 			unPacman.cambiarDireccion(Direccion.Derecha);
 			unPacman.vivir();
-			
-			assertFalse(unaPosicion.getX() == unPacman.getPosicion().getX());
+			assertNotSame(unaPosicion.getX(),unPacman.getPosicion().getX());
 
 		}
 
@@ -47,10 +46,11 @@ public class PacmanTest extends TestCase {
 		/*se prueba como pacman  luego de moverse cambia de  posicion */
 		public void testMoverse() {
 			
-			assertEquals(unPacman.getPosicion(),unaPosicion);
+			assertTrue(unPacman.getPosicion().equals(unaPosicion));
+			unPacman.cambiarDireccion(Direccion.Derecha);
 			unPacman.moverse();
-			assertFalse(unPacman.getPosicion().equals(unaPosicion));
-			
+			assertNotSame(unaPosicion.getX(),unPacman.getPosicion().getX());
+
 		}
 		
 		/*se prueba que al empezar el juego pacman puede ocupar
@@ -70,6 +70,7 @@ public class PacmanTest extends TestCase {
 		public void testPosicionSiguienteOcupableError(){
 			
 			unPacman.cambiarDireccion(Direccion.Arriba);
+			unPacman.vivir();
 			assertFalse(unPacman.posicionSiguienteOcupable());
 		}
 

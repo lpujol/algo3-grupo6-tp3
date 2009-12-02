@@ -16,7 +16,15 @@ public class Nivel {
 		cargadorDeNiveles.cargar(this, rutaNivel);
 		this.numero = 1;		
 		fantasmas = new ArrayList<Fantasma>();		
-		this.pacman=new Pacman(232,344,laberinto);
+		this.pacman=new Pacman(this.posicionInicialPacman().getX(),this.posicionInicialPacman().getY(),laberinto);
+	}
+	
+	public Posicion posicionInicialPacman(){
+		return new Posicion(232,344);
+	}
+	
+	public void enviarPacmanAPosicionInicial(){
+		this.pacman.setPosicion(this.posicionInicialPacman());
 	}
 
 	public void agregarBloque(Bloque bloque) {
@@ -50,6 +58,8 @@ public class Nivel {
 	
 	public void pasarDeNivel() {
 		this.numero++;
+		this.bloques.clear();
+		this.cargadorDeNiveles.cargar(this, "nivel.txt");
 	}	
 	
 

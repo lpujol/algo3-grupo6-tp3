@@ -1,6 +1,9 @@
 package modeloTests;
 
 import modelo.CargadorDeNiveles;
+import modelo.Estrategia;
+import modelo.FantasmaRojo;
+import modelo.IEstrategia;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Nivel;
@@ -34,10 +37,10 @@ public class JuegoTest extends TestCase {
 		 */
 		public void testPasarNivel() {
 			
-			Nivel unNivel= unJuego.getLaberinto().getNivel();
+			int numeroNivel= unJuego.getLaberinto().getNivel().getNumero();
 			unJuego.pasarNivel();
 			Nivel otroNivel= unJuego.getLaberinto().getNivel();
-			assertFalse(unNivel==otroNivel);
+			assertFalse(numeroNivel==otroNivel.getNumero());
 			
 		}
 
@@ -65,7 +68,11 @@ public class JuegoTest extends TestCase {
 
 		
 		public void testFantasmaComido() {
-			fail("Not yet implemented");
+			FantasmaRojo fantasma=new FantasmaRojo(null, unJuego.getLaberinto(), 0);
+			IEstrategia estrategia=fantasma.getEstrategiaActual();
+			unJuego.fantasmaComido(fantasma);
+			assertNotSame(estrategia,fantasma.getEstrategiaActual());
+			
 		}
 
 		
@@ -75,7 +82,7 @@ public class JuegoTest extends TestCase {
 		public void testPacmanComido() {
 			
 			unJuego.pacmanComido();
-			assertEquals(2,unJuego.getLaberinto().getPacman().getCantidadVidas());
+			assertEquals(2,unJuego.vidasPacman());
 		}
 
 	}

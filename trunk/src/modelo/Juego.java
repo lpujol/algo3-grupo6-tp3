@@ -17,7 +17,7 @@ public class Juego {
 		this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
-		
+		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
 	}	
 	
 	public void pasarNivel(){
@@ -70,7 +70,14 @@ public class Juego {
 
 	public void pacmanComido() {
 		this.cantidadVidas --;
-		
+		if(this.cantidadVidas>0){
+			this.laberinto.getNivel().getPacman().disminuirVida();
+			this.laberinto.getNivel().enviarPacmanAPosicionInicial();
+		}
+	}
+	
+	public int vidasPacman(){
+		return this.laberinto.getNivel().getPacman().getCantidadVidas();
 	}
 
 
