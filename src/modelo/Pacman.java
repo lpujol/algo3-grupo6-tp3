@@ -86,6 +86,16 @@ public class Pacman extends Vivo{
 	public void comer() {
 		this.laberinto.getJuego().pacmanComido();
 		
+	}
+
+	public void disminuirVida() {
+		this.vidas--;
+		
+	}
+
+	public void setPosicion(Posicion posicionInicialPacman) {
+		this.posicion=posicionInicialPacman;
+		
 	};
 
 }

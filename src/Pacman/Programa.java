@@ -1,5 +1,6 @@
 package Pacman;
 
+import java.awt.Color;
 import java.awt.Event;
 import java.util.ArrayList;
 
@@ -37,6 +38,7 @@ public class Programa {
 		ArrayList<Fantasma> fantasmas=juego.getLaberinto().getFantasmas();
 		for(Fantasma f:fantasmas){
 			VistaFantasma vf=new VistaFantasma();
+			vf.setColor(Color.cyan);
 			vf.setPosicionable(f);
 			vistaFantasmas.add(vf);
 			controlador.agregarDibujable(vf);

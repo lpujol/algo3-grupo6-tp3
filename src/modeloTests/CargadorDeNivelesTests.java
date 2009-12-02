@@ -7,6 +7,7 @@ import modelo.CargadorDeNiveles;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Nivel;
+import modelo.Posicion;
 import junit.framework.TestCase;
 
 public class CargadorDeNivelesTests extends TestCase {
@@ -15,19 +16,22 @@ public class CargadorDeNivelesTests extends TestCase {
 	private Nivel nivel;
 	private Laberinto laberinto;
 	
+	/*
+	 * se testea el cargador de niveles indirectamente
+	 * ya que no hay forma de utilizarlo de manera directa
+	 */
+	
 	protected void setUp() throws Exception {
 		super.setUp();
 		juego = new Juego();
 		laberinto = new Laberinto(juego);
-		nivel = null;		
-		CargadorDeNiveles cargador = new CargadorDeNiveles(this.juego, this.laberinto);
-		nivel=cargador.cargar(new Nivel("nivel.txt",juego,laberinto), "nivel.txt");
+		nivel = juego.getLaberinto().getNivel();	
+		//CargadorDeNiveles cargador = new CargadorDeNiveles(this.juego, this.laberinto);
+		//nivel=cargador.cargar(new Nivel("nivel.txt",juego,laberinto), "nivel.txt");
 	}
 	
 	// Testea que le de al nivel devuelto su numero correcto
-	/*
-	 * este test ya no tiene sentido con el cambio de responsabilidades
-	 */
+
 	public void testCantidadDeNiveles() {
 		assertTrue(this.nivel.getNumero() == 1);
 	}
@@ -36,9 +40,14 @@ public class CargadorDeNivelesTests extends TestCase {
 	// archivo de origen
 	public void testBloquesCorrectos() {
 		ArrayList<Bloque> bloques = this.nivel.getBloques();
-		Bloque bloque = bloques.remove(bloques.size() - 1);
-		assertTrue(bloque.getPosicion().getX() == 28);
-		assertTrue(bloque.getPosicion().getY() == 31);
+		
+		assertTrue(28*31==bloques.size());
+		
+		//Bloque bloque = bloques.remove(bloques.size() - 1);
+		//Posicion posicion=laberinto.aCoordenadasReales(new Posicion(28,31));
+		//assertTrue(bloque.getPosicion().getX() == posicion.getX());
+		//assertTrue(bloque.getPosicion().getY() == posicion.getY());
+		
 		Bloque bloque2 = bloques.remove(29);
 		assertTrue(bloque2.esOcupable());
 	}

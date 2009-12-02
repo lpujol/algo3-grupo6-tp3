@@ -19,11 +19,9 @@ public class ParedTests extends TestCase {
 		super.setUp();
 		super.setUp();
 		this.juego = new Juego();
-		this.nivel = null;
-		this.laberinto = null;
-		this.cargador = new CargadorDeNiveles(juego, this.laberinto);
-		cargador.cargar(nivel, "nivel.txt");
-		this.laberinto = new Laberinto(juego);
+		this.nivel = juego.getLaberinto().getNivel();
+		this.laberinto = juego.getLaberinto();
+
 	}
 	
 	// Testea que una pared creada en una posicion valida tenga asignada la
