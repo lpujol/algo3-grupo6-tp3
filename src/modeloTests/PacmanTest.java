@@ -1,10 +1,10 @@
 package modeloTests;
 
+import junit.framework.TestCase;
 import modelo.Direccion;
 import modelo.Juego;
 import modelo.Pacman;
 import modelo.Posicion;
-import junit.framework.TestCase;
 
 public class PacmanTest extends TestCase {
 	
@@ -24,7 +24,11 @@ public class PacmanTest extends TestCase {
 
 
 		public void testVivir() {
-			fail("Not yet implemented");
+			unPacman.cambiarDireccion(Direccion.Derecha);
+			unPacman.vivir();
+			
+			assertFalse(unaPosicion.getX() == unPacman.getPosicion().getX());
+
 		}
 
 		
@@ -45,7 +49,7 @@ public class PacmanTest extends TestCase {
 			
 			assertEquals(unPacman.getPosicion(),unaPosicion);
 			unPacman.moverse();
-			assertTrue(unPacman.getPosicion()!=unaPosicion);
+			assertFalse(unPacman.getPosicion().equals(unaPosicion));
 			
 		}
 		

@@ -9,7 +9,8 @@ public class FantasmaCeleste extends Fantasma {
 		this.estrategiaActual=new EstrategiaPerseguidor(this);
 		this.estrategiaNativa=new EstrategiaPerseguidor(this);
 		this.posicion=new Posicion(coordenadaX,coordenadaY);
-		this.velocidad=velocidad;	
+		this.velocidad=velocidad;
+		this.direccion=Direccion.Abajo;
 		}
 
 }

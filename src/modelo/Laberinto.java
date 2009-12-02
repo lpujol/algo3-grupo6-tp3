@@ -42,8 +42,9 @@ public class Laberinto {
 	// Devuelve true si la posicion pasada por parametro esta en el centro del
 	// bloque al que pertenece. Devuelve false en cualquier otro caso.
 	public boolean cambioDeDireccionPermitido(Posicion posicionEntidad) {
+		
 		Posicion posicionBloque = aCoordenadasDeBloque(posicionEntidad);
-		if (posicionBloque.equals(posicionEntidad)==false) {
+		if (posicionBloque.equals(posicionEntidad)==false) {			
 			return false;
 		}
 		return true;
@@ -61,18 +62,32 @@ public class Laberinto {
 
 	// Al pasarle una coordenada global del laberinto, devuelve la posicion del
 	// bloque en esa posicion
-	private Posicion aCoordenadasDeBloque(Posicion posicionGlobal) {
+	public Posicion aCoordenadasDeBloque(Posicion posicionGlobal) {
 		// Al castear a int trunca el numero. Le sumo 1 porque nuestras
 		// coordenadas empiezan en (1,1)
 		int xBloque = ((int) (posicionGlobal.getX() / TAMANO_DEL_BLOQUE) + 1)
-				* TAMANO_DEL_BLOQUE - TAMANO_DEL_BLOQUE / 2;
+				 * TAMANO_DEL_BLOQUE - TAMANO_DEL_BLOQUE / 2;
 		int yBloque = ((int) (posicionGlobal.getY() / TAMANO_DEL_BLOQUE) + 1)
-				* TAMANO_DEL_BLOQUE - TAMANO_DEL_BLOQUE / 2;
+				 * TAMANO_DEL_BLOQUE - TAMANO_DEL_BLOQUE / 2;
 		Posicion posicionBloque = new Posicion(xBloque, yBloque);
 		return posicionBloque;
 	}
+	
+	public Posicion centroDelBloque(Posicion posicion){
+		return new Posicion(
+				((int)posicion.getX()/TAMANO_DEL_BLOQUE)+TAMANO_DEL_BLOQUE/2,
+				((int)posicion.getY()/TAMANO_DEL_BLOQUE)+TAMANO_DEL_BLOQUE/2
+		);
+	}
+	
+	public Posicion aCoordenadasReales(Posicion posicion){
+		return new Posicion(
+				posicion.getX()*TAMANO_DEL_BLOQUE+TAMANO_DEL_BLOQUE/2,
+				posicion.getY()*TAMANO_DEL_BLOQUE+TAMANO_DEL_BLOQUE/2
+				);
+	}
 
-	private Bloque buscarBloque(Posicion posicionBuscada) {
+	public Bloque buscarBloque(Posicion posicionBuscada) {
 		Bloque bloque;
 		for (int i = 0; i < this.bloques.size(); i++) {
 			bloque = bloques.get(i);
@@ -94,12 +109,9 @@ public class Laberinto {
 	};
 	
 	
-	//tiene sentido este metodo?
+	
 	public Posicion getPosicionFantasma(Fantasma fantasma) {
-		for(Fantasma f: fantasmas)
-			if(f==fantasma)
-				return f.getPosicion();
-		return null;
+		return new Posicion(20,20);
 	}
 
 	public Posicion obtenerPosicionCasa() {
@@ -118,7 +130,7 @@ public class Laberinto {
 		ArrayList<Fantasma> fantasmas=new ArrayList<Fantasma>();
 		
 		for (int i = 0; i < this.fantasmas.size(); i++) {
-			Fantasma fantasmaActual = fantasmas.get(i);
+			Fantasma fantasmaActual = this.fantasmas.get(i);
 			if ((fantasmaActual.getPosicion().getX() == posicionBuscada.getX())
 					&& (fantasmaActual.getPosicion().getY() == posicionBuscada.getY())) {
 				fantasmas.add(fantasmaActual);

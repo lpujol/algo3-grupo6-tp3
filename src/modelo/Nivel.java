@@ -15,7 +15,7 @@ public class Nivel {
 		bloques = new ArrayList<Bloque>();
 		cargadorDeNiveles.cargar(this, rutaNivel);
 		this.numero = 1;		
-		fantasmas = new ArrayList<Fantasma>();
+		fantasmas = new ArrayList<Fantasma>();		
 		this.pacman=new Pacman(240,343,laberinto);
 	}
 
@@ -50,6 +50,7 @@ public class Nivel {
 	
 	public void pasarDeNivel() {
 		this.numero++;
-	}
+	}	
+	
 
 }

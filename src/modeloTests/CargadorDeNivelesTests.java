@@ -18,13 +18,16 @@ public class CargadorDeNivelesTests extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		juego = new Juego();
-		nivel = null;
-		laberinto = null;
+		laberinto = new Laberinto(juego);
+		nivel = null;		
 		CargadorDeNiveles cargador = new CargadorDeNiveles(this.juego, this.laberinto);
-		nivel = cargador.getSiguiente();
+		nivel=cargador.cargar(new Nivel("nivel.txt",juego,laberinto), "nivel.txt");
 	}
 	
 	// Testea que le de al nivel devuelto su numero correcto
+	/*
+	 * este test ya no tiene sentido con el cambio de responsabilidades
+	 */
 	public void testCantidadDeNiveles() {
 		assertTrue(this.nivel.getNumero() == 1);
 	}

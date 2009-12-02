@@ -22,8 +22,8 @@ public class PuertaTests extends TestCase {
 		this.nivel = null;
 		this.laberinto = null;
 		this.cargador = new CargadorDeNiveles(juego, this.laberinto);
-		this.nivel = cargador.getSiguiente();
-		this.laberinto = new Laberinto(nivel, juego);
+		cargador.cargar(nivel, "nivel.txt");		
+		this.laberinto = new Laberinto(juego);
 	}
 	
 	// Testea que una puerta creada en una posicion valida tenga asignada la
