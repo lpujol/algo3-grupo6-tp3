@@ -8,7 +8,7 @@ public class VistaFantasma extends Cuadrado {
 	
 	public VistaFantasma(){
 		super(16,16);
-		this.setColor(Color.black);
+		this.setColor(new Color(0, 255, 255));
 	}
 
 }

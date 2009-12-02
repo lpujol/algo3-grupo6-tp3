@@ -1,6 +1,7 @@
 package Pacman;
 
 import java.awt.Color;
+import java.awt.Event;
 import java.util.ArrayList;
 
 import vista.*;
@@ -24,11 +25,51 @@ public class Programa {
 		ArrayList<Bloque> bloques=juego.getLaberinto().getBloques();
 		for(Bloque b:bloques)
 		{
-			if(b instanceof Pared){
-			VistaBloque vistaB=new VistaBloque();
-			vistaB.setPosicionable(b);
-			vistaBloques.add(vistaB);
-			controlador.agregarDibujable(vistaB);
+			if(b instanceof Pared) {
+				VistaBloque vistaB=new VistaBloque();
+				vistaB.setPosicionable(b);
+				vistaBloques.add(vistaB);
+				controlador.agregarDibujable(vistaB);
+			}
+			if (b instanceof ParedVerticalIzquierda) {
+				VistaParedVerticalIzquierda vistaPVI = new VistaParedVerticalIzquierda();
+				vistaPVI.setPosicionable(b);
+				controlador.agregarDibujable(vistaPVI);
+			}
+			if (b instanceof ParedVerticalDerecha) {
+				VistaParedVerticalDerecha vistaPVD = new VistaParedVerticalDerecha();
+				vistaPVD.setPosicionable(b);
+				controlador.agregarDibujable(vistaPVD);
+			}
+			if (b instanceof ParedHorizontalArriba) {
+				VistaParedHorizontalArriba vistaPHArriba = new VistaParedHorizontalArriba();
+				vistaPHArriba.setPosicionable(b);
+				controlador.agregarDibujable(vistaPHArriba);
+			}
+			if (b instanceof ParedHorizontalAbajo) {
+				VistaParedHorizontalAbajo vistaPHAbajo = new VistaParedHorizontalAbajo();
+				vistaPHAbajo.setPosicionable(b);
+				controlador.agregarDibujable(vistaPHAbajo);
+			}
+			if (b instanceof ParedVerticalDerechaHorizontalArriba) {
+				VistaParedVerticalDerechaHorizontalArriba vistaPVDHA = new VistaParedVerticalDerechaHorizontalArriba();
+				vistaPVDHA.setPosicionable(b);
+				controlador.agregarDibujable(vistaPVDHA);
+			}
+			if (b instanceof ParedVerticalIzquierdaHorizontalArriba) {
+				VistaParedVerticalIzquierdaHorizontalArriba vistaPVIHA = new VistaParedVerticalIzquierdaHorizontalArriba();
+				vistaPVIHA.setPosicionable(b);
+				controlador.agregarDibujable(vistaPVIHA);
+			}
+			if (b instanceof ParedVerticalIzquierdaHorizontalAbajo) {
+				VistaParedVerticalIzquierdaHorizontalAbajo vistaPVIHA = new VistaParedVerticalIzquierdaHorizontalAbajo();
+				vistaPVIHA.setPosicionable(b);
+				controlador.agregarDibujable(vistaPVIHA);
+			}
+			if (b instanceof ParedVerticalDerechaHorizontalAbajo) {
+				VistaParedVerticalDerechaHorizontalAbajo vistaPVIHA = new VistaParedVerticalDerechaHorizontalAbajo();
+				vistaPVIHA.setPosicionable(b);
+				controlador.agregarDibujable(vistaPVIHA);
 			}
 		}
 		
