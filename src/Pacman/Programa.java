@@ -1,7 +1,6 @@
 package Pacman;
 
 import java.awt.Color;
-import java.awt.Event;
 import java.util.ArrayList;
 
 import vista.*;
@@ -22,6 +21,7 @@ public class Programa {
 		ventana.setVisible(true);
 		
 		ArrayList<VistaBloque> vistaBloques=new ArrayList<VistaBloque>();
+		ArrayList<VistaPunto> vistaPuntos=new ArrayList<VistaPunto>();
 		ArrayList<Bloque> bloques=juego.getLaberinto().getBloques();
 		for(Bloque b:bloques)
 		{
@@ -71,7 +71,21 @@ public class Programa {
 				vistaPVIHA.setPosicionable(b);
 				controlador.agregarDibujable(vistaPVIHA);
 			}
+			if(b instanceof EspacioVacio){
+				VistaEspacioVacio vistaEV=new VistaEspacioVacio();
+				vistaEV.setPosicionable(b);
+				controlador.agregarDibujable(vistaEV);
+			}
+			if(b instanceof Punto){
+				VistaPunto vistaP=new VistaPunto();
+				vistaP.setPosicionable(b);
+				vistaPuntos.add(vistaP);
+				controlador.agregarDibujable(vistaP);
+			}
 		}
+		
+		juego.vistaPuntos(vistaPuntos);
+		
 		
 		juego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(200,56,juego.getLaberinto(),1));
 		ArrayList<VistaFantasma> vistaFantasmas=new ArrayList<VistaFantasma>();

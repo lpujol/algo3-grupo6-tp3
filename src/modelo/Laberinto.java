@@ -183,5 +183,11 @@ public class Laberinto {
 	public Nivel getNivel() {
 		return this.nivel;
 	}
+
+	public void puntoComido(Punto punto) {
+		this.nivel.puntoComido();
+		this.juego.puntoComido(punto);
+		
+	}
 	
 }
