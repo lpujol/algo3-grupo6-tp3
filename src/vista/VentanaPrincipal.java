@@ -17,8 +17,6 @@ import ar.uba.fi.algo3.titiritero.vista.Panel;
 
 public class VentanaPrincipal extends Frame {
 
-	private Pacman pacman;
-
 	public VentanaPrincipal(ControladorJuego unControladorJuego,final Pacman pacman) {
 		this.controladorJuego = unControladorJuego;
 		this.setTitle("Pacman");
@@ -26,7 +24,6 @@ public class VentanaPrincipal extends Frame {
 		this.setResizable(false);
 		panel = new Panel(448,496,controladorJuego);
 		this.add(panel);
-		this.pacman=pacman;
 		
 		this.setBackground(Color.green);
 		panel.setBackground(Color.gray);

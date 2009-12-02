@@ -3,18 +3,14 @@ package modeloTests;
 import java.util.ArrayList;
 
 import modelo.Bloque;
-import modelo.CargadorDeNiveles;
 import modelo.Juego;
-import modelo.Laberinto;
 import modelo.Nivel;
-import modelo.Posicion;
 import junit.framework.TestCase;
 
 public class CargadorDeNivelesTests extends TestCase {
 
 	private Juego juego;
 	private Nivel nivel;
-	private Laberinto laberinto;
 	
 	/*
 	 * se testea el cargador de niveles indirectamente
@@ -24,7 +20,6 @@ public class CargadorDeNivelesTests extends TestCase {
 	protected void setUp() throws Exception {
 		super.setUp();
 		juego = new Juego();
-		laberinto = new Laberinto(juego);
 		nivel = juego.getLaberinto().getNivel();	
 		//CargadorDeNiveles cargador = new CargadorDeNiveles(this.juego, this.laberinto);
 		//nivel=cargador.cargar(new Nivel("nivel.txt",juego,laberinto), "nivel.txt");

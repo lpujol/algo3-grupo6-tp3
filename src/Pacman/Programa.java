@@ -1,7 +1,6 @@
 package Pacman;
 
 import java.awt.Color;
-import java.awt.Event;
 import java.util.ArrayList;
 
 import vista.*;

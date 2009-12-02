@@ -9,10 +9,12 @@ public class Nivel {
 	private ArrayList<Fantasma> fantasmas;
 	private Pacman pacman;
 	private CargadorDeNiveles cargadorDeNiveles;
+	private Posicion pocisionInicial;
 	
 	public Nivel(String rutaNivel, Juego juego, Laberinto laberinto) {
 		this.cargadorDeNiveles = new CargadorDeNiveles(juego, laberinto);
 		bloques = new ArrayList<Bloque>();
+		this.pocisionInicial=null;
 		cargadorDeNiveles.cargar(this, rutaNivel);
 		this.numero = 1;		
 		fantasmas = new ArrayList<Fantasma>();		
@@ -20,11 +22,11 @@ public class Nivel {
 	}
 	
 	public Posicion posicionInicialPacman(){
-		return new Posicion(232,344);
+		return this.pocisionInicial;
 	}
 	
 	public void enviarPacmanAPosicionInicial(){
-		this.pacman.setPosicion(this.posicionInicialPacman());
+		this.pacman.setPosicion(new Posicion(this.pocisionInicial.getX(),this.pocisionInicial.getY()));
 	}
 
 	public void agregarBloque(Bloque bloque) {
@@ -60,6 +62,11 @@ public class Nivel {
 		this.numero++;
 		this.bloques.clear();
 		this.cargadorDeNiveles.cargar(this, "nivel.txt");
+	}
+
+	public void setPosicionInicialPacman(Posicion posicion) {
+		this.pocisionInicial=posicion;
+		
 	}	
 	
 
