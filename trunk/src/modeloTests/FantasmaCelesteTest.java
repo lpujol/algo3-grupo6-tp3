@@ -13,14 +13,14 @@ public class FantasmaCelesteTest extends TestCase {
 /*
  * Testea el movimiento del fantasma siguiendo una estrategia perseguidor que 
  * se encuentra en la siguiente posicion respecto al pacman:
- *    	 #o## ######## ##o#     
- *    	 #o##     P    ##o#     
+ *    	
  *     	 #o## ######## ##o#     
  *	######o##F######## ##o######
  *	#oooooooooooo##oooooooooooo#
+ *  #Ooo##oooooooP ooooooo##ooO#
  * 
  * De acuerdo a la estrategia planteada, el fantasma debe elegir moverse a 
- * hacia arriba disminuyendo el valor de la coordenada Y.
+ * hacia abajo aumentando el valor de la coordenada Y.
  * 
  * */
 	
@@ -41,6 +41,11 @@ public class FantasmaCelesteTest extends TestCase {
 		
 	};
 
+	/*Verifica que el fantasma se dirija hacia Pacman simulando los primeros segundos 
+	 de juego sin cambiarle la direccion inicial a Pacman.
+	 
+	  
+	 * */
 	
 	public void testPersecucion(){
         Juego miJuego = new Juego();        
