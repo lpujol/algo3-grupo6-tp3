@@ -22,6 +22,7 @@ public class Programa {
 		
 		ArrayList<VistaBloque> vistaBloques=new ArrayList<VistaBloque>();
 		ArrayList<VistaPunto> vistaPuntos=new ArrayList<VistaPunto>();
+		ArrayList<VistaPuntoPoder> vistaPuntosPoder=new ArrayList<VistaPuntoPoder>();
 		ArrayList<Bloque> bloques=juego.getLaberinto().getBloques();
 		for(Bloque b:bloques)
 		{
@@ -82,9 +83,21 @@ public class Programa {
 				vistaPuntos.add(vistaP);
 				controlador.agregarDibujable(vistaP);
 			}
+			if(b instanceof PuntoDePoder){
+				VistaPuntoPoder vistaP=new VistaPuntoPoder();
+				vistaP.setPosicionable(b);
+				vistaPuntosPoder.add(vistaP);
+				controlador.agregarDibujable(vistaP);
+			}
+			if(b instanceof Puerta){
+				VistaPuerta vistaP=new VistaPuerta();
+				vistaP.setPosicionable(b);
+				controlador.agregarDibujable(vistaP);
+			}
 		}
 		
 		juego.vistaPuntos(vistaPuntos);
+		juego.vistaPuntosPoder(vistaPuntosPoder);
 		
 		
 		juego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(200,56,juego.getLaberinto(),1));
@@ -105,7 +118,7 @@ public class Programa {
 		
 		
 	
-		controlador.setIntervaloSimulacion(20);
+		controlador.setIntervaloSimulacion(10);
 		controlador.comenzarJuego();
 	}	
 
