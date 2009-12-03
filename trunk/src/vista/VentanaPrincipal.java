@@ -9,6 +9,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import modelo.Direccion;
+import modelo.EstrategiaIrALaDerecha;
+import modelo.EstrategiaIrALaIzquierda;
+import modelo.EstrategiaIrHaciaAbajo;
+import modelo.EstrategiaIrHaciaArriba;
 import modelo.Pacman;
 
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
@@ -38,16 +42,17 @@ public class VentanaPrincipal extends Frame {
 				switch(tecla)
 				{
 				case 38:
-					pacman.cambiarDireccion(Direccion.Arriba);
+					pacman.setEstrategia(new EstrategiaIrHaciaArriba(pacman));
+					
 					break;
 				case 40:
-					pacman.cambiarDireccion(Direccion.Abajo);
+					pacman.setEstrategia(new EstrategiaIrHaciaAbajo(pacman));					
 					break;
 				case 37:
-					pacman.cambiarDireccion(Direccion.Izquierda);
+					pacman.setEstrategia(new EstrategiaIrALaIzquierda(pacman));
 					break;
 				case 39:
-					pacman.cambiarDireccion(Direccion.Derecha);
+					pacman.setEstrategia(new EstrategiaIrALaDerecha(pacman));					
 					break;
 				}
 

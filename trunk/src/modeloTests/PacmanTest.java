@@ -2,9 +2,14 @@ package modeloTests;
 
 import junit.framework.TestCase;
 import modelo.Direccion;
+import modelo.EstrategiaIrALaIzquierda;
 import modelo.Juego;
 import modelo.Pacman;
 import modelo.Posicion;
+import modelo.EstrategiaIrALaDerecha;
+import modelo.EstrategiaIrALaIzquierda;
+import modelo.EstrategiaIrHaciaAbajo;
+import modelo.EstrategiaIrHaciaArriba;
 
 public class PacmanTest extends TestCase {
 	
@@ -23,14 +28,113 @@ public class PacmanTest extends TestCase {
 	}
 
 
-		public void testVivir() {
+		public void testVivirAvanzandoALaDerecha() {
 			unPacman.cambiarDireccion(Direccion.Derecha);
+			unPacman.setPosicion(new Posicion(328,376));
 			unPacman.vivir();
-			assertNotSame(unaPosicion.getX(),unPacman.getPosicion().getX());
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			Posicion posicionSiguiente=new Posicion(344,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.vivir();			
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
 
 		}
 
+
+		public void testVivirAvanzandoALaIzquierda() {
+			unPacman.cambiarDireccion(Direccion.Derecha);
+			unPacman.setPosicion(new Posicion(120,376));
+			unPacman.vivir();	
+			Posicion posicionSiguiente=new Posicion(121,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.setEstrategia(new EstrategiaIrALaIzquierda(unPacman));
+			unPacman.vivir();			
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			posicionSiguiente=new Posicion(125,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			posicionSiguiente=new Posicion(129,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();			
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			posicionSiguiente=new Posicion(134,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();			
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();			
+			unPacman.vivir();
+			posicionSiguiente=new Posicion(120,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();			
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();			
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			posicionSiguiente=new Posicion(104,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			unPacman.vivir();
+			posicionSiguiente=new Posicion(104,376);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
 		
+
+		}
+
 		/*prueba  como la cantidad de vidas se va  actualizando
 		 *  medida que pacman  va siendo  comido 
 		 */
@@ -53,27 +157,7 @@ public class PacmanTest extends TestCase {
 
 		}
 		
-		/*se prueba que al empezar el juego pacman puede ocupar
-		 * las posiciones de su izquierda y derecha */
-		public void testPosicionSiguienteOcupableOk(){
-			
-			assertTrue(unPacman.posicionSiguienteOcupable());
-			unPacman.cambiarDireccion(Direccion.Izquierda);
-			assertTrue(unPacman.posicionSiguienteOcupable());
-			
-		}
-		
-		/*prueba que el  metodo no hace lo que no tiene que hacer 
-		 * al empezar el juego le cambiamos  la direccion hacia 
-		 * arriba  encuentra una posicion no ocupable (pared)
-		 */
-		public void testPosicionSiguienteOcupableError(){
-			
-			unPacman.cambiarDireccion(Direccion.Arriba);
-			unPacman.vivir();
-			assertFalse(unPacman.posicionSiguienteOcupable());
-		}
-
+	
 		
 		public void testComer() {
 			
