@@ -53,12 +53,7 @@ public class Laberinto {
 		return true;
 	}
 
-	public Posicion getInterseccionMasCercana(Posicion posicionPacman,
-			Direccion direccion) {
-		return null;
-
-	}
-
+	
 	public Bloque getBloqueEnPosicion(Posicion posicion) {
 		return buscarBloque(aCoordenadasDeBloque(posicion));
 	}
@@ -76,12 +71,7 @@ public class Laberinto {
 		return posicionBloque;
 	}
 	
-	public Posicion centroDelBloque(Posicion posicion){
-		return new Posicion(
-				((int)posicion.getX()/TAMANO_DEL_BLOQUE)+TAMANO_DEL_BLOQUE/2,
-				((int)posicion.getY()/TAMANO_DEL_BLOQUE)+TAMANO_DEL_BLOQUE/2
-		);
-	}
+	
 	
 	public Posicion aCoordenadasReales(Posicion posicion){
 		return new Posicion(
@@ -90,7 +80,7 @@ public class Laberinto {
 				);
 	}
 
-	public Bloque buscarBloque(Posicion posicionBuscada) {
+	private Bloque buscarBloque(Posicion posicionBuscada) {
 		Bloque bloque;
 		for (int i = 0; i < this.bloques.size(); i++) {
 			bloque = bloques.get(i);
@@ -212,6 +202,10 @@ public class Laberinto {
 		
 	}
 	
+	/* Devuelve true si el proximo bloque en la direccion indicada es ocupable.
+	  
+	 */
+	
 	public boolean posicionSiguienteOcupable(Posicion posicionActual,Direccion direccion) {
 		Boolean esOcupable=false;
 		switch(direccion){
@@ -237,6 +231,12 @@ public class Laberinto {
 			break;
 		}
 		return esOcupable;
+	}
+
+	public Posicion getInterseccionMasCercana(Posicion posicionPacman,
+			Direccion direccionDePacman) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

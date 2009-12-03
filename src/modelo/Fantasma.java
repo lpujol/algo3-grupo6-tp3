@@ -29,13 +29,13 @@ public abstract class Fantasma extends Vivo {
 			entrarACasa();
 		}
 		else{
-		if (laberinto.cambioDeDireccionPermitido(this.posicion)){
-			this.moverse(this.estrategiaActual.getDestino());			
-		}
-		else {
-			mover();
-		}
-		if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
+			if (laberinto.cambioDeDireccionPermitido(this.posicion)){
+				this.moverse(this.estrategiaActual.getDestino());			
+			}
+			else {
+				mover();
+			}
+			if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
 				if(this.laberinto.getJuego().puntoDePoderActivo()){ 
 					this.comer();}
 				else{
@@ -44,6 +44,8 @@ public abstract class Fantasma extends Vivo {
 					
 		}				
 	}
+	
+	
 	
 	private void entrarACasa() {
 		int difX=laberinto.obtenerPosicionCasa().getX()-posicion.getX();
@@ -80,12 +82,14 @@ public abstract class Fantasma extends Vivo {
 		
 	}
 
+	
 	public Laberinto getLaberinto() {
 		return this.laberinto;
 	}
 	
 
-	/* Los fantasmas se mueven eligiendo el casillero que menor distancia tiene a su objetivo
+	/* Los fantasmas se mueven eligiendo el casillero ocupable que menor distancia 
+	 * tiene a su objetivo.
 	  
 	 */
 	
@@ -118,6 +122,10 @@ public abstract class Fantasma extends Vivo {
 				
 	}
 
+	/*Determina si es conveniente moverse a un casillero comparando distancias y verificando que es ocupable.
+	  
+	 */
+	
 	private boolean esAdecuadoMoverse(Posicion destino,
 			Posicion posicionPosible, double distanciaMinima) {
 		

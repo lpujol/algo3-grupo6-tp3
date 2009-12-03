@@ -26,7 +26,10 @@ public class PacmanTest extends TestCase {
 	        unPacman= unJuego.getLaberinto().getPacman();
 	        
 	}
-
+		/*
+		 *Prueba el avance de Pacman hacia la derecha hasta toparse con una pared. 
+		 * 
+		 * */
 
 		public void testVivirAvanzandoALaDerecha() {
 			unPacman.cambiarDireccion(Direccion.Derecha);
@@ -56,8 +59,13 @@ public class PacmanTest extends TestCase {
 
 		}
 
+		/*
+		 *Prueba el cambio de direccion del Pacman hacia la izquierda habiendo comenzado
+		 * moviendose a la derecha.   
+		 * 
+		 * */
 
-		public void testVivirAvanzandoALaIzquierda() {
+		public void testVivirCambioDireccionLaIzquierda() {
 			unPacman.cambiarDireccion(Direccion.Derecha);
 			unPacman.setPosicion(new Posicion(120,376));
 			unPacman.vivir();	

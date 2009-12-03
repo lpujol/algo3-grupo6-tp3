@@ -21,7 +21,7 @@ public class EstrategiaInki implements IEstrategia {
 		Fantasma cazador=null;
 		for(Fantasma f : fantasmas)
 		{
-			//horible esto, despues lo cambiamos
+			//Usa RTTI
 			if(f.getEstrategiaActual() instanceof EstrategiaPerseguidor)
 				cazador=f;
 		}

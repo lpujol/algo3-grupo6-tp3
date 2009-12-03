@@ -50,6 +50,11 @@ public class Pacman extends Vivo{
 		};
 	}
 
+	
+	/* El Pacman se mueve si el casillero siguiente es ocupable y come el 
+	 * bloque de dicha posicion.
+	  
+	 */
 	public void moverse(){		
 		if(this.laberinto.posicionSiguienteOcupable(this.posicion,this.direccion)){
 			mover();
@@ -61,7 +66,9 @@ public class Pacman extends Vivo{
 	
 
 
-
+	/* Informa al juego que pacman fue comido.
+	  
+	 */
 
 	public void comer() {
 		this.laberinto.getJuego().pacmanComido();
