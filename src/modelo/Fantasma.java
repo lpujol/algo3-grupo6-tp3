@@ -7,6 +7,7 @@ public abstract class Fantasma extends Vivo {
 
 	protected IEstrategia estrategiaNativa;
 	protected IEstrategia estrategiaActual;
+	private boolean muerto;
 
 		
 	public void setEstrategiaActual(IEstrategia unaEstrategia){
@@ -24,7 +25,10 @@ public abstract class Fantasma extends Vivo {
 	}
 	
 	public void vivir(){
-		
+		if(muerto&&estoyEnLaPuerta()){
+			entrarACasa();
+		}
+		else{
 		if (laberinto.cambioDeDireccionPermitido(this.posicion)){
 			this.moverse(this.estrategiaActual.getDestino());			
 		}
@@ -38,14 +42,39 @@ public abstract class Fantasma extends Vivo {
 					this.laberinto.getPacman().comer();
 				}
 					
-					
-	};
+		}				
+	}
 	
+	private void entrarACasa() {
+		int difX=laberinto.obtenerPosicionCasa().getX()-posicion.getX();
+		int difY=laberinto.obtenerPosicionCasa().getY()-posicion.getY();
+		if(difX>0)
+			posicion.avanzarHorizontal(velocidad);
+		if(difX<0)
+			posicion.retrocederHorizontal(velocidad);
+		if(difY>0)
+			posicion.avanzarVertical(velocidad);
+		if(difY<0)
+			posicion.retrocederVertical(velocidad);
+		if(difX==0&&difY==0){
+			muerto=false;
+			this.restablecerEstrategiaNativa();
+		}
+		
+	}
+
+	private boolean estoyEnLaPuerta() {
+		int d=(int)laberinto.distancia(posicion,laberinto.obtenerPosicionCasa());
+		if(d<=Laberinto.getTamanoDelBloque()*2) return true;
+		return false;
+	}
+
 	/* Le informa al juego que el fantasma fue comido.
 	  
 	 */
 	
 	public void comer(){
+		muerto=true;
 		Juego juegoActual=this.laberinto.getJuego();
 		juegoActual.fantasmaComido(this);
 		
@@ -94,6 +123,11 @@ public abstract class Fantasma extends Vivo {
 		
 		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable())&& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
 			
+		
+	}
+
+	public void setVelocidad(int i) {
+		this.velocidad=1;
 		
 	}
 	

@@ -102,6 +102,7 @@ public class Juego implements ObjetoVivo{
 	
 
 	public void efectoPuntoDePoderTerminado(){
+		this.puntoDePoderActivo=false;
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
 			if(!(fantasma.getEstrategiaActual() instanceof EstrategiaIrACasa))

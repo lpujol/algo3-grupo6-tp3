@@ -101,6 +101,7 @@ public class Programa {
 		
 		
 		juego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(200,56,juego.getLaberinto(),1));
+		juego.getLaberinto().getNivel().agregarFantasma(new FantasmaRojo(null,juego.getLaberinto(),1));
 		ArrayList<VistaFantasma> vistaFantasmas=new ArrayList<VistaFantasma>();
 		ArrayList<Fantasma> fantasmas=juego.getLaberinto().getFantasmas();
 		for(Fantasma f:fantasmas){
