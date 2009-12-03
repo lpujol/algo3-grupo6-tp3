@@ -28,16 +28,16 @@ public class EstrategiaEscapar implements IEstrategia {
 		{
 			//si el pacman esta arriba del fantasma
 			if(posicionPacman.getY()<fantasma.getPosicion().getY())
-				return esquinaInferiorDerecha();
+				return esquinaInferiorIzquierda();
 			else
-				return esquinaSuperiorDerecha();
+				return esquinaSuperiorIzquierda();
 		}
 		else
 		{
 			if(posicionPacman.getY()<fantasma.getPosicion().getY())
-				return esquinaInferiorIzquierda();
+				return esquinaInferiorDerecha();
 			else
-				return esquinaSuperiorIzquierda();
+				return esquinaSuperiorDerecha();
 			
 		
 		}
@@ -46,14 +46,14 @@ public class EstrategiaEscapar implements IEstrategia {
 
 	private Posicion esquinaInferiorIzquierda() {
 		//laberinto.getEsquinaInferiorIzquierda() ?
-		return new Posicion(30,2);
+		return new Posicion(1,30);
 	}
 
 	private Posicion esquinaSuperiorDerecha() {
 		// laberinto.getEsquinaSuperiorDerecha() ?
 		// el ancho del laberinto es 28
 		//corresponderia, laberinto.getAncho()
-		return new Posicion(27,2);
+		return new Posicion(27,1);
 	}
 
 	private Posicion esquinaSuperiorIzquierda() {

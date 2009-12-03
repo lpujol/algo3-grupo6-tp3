@@ -109,12 +109,22 @@ public class Laberinto {
 		int coordenadaYBloque2=bloque2.getPosicion().getY();
 		
 		return Math.hypot(coordenadaXBloque2-coordenadaXBloque1,coordenadaYBloque2 -coordenadaYBloque1);
-	};
+	}
+	
+	public double distancia(Posicion posicion1,Posicion posicion2){
+		int coordenadaXBloque1=posicion1.getX();
+		int coordenadaYBloque1=posicion1.getY();
+		int coordenadaXBloque2=posicion2.getX();
+		int coordenadaYBloque2=posicion2.getY();
+		
+		return Math.hypot(coordenadaXBloque2-coordenadaXBloque1,coordenadaYBloque2 -coordenadaYBloque1);
+	
+	}
 	
 	
 	
 	public Posicion getPosicionFantasma(Fantasma fantasma) {
-		return new Posicion(20,20);
+		return new Posicion(200,56);
 	}
 
 	public Posicion obtenerPosicionCasa() {
