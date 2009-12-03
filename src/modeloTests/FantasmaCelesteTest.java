@@ -27,13 +27,13 @@ public class FantasmaCelesteTest extends TestCase {
 		Fantasma miFantasma=new FantasmaCeleste(152,312,miLaberinto,4);
 		miLaberinto.getNivel().agregarFantasma(miFantasma);
 		miFantasma.vivir();				
-		Posicion posicionSiguiente=new Posicion(152,308);
+		Posicion posicionSiguiente=new Posicion(152,316);
 		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
 		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
 		miFantasma.vivir();
 		miFantasma.vivir();
 		miFantasma.vivir();
-		posicionSiguiente=new Posicion(152,296);
+		posicionSiguiente=new Posicion(152,328);
 		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
 		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
 		

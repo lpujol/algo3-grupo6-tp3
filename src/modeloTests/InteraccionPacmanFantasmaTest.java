@@ -23,6 +23,7 @@ public class InteraccionPacmanFantasmaTest extends TestCase {
 	
 	public void testPacmanComido(){
 		int vidas=pacman.getCantidadVidas();
+		
 		miFantasma.vivir();
 		miFantasma.vivir();
 		miFantasma.vivir();

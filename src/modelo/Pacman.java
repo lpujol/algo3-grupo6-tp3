@@ -5,13 +5,16 @@ import java.util.ArrayList;
 
 public class Pacman extends Vivo{
 	
+	
 	private int vidas;
-//	private IEstrategia estrategia;
+
+	private IEstrategiaPacman estrategia;
 	
 	public Pacman(Posicion posicion, Laberinto laberinto){
 		this.vidas=3;	
 		this.posicion=posicion;
 		this.laberinto=laberinto;
+		this.estrategia=new EstrategiaIrALaDerecha(this);
 		this.direccion=Direccion.Derecha;
 		
 	}
@@ -20,6 +23,7 @@ public class Pacman extends Vivo{
 		this.vidas=3;	
 		this.posicion=new Posicion(coordenadaX,coordenadaY);
 		this.laberinto=laberinto;
+		this.estrategia=new EstrategiaIrALaDerecha(this);
 		this.direccion=Direccion.Derecha;
 		this.velocidad=1;
 	}
@@ -31,9 +35,10 @@ public class Pacman extends Vivo{
 	}
 	
 	public void vivir(){
+		this.estrategia.cambiarDireccion();
 		moverse();
 		ArrayList<Fantasma> fantasmasEnElMismoBloque=this.laberinto.buscarFantasmasEn(posicion);
-		if (fantasmasEnElMismoBloque.isEmpty()==false)
+		if (fantasmasEnElMismoBloque.isEmpty()==false){
 			if(this.laberinto.getJuego().puntoDePoderActivo()){ 
 				for (int i = 0; i < fantasmasEnElMismoBloque.size(); i++) {
 					fantasmasEnElMismoBloque.get(i).comer();
@@ -42,10 +47,11 @@ public class Pacman extends Vivo{
 			else{
 				this.laberinto.getPacman().comer();
 			}
+		};
 	}
 
 	public void moverse(){		
-		if(posicionSiguienteOcupable()){
+		if(this.laberinto.posicionSiguienteOcupable(this.posicion,this.direccion)){
 			mover();
 			if(this.laberinto.getBloqueEnPosicion(posicion).comido()==false)
 				this.laberinto.getBloqueEnPosicion(posicion).comer();
@@ -53,32 +59,6 @@ public class Pacman extends Vivo{
 			
 	};
 	
-	public boolean posicionSiguienteOcupable() {
-		Boolean esOcupable=false;
-		switch(direccion){
-		case Arriba:{
-			Posicion posicionPosibleArriba=posicion.getPosicionSiguienteVertical(8);
-			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleArriba).esOcupablePorPacman());
-			};
-			break;
-		case Abajo:{
-			Posicion posicionPosibleAbajo=posicion.getPosicionAnteriorVertical(8);
-			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleAbajo).esOcupablePorPacman());
-			};
-			break;
-		case Derecha:{
-			Posicion posicionPosibleDerecha=posicion.getPosicionSiguienteHorizontal(8);
-			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleDerecha).esOcupablePorPacman());
-			};
-			break;
-		case Izquierda:{
-			Posicion posicionPosibleIzquierda=posicion.getPosicionAnteriorHorizontal(8);
-			esOcupable=(laberinto.getBloqueEnPosicion(posicionPosibleIzquierda).esOcupablePorPacman());
-			};
-			break;
-		}
-		return esOcupable;
-	}
 
 
 
@@ -95,6 +75,15 @@ public class Pacman extends Vivo{
 
 	public void setPosicion(Posicion posicionInicialPacman) {
 		this.posicion=posicionInicialPacman;
+		
+	}
+
+	public void setEstrategia(IEstrategiaPacman nuevaEstrategia) {
+			this.estrategia=nuevaEstrategia;
+	}
+
+	public Laberinto getLaberinto() {
+		return this.laberinto;
 		
 	};
 

@@ -190,4 +190,32 @@ public class Laberinto {
 		
 	}
 	
+	public boolean posicionSiguienteOcupable(Posicion posicionActual,Direccion direccion) {
+		Boolean esOcupable=false;
+		switch(direccion){
+		case Arriba:{
+			Posicion posicionPosibleArriba=posicionActual.getPosicionSiguienteVertical(TAMANO_DEL_BLOQUE/2+1);
+			esOcupable=(this.getBloqueEnPosicion(posicionPosibleArriba).esOcupablePorPacman());
+			};
+			break;
+		case Abajo:{
+			Posicion posicionPosibleAbajo=posicionActual.getPosicionAnteriorVertical(TAMANO_DEL_BLOQUE/2);
+			esOcupable=(this.getBloqueEnPosicion(posicionPosibleAbajo).esOcupablePorPacman());
+			};
+			break;
+		case Derecha:{
+			Posicion posicionPosibleDerecha=posicionActual.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE/2);
+			esOcupable=(this.getBloqueEnPosicion(posicionPosibleDerecha).esOcupablePorPacman());
+			};
+			break;
+		case Izquierda:{
+			Posicion posicionPosibleIzquierda=posicionActual.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE/2+1);
+			esOcupable=(this.getBloqueEnPosicion(posicionPosibleIzquierda).esOcupablePorPacman());
+			};
+			break;
+		}
+		return esOcupable;
+	}
+
+	
 }

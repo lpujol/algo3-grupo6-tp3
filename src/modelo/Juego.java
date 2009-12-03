@@ -87,14 +87,14 @@ public class Juego {
 
 
 	public void puntoComido(Punto punto) {
-		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();
+	/*	puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();
 		for(VistaPunto p:vistaPuntos)
 		{
 			if(p.getPosicionable()==punto)
 			{
 				p.setNombreArchivoImagen("negro.jpg");
 			}
-		}
+		}*/
 	}
 
 	public void bonusComido() {
