@@ -12,14 +12,17 @@ public class Laberinto {
 	private Pacman pacman;
 	private Nivel nivel;
 	private Juego juego;
+	private Posicion posicionCasa;
 
 	public Laberinto(Juego juego) {
 	
+		this.posicionCasa=new Posicion(1,1);
 		this.nivel = new Nivel("nivel.txt", juego, this);
 		this.pacman = nivel.getPacman();
 		this.bloques = this.nivel.getBloques();
 		this.juego = juego;
 		this.fantasmas=nivel.getFantasmas();
+		
 	
 	}
 
@@ -115,8 +118,7 @@ public class Laberinto {
 	}
 
 	public Posicion obtenerPosicionCasa() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Posicion(posicionCasa.getX(),posicionCasa.getY());
 	}
 
 	public boolean mismoBloque(Posicion posicion, Posicion posicion2) {
@@ -187,6 +189,16 @@ public class Laberinto {
 	public void puntoComido(Punto punto) {
 		this.nivel.puntoComido();
 		this.juego.puntoComido(punto);
+		
+	}
+
+	public void puntoDePoderComido(PuntoDePoder puntoDePoder) {
+		this.juego.puntoDePoderComido(puntoDePoder);
+		
+	}
+
+	public void setPosicionCasa(Posicion posicion) {
+		this.posicionCasa=posicion;
 		
 	}
 	

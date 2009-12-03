@@ -9,7 +9,7 @@ public class PuntoDePoder extends Comestible {
 	@Override
 	public void comer() {
 		this.comido = true;
-		this.laberinto.getJuego().puntoDePoderComido();
+		this.laberinto.puntoDePoderComido(this);
 	}
 
 	@Override
