@@ -68,19 +68,20 @@ public abstract class Fantasma extends Vivo {
 		Posicion posicionPosibleDerecha=laberinto.getPosicionBloqueSiguienteHorizontal(posicion);
 		Posicion posicionPosibleArriba=laberinto.getPosicionBloqueSiguienteVertical(posicion);
 		double distanciaMinima=1000;
-		if (esAdecuadoMoverse(destino, posicionPosibleArriba, distanciaMinima)){
+		int numeroDeOrdenDireccionInicial=this.direccion.ordinal();
+		if ((numeroDeOrdenDireccionInicial!=Direccion.Abajo.ordinal())&&(esAdecuadoMoverse(destino, posicionPosibleArriba, distanciaMinima))){
 			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleArriba),laberinto.getBloqueEnPosicion(destino));
 			direccion=Direccion.Arriba;
 		}
-		if (esAdecuadoMoverse(destino, posicionPosibleAbajo, distanciaMinima)){
+		if ((numeroDeOrdenDireccionInicial!=Direccion.Arriba.ordinal())&& esAdecuadoMoverse(destino, posicionPosibleAbajo, distanciaMinima)){
 			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleAbajo),laberinto.getBloqueEnPosicion(destino));
-			direccion=Direccion.Abajo;
+			direccion=Direccion.Abajo;			
 		}
-		if (esAdecuadoMoverse(destino, posicionPosibleDerecha, distanciaMinima)){
+		if ((numeroDeOrdenDireccionInicial!=Direccion.Izquierda.ordinal())&& esAdecuadoMoverse(destino, posicionPosibleDerecha, distanciaMinima)){
 			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleDerecha),laberinto.getBloqueEnPosicion(destino));
 			direccion=Direccion.Derecha;
 		}
-		if (esAdecuadoMoverse(destino, posicionPosibleIzquierda, distanciaMinima)){
+		if ((numeroDeOrdenDireccionInicial!=Direccion.Derecha.ordinal())&& esAdecuadoMoverse(destino, posicionPosibleIzquierda, distanciaMinima)){
 			distanciaMinima=laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosibleIzquierda),laberinto.getBloqueEnPosicion(destino));
 			direccion=Direccion.Izquierda;
 		}
