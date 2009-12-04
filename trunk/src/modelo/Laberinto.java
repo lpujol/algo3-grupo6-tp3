@@ -186,14 +186,14 @@ public class Laberinto {
 		return this.nivel;
 	}
 
-	public void puntoComido(Punto punto) {
+	public void puntoComido() {
 		this.nivel.puntoComido();
-		this.juego.puntoComido(punto);
+		this.juego.puntoComido();
 		
 	}
 
-	public void puntoDePoderComido(PuntoDePoder puntoDePoder) {
-		this.juego.puntoDePoderComido(puntoDePoder);
+	public void puntoDePoderComido() {
+		this.juego.puntoDePoderComido();
 		
 	}
 

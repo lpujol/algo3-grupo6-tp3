@@ -47,7 +47,7 @@ public class JuegoTest extends TestCase {
 	    */
 		public void testPuntoDePoderActivo() {
 			
-			unJuego.puntoDePoderComido(null);
+			unJuego.puntoDePoderComido();
 			assertTrue(unJuego.puntoDePoderActivo());
 		}
 

@@ -19,8 +19,6 @@ public class Juego implements ObjetoVivo{
 	private Laberinto laberinto;
 	private double puntosAcumulados;
 	private int cantidadVidas;
-	private ArrayList<VistaPunto> vistaPuntos;
-	private ArrayList<VistaPuntoPoder> vistaPuntosPoder;
 	private int contadorticks;
 
 	
@@ -31,8 +29,7 @@ public class Juego implements ObjetoVivo{
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
-		vistaPuntos=new ArrayList<VistaPunto>();
-		vistaPuntosPoder=new ArrayList<VistaPuntoPoder>();
+		
 	}	
 	
 	public void pasarNivel(){
@@ -77,13 +74,9 @@ public class Juego implements ObjetoVivo{
 	
 
 
-	public void puntoDePoderComido(PuntoDePoder punto) {
+	public void puntoDePoderComido() {
 		this.puntoDePoderActivo=true;
-		for(VistaPuntoPoder p:vistaPuntosPoder){
-			if(p.getPosicionable()==punto){
-				p.setNombreArchivoImagen("negro.jpg");
-			}
-		}
+		
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
 			fantasma.setEstrategiaActual(new EstrategiaEscapar(fantasma));
@@ -124,15 +117,8 @@ public class Juego implements ObjetoVivo{
 	}
 
 
-	public void puntoComido(Punto punto) {
+	public void puntoComido() {
 		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();
-		for(VistaPunto p:vistaPuntos)
-		{
-			if(p.getPosicionable()==punto)
-			{
-				p.setNombreArchivoImagen("negro.jpg");
-			}
-		}
 	}
 	
 
@@ -140,15 +126,8 @@ public class Juego implements ObjetoVivo{
 		puntosAcumulados=puntosAcumulados+VALOR_BONUS*laberinto.getNivel().getNumero();
 		
 	}
-
-	public void vistaPuntos(ArrayList<VistaPunto> vistaPuntos) {
-		this.vistaPuntos=vistaPuntos;
-	}
-
-	public void vistaPuntosPoder(ArrayList<VistaPuntoPoder> vistaPuntosPoder) {
-		this.vistaPuntosPoder=vistaPuntosPoder;
-		
-	}
+	
+	
 
 	@Override
 	public void vivir() {
