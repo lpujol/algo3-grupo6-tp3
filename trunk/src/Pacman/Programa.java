@@ -112,8 +112,8 @@ public class Programa {
 			controlador.agregarDibujable(vf);
 			controlador.agregarObjetoVivo(f);
 		}
-		VistaPacman pacman=new VistaPacman();
-		pacman.setPosicionable(juego.getLaberinto().getPacman());
+		VistaPacman pacman=new VistaPacman(juego.getLaberinto().getPacman());
+		//pacman.setPosicionable(juego.getLaberinto().getPacman());
 		controlador.agregarDibujable(pacman);
 		controlador.agregarObjetoVivo(juego.getLaberinto().getPacman());
 		
