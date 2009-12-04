@@ -33,7 +33,7 @@ public class InteraccionPacmanFantasmaTest extends TestCase {
 	public void testFantasmaComido(){
 		int vidas=pacman.getCantidadVidas();
 		IEstrategia estrategiaFantasma=miFantasma.getEstrategiaActual();
-		miLaberinto.getJuego().puntoDePoderComido(null);
+		miLaberinto.getJuego().puntoDePoderComido();
 		miFantasma.vivir();
 		miFantasma.vivir();
 		miFantasma.vivir();
