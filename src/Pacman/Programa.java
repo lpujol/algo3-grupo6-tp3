@@ -96,7 +96,7 @@ public class Programa {
 		ArrayList<VistaFantasma> vistaFantasmas=new ArrayList<VistaFantasma>();
 		ArrayList<Fantasma> fantasmas=juego.getLaberinto().getFantasmas();
 		for(Fantasma f:fantasmas){
-			VistaFantasma vf=new VistaFantasma();
+			VistaFantasma vf=new VistaFantasma(f);
 			vf.setColor(Color.cyan);
 			vf.setPosicionable(f);
 			vistaFantasmas.add(vf);

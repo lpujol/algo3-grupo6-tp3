@@ -101,6 +101,7 @@ public class Juego{
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
 			fantasma.setEstrategiaActual(new EstrategiaEscapar(fantasma));
+			fantasma.estaHuyendo();
 		}
 		
 		
@@ -122,6 +123,7 @@ public class Juego{
 		for(Fantasma fantasma:fantasmas){
 			if(!(fantasma.getEstrategiaActual() instanceof EstrategiaIrACasa))
 			fantasma.restablecerEstrategiaNativa();
+			fantasma.estaVivo();
 		}
 	}
 

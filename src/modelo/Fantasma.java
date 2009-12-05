@@ -7,7 +7,7 @@ public abstract class Fantasma extends Vivo {
 
 	protected IEstrategia estrategiaNativa;
 	protected IEstrategia estrategiaActual;
-	private boolean muerto;
+	private EstadoFantasma estado;
 
 		
 	public void setEstrategiaActual(IEstrategia unaEstrategia){
@@ -25,7 +25,7 @@ public abstract class Fantasma extends Vivo {
 	}
 	
 	public void vivir(){
-		if(muerto&&estoyEnLaPuerta()){
+		if(estado==EstadoFantasma.Muerto&&estoyEnLaPuerta()){
 			entrarACasa();
 		}
 		else{
@@ -59,7 +59,7 @@ public abstract class Fantasma extends Vivo {
 		if(difY<0)
 			posicion.retrocederVertical(velocidad);
 		if(difX==0&&difY==0){
-			muerto=false;
+			estado=EstadoFantasma.Muerto;
 			this.restablecerEstrategiaNativa();
 		}
 		
@@ -76,7 +76,7 @@ public abstract class Fantasma extends Vivo {
 	 */
 	
 	public void comer(){
-		muerto=true;
+		estado=EstadoFantasma.Muerto;
 		Juego juegoActual=this.laberinto.getJuego();
 		juegoActual.fantasmaComido(this);
 		
@@ -136,6 +136,19 @@ public abstract class Fantasma extends Vivo {
 
 	public void setVelocidad(int i) {
 		this.velocidad=1;
+		
+	}
+	
+	public EstadoFantasma getEstado(){
+		return this.estado;
+	}
+
+	public void estaHuyendo() {
+		estado=EstadoFantasma.Huyendo;
+	}
+
+	public void estaVivo() {
+		estado=EstadoFantasma.Vivo;
 		
 	}
 	
