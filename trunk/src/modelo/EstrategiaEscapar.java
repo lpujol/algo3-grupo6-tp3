@@ -46,14 +46,14 @@ public class EstrategiaEscapar implements IEstrategia {
 
 	private Posicion esquinaInferiorIzquierda() {
 		//laberinto.getEsquinaInferiorIzquierda() ?
-		return new Posicion(1,30);
+		return new Posicion(1,(laberinto.getAltoEnBloques()-1)*Laberinto.getTamanoDelBloque());
 	}
 
 	private Posicion esquinaSuperiorDerecha() {
 		// laberinto.getEsquinaSuperiorDerecha() ?
 		// el ancho del laberinto es 28
 		//corresponderia, laberinto.getAncho()
-		return new Posicion(27,1);
+		return new Posicion((laberinto.getAnchoEnBloques()-1)*Laberinto.getTamanoDelBloque(),1);
 	}
 
 	private Posicion esquinaSuperiorIzquierda() {
@@ -63,9 +63,7 @@ public class EstrategiaEscapar implements IEstrategia {
 
 	private Posicion esquinaInferiorDerecha() {
 		// laberinto.getEsquinaInferiorDerecha() ?
-		//28 ancho del laberinto
-		//31 alto del laberinto
-		return new Posicion(30,27);
+		return new Posicion((laberinto.getAnchoEnBloques()-1)*Laberinto.getTamanoDelBloque(),(laberinto.getAltoEnBloques()-1)*Laberinto.getTamanoDelBloque());
 
 	}
 
