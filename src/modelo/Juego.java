@@ -121,9 +121,10 @@ public class Juego{
 		this.puntoDePoderActivo=false;
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
-			if(!(fantasma.getEstrategiaActual() instanceof EstrategiaIrACasa))
+			if(fantasma.getEstado()!=EstadoFantasma.Muerto){
 			fantasma.restablecerEstrategiaNativa();
 			fantasma.estaVivo();
+			}
 		}
 	}
 

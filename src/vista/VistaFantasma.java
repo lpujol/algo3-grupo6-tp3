@@ -19,10 +19,17 @@ public class VistaFantasma extends Cuadrado {
 	}
 	
 	public void dibujar(SuperficieDeDibujo superfice){
-		if(fantasma.getEstado()==EstadoFantasma.Huyendo)
+		switch(fantasma.getEstado()){
+		case Huyendo:
 			this.setColor(Color.BLUE);
-		else
+			break;
+		case Vivo:	
 			this.setColor(Color.cyan);
+			break;
+		case Muerto:
+			this.setColor(Color.white);
+			break;
+		}
 		super.dibujar(superfice);
 	}
 
