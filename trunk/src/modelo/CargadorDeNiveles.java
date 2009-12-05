@@ -59,55 +59,71 @@ public class CargadorDeNiveles {
 
 	private void agregarObjeto(int caracter, Nivel nivel, Posicion posicion) {
 		switch (caracter) {
-			case 35:
+			case 35:// #
 				nivel.agregarBloque(new Pared(posicion, laberinto));
 				break;
-			case 40:
+			case 40:// (
 				nivel.agregarBloque(new ParedVerticalIzquierda(posicion, laberinto));
 				break;
-			case 41:
+			case 41:// )
 				nivel.agregarBloque(new ParedVerticalDerecha(posicion, laberinto));
 				break;
-			case 45:
+			case 45:// -
 				nivel.agregarBloque(new ParedHorizontalArriba(posicion, laberinto));
 				break;
-			case 95:
+			case 95:// _
 				nivel.agregarBloque(new ParedHorizontalAbajo(posicion, laberinto));
 				break;
-			case 106:
+			case 106:// j
 				nivel.agregarBloque(new ParedVerticalDerechaHorizontalAbajo(posicion, laberinto));
 				break;
-			case 76:
+			case 76:// L
 				nivel.agregarBloque(new ParedVerticalIzquierdaHorizontalAbajo(posicion, laberinto));
 				break;
-			case 114:
+			case 114:// r
 				nivel.agregarBloque(new ParedVerticalIzquierdaHorizontalArriba(posicion, laberinto));
 				break;
-			case 113:
+			case 113:// q
 				nivel.agregarBloque(new ParedVerticalDerechaHorizontalArriba(posicion, laberinto));
 				break;
-			case 111:
+			case 111:// o
 				nivel.agregarBloque(new Punto(posicion, laberinto));
 				nivel.sumarPuntos();
 				break;
-			case 112:
+			case 112:// p
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
 				nivel.setPosicionInicialPacman(posicion);
 				break;
-			case 79:
+			case 79:// O
 				nivel.agregarBloque(new PuntoDePoder(posicion, laberinto));
 				break;
-			case 46:
+			case 46:// .
 				nivel.agregarBloque(new Puerta(posicion, laberinto));
 				break;
-			case 32:
-				// Es un espacio vacio pero por ahora hago esto
+			case 32://  " "
 				nivel.agregarBloque(new EspacioVacio(posicion, laberinto));
 				break;
-			case 67:
+			case 67:// C
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
 				laberinto.setPosicionCasa(posicion);
+				break;
 				//en Texto hay 1 2 3 4
+			case 49: //1
+				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				laberinto.setPosicionFantasmaInicial(1,posicion);				
+				break;
+			case 50: //2
+				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				laberinto.setPosicionFantasmaInicial(2,posicion);				
+				break;
+			case 51: //3
+				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				laberinto.setPosicionFantasmaInicial(3,posicion);				
+				break;
+			case 52: //4
+				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				laberinto.setPosicionFantasmaInicial(4,posicion);				
+				break;
 			default:
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
 		}		

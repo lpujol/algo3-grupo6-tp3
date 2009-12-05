@@ -1,5 +1,6 @@
 package vista;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Event;
 import java.awt.Frame;
@@ -24,14 +25,16 @@ public class VentanaPrincipal extends Frame {
 	public VentanaPrincipal(ControladorJuego unControladorJuego,final Pacman pacman) {
 		this.controladorJuego = unControladorJuego;
 		this.setTitle("Pacman");
-		this.setSize(470, 545);
+		this.setSize(470, 590);
+		
 		this.setResizable(false);
-		panel = new Panel(448,496,controladorJuego);
-		this.add(panel);
+		panel = new Panel(448,536,controladorJuego);
+		this.add(panel,BorderLayout.CENTER);
 		
-		this.setBackground(Color.green);
-		panel.setBackground(Color.gray);
+		this.setBackground(Color.black);
+		panel.setBackground(Color.black);
 		
+				
 		this.addKeyListener(new KeyListener(){
 
 			@Override

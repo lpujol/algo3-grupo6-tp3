@@ -7,7 +7,7 @@ public class FantasmaRosa extends Fantasma {
 		this.laberinto=laberinto;
 		this.estrategiaActual=new EstrategiaPinky(this);
 		this.estrategiaNativa=new EstrategiaPinky(this);
-		this.posicion=this.laberinto.getPosicionFantasma(this);
+		this.posicion=this.laberinto.getPosicionFantasma(3);
 		this.velocidad=velocidad;
 	}
 

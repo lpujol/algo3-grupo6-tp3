@@ -15,6 +15,7 @@ public class Nivel {
 	private boolean finNivel;
 	
 	
+	
 	public Nivel(String rutaNivel, Juego juego, Laberinto laberinto) {
 		this.cargadorDeNiveles = new CargadorDeNiveles(juego, laberinto);
 		bloques = new ArrayList<Bloque>();
@@ -86,7 +87,9 @@ public class Nivel {
 
 	public boolean isFinNivel() {
 		return finNivel;
-	}	
+	}
+
+
 	
 
 }
