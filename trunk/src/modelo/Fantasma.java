@@ -7,7 +7,7 @@ public abstract class Fantasma extends Vivo {
 
 	protected IEstrategia estrategiaNativa;
 	protected IEstrategia estrategiaActual;
-	private EstadoFantasma estado;
+	private EstadoFantasma estado=EstadoFantasma.Vivo;
 
 		
 	public void setEstrategiaActual(IEstrategia unaEstrategia){
@@ -59,7 +59,7 @@ public abstract class Fantasma extends Vivo {
 		if(difY<0)
 			posicion.retrocederVertical(velocidad);
 		if(difX==0&&difY==0){
-			estado=EstadoFantasma.Muerto;
+			estado=EstadoFantasma.Vivo;
 			this.restablecerEstrategiaNativa();
 		}
 		
