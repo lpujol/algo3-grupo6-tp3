@@ -108,6 +108,9 @@ public class Programa {
 		controlador.agregarDibujable(pacman);
 		controlador.agregarObjetoVivo(juego.getLaberinto().getPacman());
 		
+		EstadoJuego estadoJuego=new EstadoJuego(juego);
+		VistaEstadoJuego vistaEstadoJuego=new VistaEstadoJuego(estadoJuego);
+		controlador.agregarDibujable(vistaEstadoJuego);
 		
 	
 		controlador.setIntervaloSimulacion(10);

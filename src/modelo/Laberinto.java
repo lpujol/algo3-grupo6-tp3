@@ -13,6 +13,7 @@ public class Laberinto {
 	private Nivel nivel;
 	private Juego juego;
 	private Posicion posicionCasa;
+	private ArrayList<Posicion> posicionFantasma;
 
 	public Laberinto(Juego juego) {
 	
@@ -22,6 +23,7 @@ public class Laberinto {
 		this.bloques = this.nivel.getBloques();
 		this.juego = juego;
 		this.fantasmas=nivel.getFantasmas();
+		posicionFantasma=new ArrayList<Posicion>();
 		
 	
 	}
@@ -113,8 +115,11 @@ public class Laberinto {
 	
 	
 	
-	public Posicion getPosicionFantasma(Fantasma fantasma) {
-		return new Posicion(200,56);
+	public Posicion getPosicionFantasma(int n) {
+		if(posicionFantasma.size()<n)
+			return new Posicion(this.posicionCasa.getX(),this.posicionCasa.getY());
+		else
+		 return new Posicion(this.posicionFantasma.get(n).getX(),this.posicionFantasma.get(n).getY());
 	}
 
 	public Posicion obtenerPosicionCasa() {
@@ -237,6 +242,12 @@ public class Laberinto {
 			Direccion direccionDePacman) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public void setPosicionFantasmaInicial(int n,Posicion posicion) {
+		if(this.posicionFantasma==null) posicionFantasma=new ArrayList<Posicion>();
+		this.posicionFantasma.add(n-1, posicion);
+		
 	}
 
 	

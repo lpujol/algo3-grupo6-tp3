@@ -77,6 +77,7 @@ public abstract class Fantasma extends Vivo {
 	
 	public void comer(){
 		estado=EstadoFantasma.Muerto;
+		velocidad=2;
 		Juego juegoActual=this.laberinto.getJuego();
 		juegoActual.fantasmaComido(this);
 		
