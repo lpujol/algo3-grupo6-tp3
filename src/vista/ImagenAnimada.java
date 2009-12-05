@@ -26,7 +26,10 @@ public class ImagenAnimada implements Dibujable {
 		this.delay=n;
 	}
 	
-	public void add(Imagen img){
+	public void add(String path){
+		Imagen img=new Imagen();
+		img.setNombreArchivoImagen(path);
+		img.setPosicionable(posicionable);		
 		imagenes.add(img);
 	}
 	

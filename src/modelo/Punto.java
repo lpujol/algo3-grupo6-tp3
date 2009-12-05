@@ -9,7 +9,7 @@ public class Punto extends Comestible {
 	public Punto(Posicion posicion, Laberinto laberinto) {
 		super(posicion, laberinto);
 		//agregadoParaAudio
-		audioActivo=true;
+		//audioActivo=true;
 		//----
 	}
 
@@ -17,15 +17,15 @@ public class Punto extends Comestible {
 	public void comer() {
 		
 		//agregadoAudio
-		if (audioActivo){
+		/*if (audioActivo){
 		 		audio = new Audio("comePunto.wav");
 		 		audio.play(false);
-    	}
+    	}*/
 		//----
 		
 		
 		this.comido = true;
-		this.laberinto.puntoComido(this);
+		this.laberinto.puntoComido();
 	}
 
 	@Override
