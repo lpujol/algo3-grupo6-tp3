@@ -30,25 +30,15 @@ public class Programa {
 				vistaBloques.add(vistaB);
 				controlador.agregarDibujable(vistaB);
 			}
-			if (b instanceof ParedVerticalIzquierda) {
-				VistaParedVerticalIzquierda vistaPVI = new VistaParedVerticalIzquierda();
+			if (b instanceof ParedVertical) {
+				VistaParedVertical vistaPVI = new VistaParedVertical();
 				vistaPVI.setPosicionable(b);
 				controlador.agregarDibujable(vistaPVI);
 			}
-			if (b instanceof ParedVerticalDerecha) {
-				VistaParedVerticalDerecha vistaPVD = new VistaParedVerticalDerecha();
-				vistaPVD.setPosicionable(b);
-				controlador.agregarDibujable(vistaPVD);
-			}
-			if (b instanceof ParedHorizontalArriba) {
-				VistaParedHorizontalArriba vistaPHArriba = new VistaParedHorizontalArriba();
+			if (b instanceof ParedHorizontal) {
+				VistaParedHorizontal vistaPHArriba = new VistaParedHorizontal();
 				vistaPHArriba.setPosicionable(b);
 				controlador.agregarDibujable(vistaPHArriba);
-			}
-			if (b instanceof ParedHorizontalAbajo) {
-				VistaParedHorizontalAbajo vistaPHAbajo = new VistaParedHorizontalAbajo();
-				vistaPHAbajo.setPosicionable(b);
-				controlador.agregarDibujable(vistaPHAbajo);
 			}
 			if (b instanceof ParedVerticalDerechaHorizontalArriba) {
 				VistaParedVerticalDerechaHorizontalArriba vistaPVDHA = new VistaParedVerticalDerechaHorizontalArriba();

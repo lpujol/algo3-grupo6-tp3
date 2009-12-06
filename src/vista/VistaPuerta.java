@@ -1,11 +1,11 @@
 package vista;
 
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
+import titiriteroModificado.Imagen;
 
 public class VistaPuerta extends Imagen {
 	
 	public VistaPuerta(){
-		this.setNombreArchivoImagen("puerta.jpg");
+		this.setNombreArchivoImagen("puerta.gif");
 	}
 
 }

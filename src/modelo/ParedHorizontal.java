@@ -1,8 +1,8 @@
 package modelo;
 
-public class ParedVerticalIzquierda extends NoComestible {
+public class ParedHorizontal extends NoComestible {
 
-	public ParedVerticalIzquierda(Posicion posicion,Laberinto laberinto) {
+	public ParedHorizontal(Posicion posicion,Laberinto laberinto) {
 		super(posicion, laberinto);
 	}
 

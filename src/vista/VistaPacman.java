@@ -1,24 +1,10 @@
 package vista;
 
-import java.awt.Color;
-
-import modelo.Laberinto;
 import modelo.Pacman;
 
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.Circulo;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
-/*
-public class VistaPacman extends Circulo{
-	
-	public VistaPacman(){
-		super(Laberinto.getTamanoDelBloque());
-		this.setColor(Color.yellow);
-	}
-
-}*/
 
 public class VistaPacman implements Dibujable{
 	ImagenAnimada derecha;
@@ -30,20 +16,20 @@ public class VistaPacman implements Dibujable{
 	public VistaPacman(Pacman pos){
 		this.pacman=pos;
 		derecha=new ImagenAnimada(pos);
-		derecha.add("/vista/pacmanFrame1.jpg");
-		derecha.add("/vista/pacmanFrame2.jpg");
+		derecha.add("/vista/pacmanFrame1.png");
+		derecha.add("/vista/pacmanFrame2.png");
 		derecha.setDelay(10);
 		izquierda=new ImagenAnimada(pos);
-		izquierda.add("/vista/pacmanFrame1.jpg");
-		izquierda.add("/vista/pacmanFrame2Izq.jpg");
+		izquierda.add("/vista/pacmanFrame1.png");
+		izquierda.add("/vista/pacmanFrame2Izq.png");
 		izquierda.setDelay(10);
 		arriba=new ImagenAnimada(pos);
-		arriba.add("/vista/pacmanFrame1.jpg");
-		arriba.add("/vista/pacmanFrame2Arriba.jpg");
+		arriba.add("/vista/pacmanFrame1.png");
+		arriba.add("/vista/pacmanFrame2Ar.png");
 		arriba.setDelay(10);
 		abajo=new ImagenAnimada(pos);
-		abajo.add("/vista/pacmanFrame1.jpg");
-		abajo.add("/vista/pacmanFrame2Abajo.jpg");
+		abajo.add("/vista/pacmanFrame1.png");
+		abajo.add("/vista/pacmanFrame2Ab.png");
 		abajo.setDelay(10);
 	}
 	@Override

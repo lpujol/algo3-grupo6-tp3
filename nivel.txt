@@ -1,33 +1,33 @@
 28
 31
-r____________qr____________q
-)oooooooooooo()oooooooooooo(
-)or--qor---qo()or---qor--qo(
-)O(  )o(   )o()o(   )o(  )O(
-)oL__joL___joLjoL___joL__jo(
-)oooooooooooooooooooooooooo(
-)or--qorqor------qorqor--qo(
-)oL__jo()oL__qr__jo()oL__jo(
-)oooooo()oooo()oooo()oooooo(
-L----qo(L--q () r--j)or----j
-____q)o(r__j Lj L__q)o(r____
-    ()o()    1     ()o()   
-----j)o() r--..--q ()o(L----
-_____)oLj (  C   ) Ljo(_____
-     )o   ( 2 34 )   o(    
------)orq (      ) rqo(-----
-____q)o() L______j ()o(r____
-    ()o()          ()o()   
-----j)o() r------q ()o(L----
-r____joLj L__qr__j LjoL____q
-)oooooooooooo()oooooooooooo(
-)or--qor---qo()or---qor--qo(
-)oL_q)oL___joLjoL___jo(r_jo(
-)Ooo()ooooooop ooooooo()ooO(
-L-qo()orqor------qorqo()or-j
-r_joLjo()oL__qr__jo()oLjoL_q
-)oooooo()oooo()oooo()oooooo(
-)or----jL--qo()or--jL----qo(
-)oL________joLjoL________jo(
-)oooooooooooooooooooooooooo(
+r------------qr------------q
+|oooooooooooo||oooooooooooo|
+|or--qor---qo||or---qor--qo|
+|O|  |o|   |o||o|   |o|  |O|
+|oL--joL---joLjoL---joL--jo|
+|oooooooooooooooooooooooooo|
+|or--qorqor------qorqor--qo|
+|oL--jo||oL--qr--jo||oL--jo|
+|oooooo||oooo||oooo||oooooo|
+L----qo|L--q || r--j|or----j
+----q|o|r--j Lj L--q|o|r----
+    ||o||    1     ||o||   
+----j|o|| r--..--q ||o|L----
+-----|oLj |  C   | Ljo|-----
+     |o   | 2 34 |   o|    
+-----|orq |      | rqo|-----
+----q|o|| L------j ||o|r----
+    ||o||          ||o||   
+----j|o|| r------q ||o|L----
+r----joLj L--qr--j LjoL----q
+|oooooooooooo||oooooooooooo|
+|or--qor---qo||or---qor--qo|
+|oL-q|oL---joLjoL---jo|r-jo|
+|Ooo||ooooooop ooooooo||ooO|
+L-qo||orqor------qorqo||or-j
+r-joLjo||oL--qr--jo||oLjoL-q
+|oooooo||oooo||oooo||oooooo|
+|or----jL--qo||or--jL----qo|
+|oL--------joLjoL--------jo|
+|oooooooooooooooooooooooooo|
 L--------------------------j
