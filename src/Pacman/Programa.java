@@ -31,14 +31,14 @@ public class Programa {
 				controlador.agregarDibujable(vistaB);
 			}
 			if (b instanceof ParedVertical) {
-				VistaParedVertical vistaPVI = new VistaParedVertical();
-				vistaPVI.setPosicionable(b);
-				controlador.agregarDibujable(vistaPVI);
+				VistaParedVertical vistaPV = new VistaParedVertical();
+				vistaPV.setPosicionable(b);
+				controlador.agregarDibujable(vistaPV);
 			}
 			if (b instanceof ParedHorizontal) {
-				VistaParedHorizontal vistaPHArriba = new VistaParedHorizontal();
-				vistaPHArriba.setPosicionable(b);
-				controlador.agregarDibujable(vistaPHArriba);
+				VistaParedHorizontal vistaPH = new VistaParedHorizontal();
+				vistaPH.setPosicionable(b);
+				controlador.agregarDibujable(vistaPH);
 			}
 			if (b instanceof ParedVerticalDerechaHorizontalArriba) {
 				VistaParedVerticalDerechaHorizontalArriba vistaPVDHA = new VistaParedVerticalDerechaHorizontalArriba();
@@ -87,7 +87,7 @@ public class Programa {
 		ArrayList<Fantasma> fantasmas=juego.getLaberinto().getFantasmas();
 		for(Fantasma f:fantasmas){
 			VistaFantasma vf=new VistaFantasma(f);
-			vf.setColor(Color.cyan);
+			//vf.setColor(Color.cyan);
 			vf.setPosicionable(f);
 			vistaFantasmas.add(vf);
 			controlador.agregarDibujable(vf);
