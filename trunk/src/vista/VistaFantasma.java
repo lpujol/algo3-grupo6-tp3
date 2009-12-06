@@ -3,6 +3,10 @@ package vista;
 import titiriteroModificado.Imagen;
 
 import modelo.Fantasma;
+import modelo.FantasmaCeleste;
+import modelo.FantasmaRojo;
+import modelo.FantasmaNaranja;
+import modelo.FantasmaRosa;
 import modelo.Pacman;
 
 import ar.uba.fi.algo3.titiritero.Dibujable;
@@ -16,40 +20,67 @@ public class VistaFantasma implements Dibujable {
 	private Imagen arriba;
 	private Imagen abajo;
 	private Imagen huyendo;
-	private Imagen muerto;
+	private Imagen muertoDer;
+	private Imagen muertoIzq;
+	private Imagen muertoArr;
+	private Imagen muertoAba;
 	Fantasma fantasma;
 	
 	public VistaFantasma(Fantasma fantasma){
 		this.fantasma = fantasma;
 		this.derecha = new Imagen();
 		this.derecha.setPosicionable(fantasma);
-		// En algun momento hay que hacer que detecte el color del fantasma
-		this.derecha.setNombreArchivoImagen("/vista/fcDerecha.png");
-		this.izquierda = new Imagen();
-		this.izquierda.setPosicionable(fantasma);
-		this.izquierda.setNombreArchivoImagen("/vista/fcIzquierda.png");
-		this.arriba = new Imagen();
-		this.arriba.setPosicionable(fantasma);
-		this.arriba.setNombreArchivoImagen("/vista/fcArriba.png");
-		this.abajo = new Imagen();
-		this.abajo.setPosicionable(fantasma);
-		this.abajo.setNombreArchivoImagen("/vista/fcAbajo.png");
-		this.huyendo = new Imagen();
-		this.huyendo.setPosicionable(fantasma);
-		this.huyendo.setNombreArchivoImagen("/vista/fcHuyendo.png");
-		this.muerto = new Imagen();
-		this.muerto.setPosicionable(fantasma);
-		this.muerto.setNombreArchivoImagen("/vista/fcMuerto.png");
+		// Feo pero necesario
+		if (fantasma instanceof FantasmaCeleste) {
+			cargarImagenes("celeste");
+		}
+		if (fantasma instanceof FantasmaRojo) {
+			cargarImagenes("rojo");
+		}
+		if (fantasma instanceof FantasmaNaranja) {
+			cargarImagenes("naranja");
+		}
+		if (fantasma instanceof FantasmaRosa) {
+			cargarImagenes("rosa");
+		}
+		
 	}
 	
+	private void cargarImagenes(String tipoDeFantasma) {
+		this.derecha.setNombreArchivoImagen("/vista/fant_"+tipoDeFantasma+"_der_24.png");
+		this.izquierda = new Imagen();
+		this.izquierda.setPosicionable(fantasma);
+		this.izquierda.setNombreArchivoImagen("/vista/fant_"+tipoDeFantasma+"_izq_24.png");
+		this.arriba = new Imagen();
+		this.arriba.setPosicionable(fantasma);
+		this.arriba.setNombreArchivoImagen("/vista/fant_"+tipoDeFantasma+"_arr_24.png");
+		this.abajo = new Imagen();
+		this.abajo.setPosicionable(fantasma);
+		this.abajo.setNombreArchivoImagen("/vista/fant_"+tipoDeFantasma+"_aba_24.png");
+		this.huyendo = new Imagen();
+		this.huyendo.setPosicionable(fantasma);
+		this.huyendo.setNombreArchivoImagen("/vista/fant_huyendo_24.png");
+		this.muertoDer = new Imagen();
+		this.muertoDer.setPosicionable(fantasma);
+		this.muertoDer.setNombreArchivoImagen("/vista/fant_muerto_der_24.png");
+		this.muertoIzq = new Imagen();
+		this.muertoIzq.setPosicionable(fantasma);
+		this.muertoIzq.setNombreArchivoImagen("/vista/fant_muerto_izq_24.png");
+		this.muertoArr = new Imagen();
+		this.muertoArr.setPosicionable(fantasma);
+		this.muertoArr.setNombreArchivoImagen("/vista/fant_muerto_arr_24.png");
+		this.muertoAba = new Imagen();
+		this.muertoAba.setPosicionable(fantasma);
+		this.muertoAba.setNombreArchivoImagen("/vista/fant_muerto_aba_24.png");
+	}
+
+
 	public void dibujar(SuperficieDeDibujo superficie){
 		switch(fantasma.getEstado()){
 		case Huyendo:
 			this.huyendo.dibujar(superficie);
-//			this.setColor(Color.BLUE);
 			break;
 		case Vivo:	
-//			this.setColor(Color.cyan);
 			switch (this.fantasma.getDireccion()) {
 			case Derecha:
 				derecha.dibujar(superficie);
@@ -66,8 +97,20 @@ public class VistaFantasma implements Dibujable {
 			}
 			break;
 		case Muerto:
-			/*this.setColor(Color.white);*/
-			this.muerto.dibujar(superficie);
+			switch (this.fantasma.getDireccion()) {
+			case Derecha:
+				muertoDer.dibujar(superficie);
+				break;
+			case Izquierda:
+				muertoIzq.dibujar(superficie);
+				break;
+			case Arriba:
+				muertoArr.dibujar(superficie);
+				break;
+			case Abajo:
+				muertoAba.dibujar(superficie);
+				break;
+			}
 			break;
 		}
 	}

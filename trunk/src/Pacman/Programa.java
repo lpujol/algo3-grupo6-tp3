@@ -103,7 +103,7 @@ public class Programa {
 		controlador.agregarDibujable(vistaEstadoJuego);
 		
 	
-		controlador.setIntervaloSimulacion(10);
+		controlador.setIntervaloSimulacion(3);
 		controlador.comenzarJuego();
 	}	
 
