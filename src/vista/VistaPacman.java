@@ -16,20 +16,20 @@ public class VistaPacman implements Dibujable{
 	public VistaPacman(Pacman pos){
 		this.pacman=pos;
 		derecha=new ImagenAnimada(pos);
-		derecha.add("/vista/pacmanFrame1.png");
-		derecha.add("/vista/pacmanFrame2.png");
+		derecha.add("/vista/pacmanFrame1_24.png");
+		derecha.add("/vista/pacmanFrame2_24.png");
 		derecha.setDelay(10);
 		izquierda=new ImagenAnimada(pos);
-		izquierda.add("/vista/pacmanFrame1.png");
-		izquierda.add("/vista/pacmanFrame2Izq.png");
+		izquierda.add("/vista/pacmanFrame1_24.png");
+		izquierda.add("/vista/pacmanFrame2Izq_24.png");
 		izquierda.setDelay(10);
 		arriba=new ImagenAnimada(pos);
-		arriba.add("/vista/pacmanFrame1.png");
-		arriba.add("/vista/pacmanFrame2Ar.png");
+		arriba.add("/vista/pacmanFrame1_24.png");
+		arriba.add("/vista/pacmanFrame2Arriba_24.png");
 		arriba.setDelay(10);
 		abajo=new ImagenAnimada(pos);
-		abajo.add("/vista/pacmanFrame1.png");
-		abajo.add("/vista/pacmanFrame2Ab.png");
+		abajo.add("/vista/pacmanFrame1_24.png");
+		abajo.add("/vista/pacmanFrame2Abajo_24.png");
 		abajo.setDelay(10);
 	}
 	@Override

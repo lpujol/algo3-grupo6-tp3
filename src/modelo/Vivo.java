@@ -79,14 +79,18 @@ public abstract class Vivo implements Posicionable,ObjetoVivo {
 	
 	@Override
 	public int getX() {
-		return this.posicion.getX();
+		// Para centrar las imagenes mas grandes que los casilleros
+		// Los objetos son 50% mas grandes que los casilleros
+		int x = this.posicion.getX();
+		return x-Laberinto.getTamanoDelBloque()/4;
 	}
 
 	@Override
 	public int getY() {
-		return this.posicion.getY();
+		// Para centrar las imagenes mas grandes que los casilleros
+		// Los objetos son 50% mas grandes que los casilleros
+		int y = this.posicion.getY();
+		return y-Laberinto.getTamanoDelBloque()/4;
 	}
-				
-	
 
 }
