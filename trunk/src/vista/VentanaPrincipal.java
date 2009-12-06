@@ -9,7 +9,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import modelo.Direccion;
 import modelo.EstrategiaIrALaDerecha;
 import modelo.EstrategiaIrALaIzquierda;
 import modelo.EstrategiaIrHaciaAbajo;
@@ -18,7 +17,7 @@ import modelo.Pacman;
 
 import ar.uba.fi.algo3.titiritero.ControladorJuego;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.Panel;
+import titiriteroModificado.Panel;
 
 public class VentanaPrincipal extends Frame {
 
