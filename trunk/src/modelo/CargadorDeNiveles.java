@@ -62,17 +62,14 @@ public class CargadorDeNiveles {
 			case 35:// #
 				nivel.agregarBloque(new Pared(posicion, laberinto));
 				break;
-			case 40:// (
-				nivel.agregarBloque(new ParedVerticalIzquierda(posicion, laberinto));
+			case 124:// |
+				nivel.agregarBloque(new ParedVertical(posicion, laberinto));
 				break;
-			case 41:// )
+			/*case 41:// )
 				nivel.agregarBloque(new ParedVerticalDerecha(posicion, laberinto));
-				break;
+				break;*/
 			case 45:// -
-				nivel.agregarBloque(new ParedHorizontalArriba(posicion, laberinto));
-				break;
-			case 95:// _
-				nivel.agregarBloque(new ParedHorizontalAbajo(posicion, laberinto));
+				nivel.agregarBloque(new ParedHorizontal(posicion, laberinto));
 				break;
 			case 106:// j
 				nivel.agregarBloque(new ParedVerticalDerechaHorizontalAbajo(posicion, laberinto));

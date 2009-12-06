@@ -5,7 +5,7 @@ import modelo.PuntoDePoder;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
+import titiriteroModificado.Imagen;
 
 public class VistaPuntoPoder implements Dibujable {
 	Imagen vivo;
@@ -14,7 +14,7 @@ public class VistaPuntoPoder implements Dibujable {
 	public VistaPuntoPoder(PuntoDePoder punto) {
 		this.punto=punto;
 		vivo=new Imagen();
-		vivo.setNombreArchivoImagen("/vista/puntoPoder.jpg");
+		vivo.setNombreArchivoImagen("/vista/puntoPoder.gif");
 		vivo.setPosicionable(punto);
 		comido=new Imagen();
 		comido.setNombreArchivoImagen("/vista/negro.jpg");

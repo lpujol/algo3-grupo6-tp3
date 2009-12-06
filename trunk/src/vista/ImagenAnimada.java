@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.Posicionable;
 import ar.uba.fi.algo3.titiritero.SuperficieDeDibujo;
-import ar.uba.fi.algo3.titiritero.vista.Imagen;
+/*import ar.uba.fi.algo3.titiritero.vista.Imagen;*/
+import titiriteroModificado.Imagen;
 
 public class ImagenAnimada implements Dibujable {
 
