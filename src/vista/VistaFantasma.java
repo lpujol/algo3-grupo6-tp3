@@ -31,7 +31,7 @@ public class VistaFantasma implements Dibujable {
 		this.derecha = new Imagen();
 		this.derecha.setPosicionable(fantasma);
 		// Feo pero necesario
-		if (fantasma instanceof FantasmaCeleste) {
+		/*if (fantasma instanceof FantasmaCeleste) {
 			cargarImagenes("celeste");
 		}
 		if (fantasma instanceof FantasmaRojo) {
@@ -42,11 +42,11 @@ public class VistaFantasma implements Dibujable {
 		}
 		if (fantasma instanceof FantasmaRosa) {
 			cargarImagenes("rosa");
-		}
+		}*/
 		
 	}
 	
-	private void cargarImagenes(String tipoDeFantasma) {
+	protected void cargarImagenes(String tipoDeFantasma) {
 		this.derecha.setNombreArchivoImagen("/vista/fant_"+tipoDeFantasma+"_der_24.png");
 		this.izquierda = new Imagen();
 		this.izquierda.setPosicionable(fantasma);

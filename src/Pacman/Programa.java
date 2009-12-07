@@ -20,14 +20,12 @@ public class Programa {
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
 		
-		ArrayList<VistaBloque> vistaBloques=new ArrayList<VistaBloque>();
 		ArrayList<Bloque> bloques=juego.getLaberinto().getBloques();
 		for(Bloque b:bloques)
 		{
 			if(b instanceof Pared) {
 				VistaBloque vistaB=new VistaBloque();
 				vistaB.setPosicionable(b);
-				vistaBloques.add(vistaB);
 				controlador.agregarDibujable(vistaB);
 			}
 			if (b instanceof ParedVertical) {
@@ -80,9 +78,31 @@ public class Programa {
 			}
 		}
 		
+		FantasmaCeleste fantasmaCeleste=new FantasmaCeleste(200,56,juego.getLaberinto(),1);
+		juego.getLaberinto().getNivel().agregarFantasma(fantasmaCeleste);
+		VistaFantasmaCeleste vistaFantasmaCeleste=new VistaFantasmaCeleste(fantasmaCeleste);
+		controlador.agregarDibujable(vistaFantasmaCeleste);
+		controlador.agregarObjetoVivo(fantasmaCeleste);
 		
-		juego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(200,56,juego.getLaberinto(),1));
-		juego.getLaberinto().getNivel().agregarFantasma(new FantasmaRojo(null,juego.getLaberinto(),1));
+		FantasmaRojo fantasmaRojo=new FantasmaRojo(null,juego.getLaberinto(),1);
+		juego.getLaberinto().getNivel().agregarFantasma(fantasmaRojo);
+		VistaFantasmaRojo vistaFantasmaRojo=new VistaFantasmaRojo(fantasmaRojo);
+		controlador.agregarDibujable(vistaFantasmaRojo);
+		controlador.agregarObjetoVivo(fantasmaRojo);
+		
+		FantasmaNaranja fantasmaNaranja=new FantasmaNaranja(null,juego.getLaberinto(),1);
+		juego.getLaberinto().getNivel().agregarFantasma(fantasmaNaranja);
+		VistaFantasmaNaranja vistaFantasmaNaranja=new VistaFantasmaNaranja(fantasmaNaranja);
+		controlador.agregarDibujable(vistaFantasmaNaranja);
+		controlador.agregarObjetoVivo(fantasmaNaranja);
+		
+		FantasmaRosa fantasmaRosa=new FantasmaRosa(null,juego.getLaberinto(),1);
+		juego.getLaberinto().getNivel().agregarFantasma(fantasmaRosa);
+		VistaFantasmaRosa vistaFantasmaRosa=new VistaFantasmaRosa(fantasmaRosa);
+		controlador.agregarDibujable(vistaFantasmaRosa);
+		controlador.agregarObjetoVivo(fantasmaRosa);
+		
+		/*juego.getLaberinto().getNivel().agregarFantasma(new FantasmaRojo(null,juego.getLaberinto(),1));
 		ArrayList<VistaFantasma> vistaFantasmas=new ArrayList<VistaFantasma>();
 		ArrayList<Fantasma> fantasmas=juego.getLaberinto().getFantasmas();
 		for(Fantasma f:fantasmas){
@@ -92,7 +112,7 @@ public class Programa {
 			vistaFantasmas.add(vf);
 			controlador.agregarDibujable(vf);
 			controlador.agregarObjetoVivo(f);
-		}
+		}*/
 		VistaPacman pacman=new VistaPacman(juego.getLaberinto().getPacman());
 		//pacman.setPosicionable(juego.getLaberinto().getPacman());
 		controlador.agregarDibujable(pacman);
