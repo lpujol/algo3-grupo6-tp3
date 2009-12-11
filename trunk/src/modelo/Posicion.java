@@ -1,6 +1,8 @@
 package modelo;
 
-public class Posicion {
+import ar.uba.fi.algo3.titiritero.Posicionable;
+
+public class Posicion implements Posicionable{
 	
 	private int x;
 	private int y;
