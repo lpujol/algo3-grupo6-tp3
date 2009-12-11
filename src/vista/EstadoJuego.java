@@ -36,8 +36,8 @@ public class EstadoJuego implements Posicionable {
 		return juego.vidasPacman();
 	}
 	
-	public double puntos(){
-		return juego.getPuntosAcumulados();
+	public String puntos(){		
+		return Double.toString(juego.getPuntosAcumulados());
 	}
 
 }
