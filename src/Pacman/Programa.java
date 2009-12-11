@@ -20,6 +20,7 @@ public class Programa {
 		controlador.setSuperficieDeDibujo(ventana.getSuperficieDeDibujo());
 		ventana.setVisible(true);
 		
+		VistaPuntos vistaPuntos=new VistaPuntos();
 		ArrayList<Bloque> bloques=juego.getLaberinto().getBloques();
 		for(Bloque b:bloques)
 		{
@@ -58,14 +59,15 @@ public class Programa {
 				vistaPVIHA.setPosicionable(b);
 				controlador.agregarDibujable(vistaPVIHA);
 			}
-			if(b instanceof EspacioVacio){
+			/*if(b instanceof EspacioVacio){
 				VistaEspacioVacio vistaEV=new VistaEspacioVacio();
 				vistaEV.setPosicionable(b);
 				controlador.agregarDibujable(vistaEV);
-			}
+			}*/
 			if(b instanceof Punto){
-				VistaPunto vistaP=new VistaPunto((Punto)b);
-				controlador.agregarDibujable(vistaP);
+				vistaPuntos.add((Punto)b);
+				//VistaPunto vistaP=new VistaPunto((Punto)b);
+				//controlador.agregarDibujable(vistaP);
 			}
 			if(b instanceof PuntoDePoder){
 				VistaPuntoPoder vistaP=new VistaPuntoPoder((PuntoDePoder)b);
@@ -77,6 +79,8 @@ public class Programa {
 				controlador.agregarDibujable(vistaP);
 			}
 		}
+		
+		controlador.agregarDibujable(vistaPuntos);
 		
 		FantasmaCeleste fantasmaCeleste=new FantasmaCeleste(200,56,juego.getLaberinto(),1);
 		juego.getLaberinto().getNivel().agregarFantasma(fantasmaCeleste);
@@ -114,7 +118,7 @@ public class Programa {
 			controlador.agregarObjetoVivo(f);
 		}*/
 		VistaPacman pacman=new VistaPacman(juego.getLaberinto().getPacman());
-		//pacman.setPosicionable(juego.getLaberinto().getPacman());
+		pacman.setPosicionable(juego.getLaberinto().getPacman());
 		controlador.agregarDibujable(pacman);
 		controlador.agregarObjetoVivo(juego.getLaberinto().getPacman());
 		
