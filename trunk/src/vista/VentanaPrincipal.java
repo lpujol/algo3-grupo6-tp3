@@ -39,7 +39,7 @@ public class VentanaPrincipal extends Frame {
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				// TODO Auto-generated method stub
-				System.out.print(arg0.getKeyCode());
+				//System.out.print(arg0.getKeyCode());
 				int tecla=arg0.getKeyCode();
 				switch(tecla)
 				{
