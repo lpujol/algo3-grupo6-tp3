@@ -25,6 +25,7 @@ public abstract class Fantasma extends Vivo {
 	}
 	
 	public void vivir(){
+		for(int i=0;i<velocidad;i++){
 		if(estado==EstadoFantasma.Muerto&&estoyEnLaPuerta()){
 			entrarACasa();
 		}
@@ -43,6 +44,7 @@ public abstract class Fantasma extends Vivo {
 				}
 					
 		}				
+		}
 	}
 	
 	
@@ -60,7 +62,7 @@ public abstract class Fantasma extends Vivo {
 			posicion.retrocederVertical(velocidad);
 		if(difX==0&&difY==0){
 			estado=EstadoFantasma.Vivo;
-			this.restablecerEstrategiaNativa();
+			this.setEstrategiaActual(new EstrategiaSalirDeCasa(this));
 		}
 		
 	}
@@ -130,13 +132,13 @@ public abstract class Fantasma extends Vivo {
 	private boolean esAdecuadoMoverse(Posicion destino,
 			Posicion posicionPosible, double distanciaMinima) {
 		
-		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable())&& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
+		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable(this))&& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
 			
 		
 	}
 
 	public void setVelocidad(int i) {
-		this.velocidad=1;
+		this.velocidad=i;
 		
 	}
 	

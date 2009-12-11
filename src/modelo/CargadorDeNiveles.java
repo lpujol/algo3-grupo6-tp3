@@ -96,6 +96,7 @@ public class CargadorDeNiveles {
 				break;
 			case 46:// .
 				nivel.agregarBloque(new Puerta(posicion, laberinto));
+				laberinto.setPosicionPuerta(posicion);
 				break;
 			case 32://  " "
 				nivel.agregarBloque(new EspacioVacio(posicion, laberinto));
