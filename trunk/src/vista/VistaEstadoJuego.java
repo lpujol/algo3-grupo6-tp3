@@ -13,6 +13,7 @@ import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
 public class VistaEstadoJuego extends Cuadrado {
 	
 	Imagen pacman;
+	Texto2D puntaje;
 	private EstadoJuego estadoJuego;
 
 	public VistaEstadoJuego(EstadoJuego estado) {
@@ -23,6 +24,10 @@ public class VistaEstadoJuego extends Cuadrado {
 		pacman=new Imagen();
 		pacman.setNombreArchivoImagen("/vista/pacmanFrame2_24.png");
 		this.estadoJuego=estado;
+		
+		puntaje=new Texto2D();
+		Posicion pos=new Posicion(estado.getAncho()-50,estado.getY()+10);
+		puntaje.setPosicionable(pos);
 		
 		// TODO Auto-generated constructor stub
 	}	
@@ -42,6 +47,9 @@ public class VistaEstadoJuego extends Cuadrado {
 			pos.avanzarHorizontal(25);
 			pacman.dibujar(superfice);
 		}
+		puntaje.setTexto(this.estadoJuego.puntos());
+		puntaje.dibujar(superfice);
+		
 	}
 
 
