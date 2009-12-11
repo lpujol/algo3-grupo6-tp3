@@ -24,21 +24,21 @@ public abstract class Vivo implements Posicionable,ObjetoVivo {
 	}
 	
 	public boolean irHaciaLaDerecha(){
-		posicion.avanzarHorizontal(velocidad);
+		posicion.avanzarHorizontal(1);
 		return false;
 	}
 	
 	public boolean irHaciaLaIzquierda(){
-		posicion.retrocederHorizontal(velocidad);
+		posicion.retrocederHorizontal(1);
 		return false;
 	}
 	public boolean irHaciaArriba(){
-		posicion.retrocederVertical(velocidad);
+		posicion.retrocederVertical(1);
 		return false;
 	}
 		
 	public boolean irHaciaAbajo(){
-		posicion.avanzarVertical(velocidad);
+		posicion.avanzarVertical(1);
 		return false;
 	}
 

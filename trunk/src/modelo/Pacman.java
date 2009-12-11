@@ -25,7 +25,7 @@ public class Pacman extends Vivo{
 		this.laberinto=laberinto;
 		this.estrategia=new EstrategiaIrALaDerecha(this);
 		this.direccion=Direccion.Derecha;
-		this.velocidad=1;
+		this.velocidad=2;
 	}
 	
 	
