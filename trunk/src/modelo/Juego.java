@@ -130,20 +130,15 @@ public class Juego{
 
 
 	public void pacmanComido() {
-		this.cantidadVidas --;
-		
-		
-		//agregadoAudio
-		/*if (this.cantidadVidas>0){
-	 		audio = new Audio("muerte.wav");
-	 		audio.play(false);
-	    }*/
-		//-----
-		
-		
+		ArrayList<Fantasma> fantasmas=laberinto.getFantasmas();
+		for(Fantasma fantasma:fantasmas)
+		{
+			fantasma.moverAPosicionInicial();
+		}
 		if(this.cantidadVidas>0){
 			this.laberinto.getNivel().getPacman().disminuirVida();
 			this.laberinto.getNivel().enviarPacmanAPosicionInicial();
+			this.cantidadVidas=laberinto.getPacman().getCantidadVidas();
 		}
 	}
 	

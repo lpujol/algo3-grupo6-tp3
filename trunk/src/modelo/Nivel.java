@@ -77,7 +77,7 @@ public class Nivel {
 	public void puntoComido() {
 		this.puntoscomidos++;
 		if(puntoscomidos>=cantidadPuntos)
-		finNivel=true;	
+		this.pasarDeNivel();
 	}
 
 	public void sumarPuntos() {
