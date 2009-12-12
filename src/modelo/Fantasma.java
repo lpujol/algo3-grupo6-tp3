@@ -9,12 +9,16 @@ public abstract class Fantasma extends Vivo {
 	protected IEstrategia estrategiaActual;
 	private EstadoFantasma estado=EstadoFantasma.Vivo;
 	private int velocidadNativa;
+	private Posicion posicionInicial;
 	
-	public Fantasma(Laberinto laberinto, int velocidad){
+	public Fantasma(Laberinto laberinto, int velocidad,Posicion posicionInicial){
 		this.laberinto=laberinto;
 		this.velocidadNativa=velocidad;
+		this.posicionInicial=posicionInicial;
+		this.posicion=new Posicion(posicionInicial.getX(),posicionInicial.getY());
 		this.velocidad=velocidad;
 		this.direccion=Direccion.Derecha;
+		
 	}
 
 		
@@ -138,6 +142,12 @@ public abstract class Fantasma extends Vivo {
 	public void recuperarVelocidadInicial() {
 		this.velocidad=velocidadNativa;
 		
+	}
+
+
+	public void moverAPosicionInicial(){
+		this.posicion=new Posicion(posicionInicial.getX(),posicionInicial.getY());
+		this.estrategiaActual=new EstrategiaSalirDeCasa(this);
 	}
 	
 }
