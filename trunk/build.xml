@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sample" default="test" basedir=".">
+	
+	
+	<target name="build" description="--> compila">
+		<javac srcdir="src/modelo" destdir="." >
+
+			<classpath path="junit.jar" />
+
+		</javac>
+	</target>
+
+	<target name="test" depends="build">
+		<junit>
+			<classpath>
+				<path location="junit.jar" />  
+				<path location="." />  
+			</classpath>
+			<formatter type="brief"	usefile="false" /> 
+			<test name="JuegoTest" />
+			<test name="CargadorDeNivelesTests" />
+			<test name="InteraccionPacmanFantasmaTest" />
+			<test name="LaberintoTests" />
+			<test name="PacmanTest" />
+			<test name="ParedTests" />
+			<test name="PuertaTests" />
+					
+			
+		</junit>
+		
+	</target>
+
+</project>
