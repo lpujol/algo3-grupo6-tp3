@@ -2,14 +2,11 @@ package modelo;
 
 public class FantasmaNaranja extends Fantasma {
 
-	public FantasmaNaranja(IEstrategia estrategia, Laberinto laberinto,
-			int velocidad) {		
-		this.laberinto=laberinto;
+	public FantasmaNaranja(Laberinto laberinto,	int velocidad) {
+		super(laberinto,velocidad);
 		this.estrategiaActual=new EstrategiaSalirDeCasa(this);		
 		this.estrategiaNativa=new EstrategiaClyde(this);
-		this.posicion=this.laberinto.getPosicionFantasma(0);
-		this.velocidad=velocidad;
-		this.direccion=Direccion.Derecha;
+		this.posicion=this.laberinto.getPosicionFantasma(0);		
 	}
 
 }

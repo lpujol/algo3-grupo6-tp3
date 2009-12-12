@@ -8,6 +8,14 @@ public abstract class Fantasma extends Vivo {
 	protected IEstrategia estrategiaNativa;
 	protected IEstrategia estrategiaActual;
 	private EstadoFantasma estado=EstadoFantasma.Vivo;
+	private int velocidadNativa;
+	
+	public Fantasma(Laberinto laberinto, int velocidad){
+		this.laberinto=laberinto;
+		this.velocidadNativa=velocidad;
+		this.velocidad=velocidad;
+		this.direccion=Direccion.Derecha;
+	}
 
 		
 	public void setEstrategiaActual(IEstrategia unaEstrategia){
@@ -26,10 +34,6 @@ public abstract class Fantasma extends Vivo {
 	
 	public void vivir(){
 		for(int i=0;i<velocidad;i++){
-		if(estado==EstadoFantasma.Muerto&&estoyEnLaPuerta()){
-			entrarACasa();
-		}
-		else{
 			if (laberinto.cambioDeDireccionPermitido(this.posicion)){
 				this.moverse(this.estrategiaActual.getDestino());			
 			}
@@ -41,37 +45,13 @@ public abstract class Fantasma extends Vivo {
 					this.comer();}
 				else{
 					this.laberinto.getPacman().comer();
-				}
-					
-		}				
+				}	
 		}
 	}
 	
 	
 	
-	private void entrarACasa() {
-		int difX=laberinto.obtenerPosicionCasa().getX()-posicion.getX();
-		int difY=laberinto.obtenerPosicionCasa().getY()-posicion.getY();
-		if(difX>0)
-			posicion.avanzarHorizontal(velocidad);
-		if(difX<0)
-			posicion.retrocederHorizontal(velocidad);
-		if(difY>0)
-			posicion.avanzarVertical(velocidad);
-		if(difY<0)
-			posicion.retrocederVertical(velocidad);
-		if(difX==0&&difY==0){
-			estado=EstadoFantasma.Vivo;
-			this.setEstrategiaActual(new EstrategiaSalirDeCasa(this));
-		}
-		
-	}
 
-	private boolean estoyEnLaPuerta() {
-		int d=(int)laberinto.distancia(posicion,laberinto.obtenerPosicionCasa());
-		if(d<=Laberinto.getTamanoDelBloque()*2) return true;
-		return false;
-	}
 
 	/* Le informa al juego que el fantasma fue comido.
 	  
@@ -152,6 +132,11 @@ public abstract class Fantasma extends Vivo {
 
 	public void estaVivo() {
 		estado=EstadoFantasma.Vivo;
+		
+	}
+
+	public void recuperarVelocidadInicial() {
+		this.velocidad=velocidadNativa;
 		
 	}
 	
