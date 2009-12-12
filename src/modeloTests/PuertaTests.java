@@ -1,5 +1,6 @@
 package modeloTests;
 
+import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Posicion;
@@ -47,7 +48,7 @@ public class PuertaTests extends TestCase {
 	// Testea que una puerta no pueda ser ocupada
 	public void testPuertaNoEsOcupable() {
 		Puerta puerta = new Puerta(new Posicion(1, 1), this.laberinto);
-		assertFalse(puerta.esOcupable());
+		assertFalse(puerta.esOcupable(new FantasmaRojo(laberinto,1)));
 	}
 	
 	// Testea que comer una puerta no pueda ser comida

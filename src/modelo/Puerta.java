@@ -7,8 +7,15 @@ public class Puerta extends NoComestible {
 	}
 	
 	public boolean esOcupable(Fantasma unFantasma) {
-		if(((unFantasma.getDireccion().ordinal()==Direccion.Arriba.ordinal())&&(unFantasma.getEstado().ordinal()==EstadoFantasma.Vivo.ordinal()))||(((unFantasma.getDireccion().ordinal()==Direccion.Abajo.ordinal())&&(unFantasma.getEstado().ordinal()==EstadoFantasma.Muerto.ordinal()))))
+		if((
+				(unFantasma.getDireccion().ordinal()==Direccion.Arriba.ordinal())
+				&&(unFantasma.getEstado().ordinal()==EstadoFantasma.Vivo.ordinal())
+				)||
+				(
+						unFantasma.getEstado().ordinal()==EstadoFantasma.Muerto.ordinal()))
 		return true;
+		//if((unFantasma.getDireccion()==Direccion.Abajo)&&(unFantasma.getEstado()==EstadoFantasma.Muerto))
+		//	return true;
 		return false;
 	}
 

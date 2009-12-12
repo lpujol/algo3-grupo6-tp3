@@ -53,7 +53,7 @@ public class JuegoTest extends TestCase {
 
 		
 		public void testFantasmaComido() {
-			FantasmaRojo fantasma=new FantasmaRojo(null, unJuego.getLaberinto(), 0);
+			FantasmaRojo fantasma=new FantasmaRojo(unJuego.getLaberinto(), 0);
 			IEstrategia estrategia=fantasma.getEstrategiaActual();
 			unJuego.fantasmaComido(fantasma);
 			assertNotSame(estrategia,fantasma.getEstrategiaActual());

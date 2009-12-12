@@ -37,7 +37,7 @@ public class EstadoJuego implements Posicionable {
 	}
 	
 	public String puntos(){		
-		return Double.toString(juego.getPuntosAcumulados());
+		return Integer.toString((int)juego.getPuntosAcumulados());
 	}
 
 }

@@ -3,6 +3,7 @@ package modeloTests;
 import java.util.ArrayList;
 
 import modelo.Bloque;
+import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Nivel;
 import junit.framework.TestCase;
@@ -44,6 +45,6 @@ public class CargadorDeNivelesTests extends TestCase {
 		//assertTrue(bloque.getPosicion().getY() == posicion.getY());
 		
 		Bloque bloque2 = bloques.remove(29);
-		assertTrue(bloque2.esOcupable());
+		assertTrue(bloque2.esOcupable(new FantasmaRojo(juego.getLaberinto(),1)));
 	}
 }

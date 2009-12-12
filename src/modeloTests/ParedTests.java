@@ -47,7 +47,7 @@ public class ParedTests extends TestCase {
 	// Testea que una pared no pueda ser ocupada
 	public void testParedNoEsOcupable() {
 		Pared pared = new Pared(new Posicion(1, 1), this.laberinto);
-		assertFalse(pared.esOcupable());
+		assertFalse(pared.esOcupable(null));
 	}
 	
 	// Testea que comer una pared no pueda ser comida

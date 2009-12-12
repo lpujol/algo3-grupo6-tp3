@@ -4,7 +4,7 @@ public class FantasmaCeleste extends Fantasma {
 
 	public FantasmaCeleste(int coordenadaX,int coordenadaY,Laberinto laberinto,
 			int velocidad) {
-		
+		super(laberinto,velocidad);
 		this.laberinto=laberinto;
 		this.estrategiaActual=new EstrategiaSalirDeCasa(this);
 		this.estrategiaNativa=new EstrategiaPerseguidor(this);
@@ -13,14 +13,11 @@ public class FantasmaCeleste extends Fantasma {
 		this.direccion=Direccion.Abajo;
 		}
 
-	public FantasmaCeleste(IEstrategia estrategia, Laberinto laberinto,
-			int velocidad) {	
-		this.laberinto=laberinto;
+	public FantasmaCeleste(Laberinto laberinto,int velocidad) {
+		super(laberinto,velocidad);
 		this.estrategiaActual=new EstrategiaSalirDeCasa(this);	
 		this.estrategiaNativa=new EstrategiaPerseguidor(this);
-		this.posicion=this.laberinto.getPosicionFantasma(3);
-		this.velocidad=velocidad;
-		this.direccion=Direccion.Derecha;
+		this.posicion=this.laberinto.getPosicionFantasma(3);		
 	}
 
 }

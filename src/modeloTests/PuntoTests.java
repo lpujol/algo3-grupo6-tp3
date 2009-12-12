@@ -47,7 +47,7 @@ public class PuntoTests extends TestCase {
 	// Testea que un punto pueda ser ocupado
 	public void testPuntoEsOcupable() {
 		Punto punto = new Punto(new Posicion(1, 1), this.laberinto);
-		assertTrue(punto.esOcupable());
+		assertTrue(punto.esOcupable(null));
 	}
 	
 	// Testea que comer un punto cambie el estado correctamente
