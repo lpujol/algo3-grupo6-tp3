@@ -10,7 +10,7 @@ public class Nivel {
 	private Pacman pacman;
 	private CargadorDeNiveles cargadorDeNiveles;
 	private Posicion pocisionInicial;
-	private int puntoscomidos;
+	private int puntosComidos;
 	private int cantidadPuntos;
 	private boolean finNivel;
 	
@@ -64,9 +64,11 @@ public class Nivel {
 	}
 	
 	public void pasarDeNivel() {
+		this.puntosComidos = 0;
 		this.numero++;
-		this.bloques.clear();
-		this.cargadorDeNiveles.cargar(this, "nivel.txt");
+		for (Bloque bloque : bloques) {
+			bloque.resetear();
+		}
 	}
 
 	public void setPosicionInicialPacman(Posicion posicion) {
@@ -75,8 +77,8 @@ public class Nivel {
 	}
 
 	public void puntoComido() {
-		this.puntoscomidos++;
-		if(puntoscomidos>=cantidadPuntos)
+		this.puntosComidos++;
+		if(puntosComidos>=cantidadPuntos)
 		this.pasarDeNivel();
 	}
 
@@ -88,8 +90,5 @@ public class Nivel {
 	public boolean isFinNivel() {
 		return finNivel;
 	}
-
-
-	
 
 }
