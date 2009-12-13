@@ -47,4 +47,8 @@ public abstract class Bloque implements Posicionable {
 		return this.posicion.getY();
 	}
 
+	public void resetear() {
+		this.comido = false;
+	}
+
 }

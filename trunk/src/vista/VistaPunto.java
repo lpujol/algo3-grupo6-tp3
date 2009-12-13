@@ -12,17 +12,15 @@ import titiriteroModificado.Imagen;
 
 public class VistaPunto implements Dibujable{
 
-	Imagen vivo;
-	//Imagen comido;
-	Cuadrado comido;
-	Punto punto;
+	private Imagen vivo;
+	private Cuadrado comido;
+	private Punto punto;
+	
 	public VistaPunto(Punto punto) {
 		this.punto=punto;
 		vivo=new Imagen();
 		vivo.setNombreArchivoImagen("/vista/punto.gif");
 		vivo.setPosicionable(punto);
-		/*comido=new Imagen();
-		comido.setNombreArchivoImagen("/vista/negro.jpg");*/
 		comido=new Cuadrado(16,16);
 		comido.setColor(Color.black);
 		comido.setPosicionable(punto);
@@ -30,11 +28,11 @@ public class VistaPunto implements Dibujable{
 
 	@Override
 	public void dibujar(SuperficieDeDibujo superfice) {
-		if(this.punto.comido());
-			//comido.dibujar(superfice);
-		else
+		if (this.punto.comido() == true) {
+			comido.dibujar(superfice);
+		} else {
 			vivo.dibujar(superfice);
-		
+		}
 		
 	}
 

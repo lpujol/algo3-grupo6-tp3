@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CargadorDeNiveles {
 	
@@ -96,6 +97,7 @@ public class CargadorDeNiveles {
 				break;
 			case 46:// .
 				nivel.agregarBloque(new Puerta(posicion, laberinto));
+				
 				laberinto.setPosicionPuerta(posicion);
 				break;
 			case 32://  " "
@@ -103,23 +105,28 @@ public class CargadorDeNiveles {
 				break;
 			case 67:// C
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				
 				laberinto.setPosicionCasa(posicion);
 				break;
 				//en Texto hay 1 2 3 4
 			case 49: //1
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				
 				laberinto.setPosicionFantasmaInicial(1,posicion);				
 				break;
 			case 50: //2
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				
 				laberinto.setPosicionFantasmaInicial(2,posicion);				
 				break;
 			case 51: //3
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				
 				laberinto.setPosicionFantasmaInicial(3,posicion);				
 				break;
 			case 52: //4
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
+				
 				laberinto.setPosicionFantasmaInicial(4,posicion);				
 				break;
 			default:
