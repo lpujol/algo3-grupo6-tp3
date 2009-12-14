@@ -96,6 +96,11 @@ public class Pacman extends Vivo{
 	public Laberinto getLaberinto() {
 		return this.laberinto;
 		
+	}
+
+	public void setCantidadVidas(int i) {
+		this.vidas=i;
+		
 	};
 
 }
