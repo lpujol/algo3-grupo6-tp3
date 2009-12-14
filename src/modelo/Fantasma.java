@@ -150,6 +150,11 @@ public abstract class Fantasma extends Vivo {
 		this.posicion=new Posicion(posicionInicial.getX(),posicionInicial.getY());
 		this.estrategiaActual=new EstrategiaSalirDeCasa(this);
 	}
+
+
+	public void setPosicion(Posicion nuevaPosicion) {
+		this.posicion=nuevaPosicion;		
+	}
 	
 }
 

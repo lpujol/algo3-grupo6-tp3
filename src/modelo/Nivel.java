@@ -13,12 +13,14 @@ public class Nivel {
 	private int puntosComidos;
 	private int cantidadPuntos;
 	private boolean finNivel;
+//	private ArrayList<Portal> portales;
 	
 	
 	
 	public Nivel(String rutaNivel, Juego juego, Laberinto laberinto) {
 		this.cargadorDeNiveles = new CargadorDeNiveles(juego, laberinto);
 		bloques = new ArrayList<Bloque>();
+	//	portales = new ArrayList<Portal>();
 		this.pocisionInicial=null;
 		cargadorDeNiveles.cargar(this, rutaNivel);
 		this.numero = 1;		
@@ -71,7 +73,7 @@ public class Nivel {
 	
 	public void reiniciarPosicionesYEstados(){
 		this.enviarPacmanAPosicionInicial();
-		this.pacman.cambiarDireccion(Direccion.Derecha);
+		this.pacman.setEstrategia(new EstrategiaIrALaDerecha(pacman));
 		for(Fantasma fantasma:fantasmas){
 			fantasma.moverAPosicionInicial();
 			fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
@@ -105,11 +107,22 @@ public class Nivel {
 	public boolean isFinNivel() {
 		return finNivel;
 	}
+/*
+	public ArrayList<Portal> getPortales() {
+		return this.portales;
+	}
+
+<<<<<<< .mine
+	public void agregarPortal(Portal portal) {
+		portales.add(portal);		
+	}
+*/
 
 	public void setNumero(int i) {
 		this.numero=i;
 		
 	}
 	
+
 
 }
