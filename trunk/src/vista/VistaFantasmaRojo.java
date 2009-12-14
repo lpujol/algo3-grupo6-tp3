@@ -1,6 +1,5 @@
 package vista;
 
-import modelo.Fantasma;
 import modelo.FantasmaRojo;
 
 public class VistaFantasmaRojo extends VistaFantasma {

@@ -3,11 +3,6 @@ package vista;
 import titiriteroModificado.Imagen;
 
 import modelo.Fantasma;
-import modelo.FantasmaCeleste;
-import modelo.FantasmaRojo;
-import modelo.FantasmaNaranja;
-import modelo.FantasmaRosa;
-import modelo.Pacman;
 
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.Posicionable;
@@ -29,21 +24,7 @@ public class VistaFantasma implements Dibujable {
 	public VistaFantasma(Fantasma fantasma){
 		this.fantasma = fantasma;
 		this.derecha = new Imagen();
-		this.derecha.setPosicionable(fantasma);
-		// Feo pero necesario
-		/*if (fantasma instanceof FantasmaCeleste) {
-			cargarImagenes("celeste");
-		}
-		if (fantasma instanceof FantasmaRojo) {
-			cargarImagenes("rojo");
-		}
-		if (fantasma instanceof FantasmaNaranja) {
-			cargarImagenes("naranja");
-		}
-		if (fantasma instanceof FantasmaRosa) {
-			cargarImagenes("rosa");
-		}*/
-		
+		this.derecha.setPosicionable(fantasma);		
 	}
 	
 	protected void cargarImagenes(String tipoDeFantasma) {

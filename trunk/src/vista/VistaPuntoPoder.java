@@ -1,6 +1,5 @@
 package vista;
 
-import modelo.Punto;
 import modelo.PuntoDePoder;
 import ar.uba.fi.algo3.titiritero.Dibujable;
 import ar.uba.fi.algo3.titiritero.Posicionable;
