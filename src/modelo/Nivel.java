@@ -64,11 +64,8 @@ public class Nivel {
 	}
 	
 	public void pasarDeNivel() {
-        this.puntosComidos = 0;
         this.numero++;
-        for (Bloque bloque : bloques) {
-            bloque.resetear();
-        }
+        resetearBloques();
         reiniciarPosicionesYEstados();
 	}
 	
@@ -80,6 +77,13 @@ public class Nivel {
 			fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
 			fantasma.estaVivo();
 		}
+	}
+	
+	public void resetearBloques(){
+		for(Bloque bloque:bloques){
+			bloque.resetear();
+		}
+		this.puntosComidos=0;
 	}
 
 	public void setPosicionInicialPacman(Posicion posicion) {
@@ -101,5 +105,11 @@ public class Nivel {
 	public boolean isFinNivel() {
 		return finNivel;
 	}
+
+	public void setNumero(int i) {
+		this.numero=i;
+		
+	}
+	
 
 }

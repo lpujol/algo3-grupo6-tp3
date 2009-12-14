@@ -16,7 +16,7 @@ public class Juego{
 	private Laberinto laberinto;
 	private double puntosAcumulados;
 	private int cantidadVidas;
-	//private boolean jugando;
+	private boolean jugando;
 
 	
 	
@@ -25,6 +25,7 @@ public class Juego{
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
+		this.jugando=false;
 		
 	}	
 	
@@ -111,6 +112,9 @@ public class Juego{
 			this.laberinto.getNivel().getPacman().disminuirVida();
 			this.cantidadVidas=laberinto.getPacman().getCantidadVidas();
 		}
+		else{
+			this.jugando=false;
+		}
 	}
 	
 	public int vidasPacman(){
@@ -126,6 +130,22 @@ public class Juego{
 	public void bonusComido() {		
 		puntosAcumulados=puntosAcumulados+VALOR_BONUS*laberinto.getNivel().getNumero();
 		
+	}
+	
+	public boolean estaJugando(){
+		return this.jugando;
+	}
+
+	public void comenzar() {
+		if(this.jugando==false){
+			this.jugando=true;
+			laberinto.getNivel().reiniciarPosicionesYEstados();
+			laberinto.getNivel().resetearBloques();
+			laberinto.getNivel().setNumero(1);
+			laberinto.getPacman().setCantidadVidas(3);
+			this.cantidadVidas=laberinto.getPacman().getCantidadVidas();
+			this.puntosAcumulados=0;
+		}
 	}
 
 

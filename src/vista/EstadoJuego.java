@@ -44,5 +44,9 @@ public class EstadoJuego implements Posicionable {
 		Integer ret=this.juego.getLaberinto().getNivel().getNumero();
 		return ret.toString();
 	}
+	
+	public boolean jugando(){
+		return this.juego.estaJugando();
+	}
 
 }

@@ -13,6 +13,7 @@ import ar.uba.fi.algo3.titiritero.vista.Cuadrado;
 public class VistaEstadoJuego extends Cuadrado {
 	
 	Imagen pacman;
+	Imagen inicial;
 	Texto2D puntaje;
 	Texto2D nivel;
 	private EstadoJuego estadoJuego;
@@ -34,11 +35,16 @@ public class VistaEstadoJuego extends Cuadrado {
 		Posicion pos2=new Posicion(estado.getAncho()-60,estado.getY()+40);
 		nivel.setPosicionable(pos2);
 		
+		inicial=new Imagen();
+		inicial.setNombreArchivoImagen("/vista/inicial.JPG");
+		inicial.setPosicionable(new Posicion(0,0));
+		
 		// TODO Auto-generated constructor stub
 	}	
 	
 	public void dibujar(SuperficieDeDibujo superfice){
 		super.dibujar(superfice);
+		if(estadoJuego.jugando()){
 		Posicion pos=new Posicion(this.estadoJuego.getX()+10,this.estadoJuego.getY()+10);
 		if(estadoJuego.vidas()>0){
 			pacman.setPosicionable(pos);
@@ -57,7 +63,15 @@ public class VistaEstadoJuego extends Cuadrado {
 		
 		nivel.setTexto("Nivel "+this.estadoJuego.numeroNivel());
 		nivel.dibujar(superfice);
-		
+		}
+		else{
+			Posicion pos=new Posicion(0,0);
+			Cuadrado cuadrado=new Cuadrado(460,563);
+			cuadrado.setColor(Color.black);
+			cuadrado.setPosicionable(pos);
+			cuadrado.dibujar(superfice);
+			inicial.dibujar(superfice);
+		}
 	}
 
 

@@ -43,6 +43,9 @@ public class VentanaPrincipal extends Frame {
 				int tecla=arg0.getKeyCode();
 				switch(tecla)
 				{
+				case 10://enter
+					pacman.getLaberinto().getJuego().comenzar();
+					break;
 				case 38:
 					pacman.setEstrategia(new EstrategiaIrHaciaArriba(pacman));
 					
