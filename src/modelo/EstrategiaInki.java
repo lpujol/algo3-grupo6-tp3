@@ -25,7 +25,7 @@ public class EstrategiaInki implements IEstrategia {
 			if(f.getEstrategiaActual() instanceof EstrategiaPerseguidor)
 				cazador=f;
 		}
-		if(cazador== null || laberinto.distancia(laberinto.getBloqueEnPosicion(fantasma.getPosicion()), laberinto.getBloqueEnPosicion(cazador.getPosicion()))>5)
+		if(cazador== null || laberinto.distancia(laberinto.getBloqueEnPosicion(fantasma.getPosicion()), laberinto.getBloqueEnPosicion(cazador.getPosicion()))>5*Laberinto.getTamanoDelBloque())
 		{
 			Direccion direccionPacman=laberinto.getPacman().getDireccion();
 			switch(direccionPacman)
