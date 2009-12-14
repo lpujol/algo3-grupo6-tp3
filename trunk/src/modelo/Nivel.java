@@ -64,12 +64,18 @@ public class Nivel {
 	}
 	
 	public void pasarDeNivel() {
-		this.puntosComidos = 0;
-		this.numero++;
-		for (Bloque bloque : bloques) {
-			bloque.resetear();
-		}
-	}
+        this.puntosComidos = 0;
+        this.numero++;
+        for (Bloque bloque : bloques) {
+            bloque.resetear();
+        }
+        this.enviarPacmanAPosicionInicial();
+        this.pacman.cambiarDireccion(Direccion.Derecha);
+        for(Fantasma fantasma:fantasmas){
+            fantasma.moverAPosicionInicial();
+            fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
+        }
+    }
 
 	public void setPosicionInicialPacman(Posicion posicion) {
 		this.pocisionInicial=posicion;
