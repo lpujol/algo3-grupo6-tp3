@@ -69,13 +69,18 @@ public class Nivel {
         for (Bloque bloque : bloques) {
             bloque.resetear();
         }
-        this.enviarPacmanAPosicionInicial();
-        this.pacman.cambiarDireccion(Direccion.Derecha);
-        for(Fantasma fantasma:fantasmas){
-            fantasma.moverAPosicionInicial();
-            fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
-        }
-    }
+        reiniciarPosicionesYEstados();
+	}
+	
+	public void reiniciarPosicionesYEstados(){
+		this.enviarPacmanAPosicionInicial();
+		this.pacman.cambiarDireccion(Direccion.Derecha);
+		for(Fantasma fantasma:fantasmas){
+			fantasma.moverAPosicionInicial();
+			fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
+			fantasma.estaVivo();
+		}
+	}
 
 	public void setPosicionInicialPacman(Posicion posicion) {
 		this.pocisionInicial=posicion;

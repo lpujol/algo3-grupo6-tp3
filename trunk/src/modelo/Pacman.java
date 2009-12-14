@@ -25,7 +25,7 @@ public class Pacman extends Vivo{
 		this.laberinto=laberinto;
 		this.estrategia=new EstrategiaIrALaDerecha(this);
 		this.direccion=Direccion.Derecha;
-		this.velocidad=2;
+		this.velocidad=4;
 	}
 	
 	
@@ -35,6 +35,7 @@ public class Pacman extends Vivo{
 	}
 	
 	public void vivir(){
+		for(int x=0;x<velocidad;x++){
 		this.estrategia.cambiarDireccion();
 		moverse();
 		ArrayList<Fantasma> fantasmasEnElMismoBloque=this.laberinto.buscarFantasmasEn(posicion);
@@ -45,9 +46,12 @@ public class Pacman extends Vivo{
 				};
 			}
 			else{
-				this.laberinto.getPacman().comer();
+				for(Fantasma fantasma:fantasmasEnElMismoBloque)
+					if(fantasma.getEstado()==EstadoFantasma.Vivo)
+						this.laberinto.getPacman().comer();
 			}
 		};
+		}
 	}
 
 	

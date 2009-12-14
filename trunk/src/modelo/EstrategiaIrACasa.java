@@ -6,7 +6,7 @@ public class EstrategiaIrACasa implements IEstrategia {
 	
 	public EstrategiaIrACasa(Fantasma fantasma)	{
 		this.fantasma=fantasma;
-		this.fantasma.setVelocidad(2);
+		this.fantasma.setVelocidad(2*fantasma.getVelocidad());
 	}
 	
 	

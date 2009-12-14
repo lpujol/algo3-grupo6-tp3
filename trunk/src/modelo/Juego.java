@@ -96,6 +96,7 @@ public class Juego{
 		for(Fantasma fantasma:fantasmas){
 			if(fantasma.getEstado()!=EstadoFantasma.Muerto){
 			fantasma.restablecerEstrategiaNativa();
+			fantasma.recuperarVelocidadInicial();
 			fantasma.estaVivo();
 			}
 		}
@@ -103,14 +104,9 @@ public class Juego{
 
 
 	public void pacmanComido() {
-		ArrayList<Fantasma> fantasmas=laberinto.getFantasmas();
-		for(Fantasma fantasma:fantasmas)
-		{
-			fantasma.moverAPosicionInicial();
-		}
+		laberinto.getNivel().reiniciarPosicionesYEstados();
 		if(this.cantidadVidas>0){
 			this.laberinto.getNivel().getPacman().disminuirVida();
-			this.laberinto.getNivel().enviarPacmanAPosicionInicial();
 			this.cantidadVidas=laberinto.getPacman().getCantidadVidas();
 		}
 	}
