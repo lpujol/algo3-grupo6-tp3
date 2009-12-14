@@ -14,6 +14,7 @@ public class VistaEstadoJuego extends Cuadrado {
 	
 	Imagen pacman;
 	Texto2D puntaje;
+	Texto2D nivel;
 	private EstadoJuego estadoJuego;
 
 	public VistaEstadoJuego(EstadoJuego estado) {
@@ -28,6 +29,10 @@ public class VistaEstadoJuego extends Cuadrado {
 		puntaje=new Texto2D();
 		Posicion pos=new Posicion(estado.getAncho()-50,estado.getY()+10);
 		puntaje.setPosicionable(pos);
+		
+		nivel=new Texto2D();
+		Posicion pos2=new Posicion(estado.getAncho()-60,estado.getY()+40);
+		nivel.setPosicionable(pos2);
 		
 		// TODO Auto-generated constructor stub
 	}	
@@ -49,6 +54,9 @@ public class VistaEstadoJuego extends Cuadrado {
 		}
 		puntaje.setTexto(this.estadoJuego.puntos());
 		puntaje.dibujar(superfice);
+		
+		nivel.setTexto("Nivel "+this.estadoJuego.numeroNivel());
+		nivel.dibujar(superfice);
 		
 	}
 
