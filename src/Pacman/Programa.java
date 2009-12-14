@@ -73,25 +73,25 @@ public class Programa {
 		
 		controlador.agregarDibujable(vistaPuntos);
 		
-		FantasmaCeleste fantasmaCeleste=new FantasmaCeleste(juego.getLaberinto(),1);
+		FantasmaCeleste fantasmaCeleste=new FantasmaCeleste(juego.getLaberinto(),4);
 		juego.getLaberinto().getNivel().agregarFantasma(fantasmaCeleste);
 		VistaFantasmaCeleste vistaFantasmaCeleste=new VistaFantasmaCeleste(fantasmaCeleste);
 		controlador.agregarDibujable(vistaFantasmaCeleste);
 		controlador.agregarObjetoVivo(fantasmaCeleste);
 		
-		FantasmaRojo fantasmaRojo=new FantasmaRojo(juego.getLaberinto(),1);
+		FantasmaRojo fantasmaRojo=new FantasmaRojo(juego.getLaberinto(),4);
 		juego.getLaberinto().getNivel().agregarFantasma(fantasmaRojo);
 		VistaFantasmaRojo vistaFantasmaRojo=new VistaFantasmaRojo(fantasmaRojo);
 		controlador.agregarDibujable(vistaFantasmaRojo);
 		controlador.agregarObjetoVivo(fantasmaRojo);
 		
-		FantasmaNaranja fantasmaNaranja=new FantasmaNaranja(juego.getLaberinto(),1);
+		FantasmaNaranja fantasmaNaranja=new FantasmaNaranja(juego.getLaberinto(),4);
 		juego.getLaberinto().getNivel().agregarFantasma(fantasmaNaranja);
 		VistaFantasmaNaranja vistaFantasmaNaranja=new VistaFantasmaNaranja(fantasmaNaranja);
 		controlador.agregarDibujable(vistaFantasmaNaranja);
 		controlador.agregarObjetoVivo(fantasmaNaranja);
 		
-		FantasmaRosa fantasmaRosa=new FantasmaRosa(juego.getLaberinto(),1);
+		FantasmaRosa fantasmaRosa=new FantasmaRosa(juego.getLaberinto(),4);
 		juego.getLaberinto().getNivel().agregarFantasma(fantasmaRosa);
 		VistaFantasmaRosa vistaFantasmaRosa=new VistaFantasmaRosa(fantasmaRosa);
 		controlador.agregarDibujable(vistaFantasmaRosa);
@@ -117,7 +117,7 @@ public class Programa {
 		VistaEstadoJuego vistaEstadoJuego=new VistaEstadoJuego(estadoJuego);
 		controlador.agregarDibujable(vistaEstadoJuego);
 		
-		controlador.setIntervaloSimulacion(3);
+		controlador.setIntervaloSimulacion(40);
 		controlador.comenzarJuego();
 	}	
 

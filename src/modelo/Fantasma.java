@@ -48,7 +48,8 @@ public abstract class Fantasma extends Vivo {
 				if(this.laberinto.getJuego().puntoDePoderActivo()){ 
 					this.comer();}
 				else{
-					this.laberinto.getPacman().comer();
+					if(this.estado==EstadoFantasma.Vivo)
+						this.laberinto.getPacman().comer();
 				}	
 		}
 	}
@@ -63,7 +64,7 @@ public abstract class Fantasma extends Vivo {
 	
 	public void comer(){
 		estado=EstadoFantasma.Muerto;
-		velocidad=2;
+		velocidad=2*this.velocidadNativa;
 		Juego juegoActual=this.laberinto.getJuego();
 		juegoActual.fantasmaComido(this);
 		
