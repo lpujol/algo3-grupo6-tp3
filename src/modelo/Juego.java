@@ -6,14 +6,10 @@ import java.util.TimerTask;
 
 
 
-import vista.Audio;
 
 
 public class Juego{
 
-//agregadoAudio
-	//private Audio audio;
-	//---
 	private static final int VALOR_BONUS = 1000;
 	private static final int VALOR_PUNTO = 10;
 	private boolean puntoDePoderActivo;
@@ -24,13 +20,6 @@ public class Juego{
 	
 	
 	public Juego(){
-		//agregadoAudio
-		/*if (true){
-	 		audio = new Audio("inicio.au");
-	 		audio.play(false);
-	    }*/
-		//---
-
 		this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
@@ -72,14 +61,6 @@ public class Juego{
 	}
 
 	public void fantasmaComido(Fantasma fantasma) {
-		
-	//-----agregado para audio
-		
-		/*if (true){
-	 		audio = new Audio("muerteFantasma.au");
-	 		audio.play(false);
-	    }*/
-		//-----
 		fantasma.setEstrategiaActual(new EstrategiaIrACasa(fantasma));
 		
 	}
@@ -89,14 +70,6 @@ public class Juego{
 
 	public void puntoDePoderComido() {
 		this.puntoDePoderActivo=true;
-		
-		//agregado para audio
-		/*if (puntoDePoderActivo){
-	 		audio = new Audio("comePoder.wav");
-	 		audio.play(false);
-	    }*/
-		//--
-		
 		
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
@@ -147,23 +120,12 @@ public class Juego{
 	}
 
 
-	public void puntoComido() {
-		
-		
-		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();
-		
+	public void puntoComido() {		
+		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();		
 	}
 	
 
-	public void bonusComido() {
-		
-		//agregado para audio
-		/*if (true){
-	 		audio = new Audio("comePoder.wav");
-	 		audio.play(false);
-	    }*/
-		//--
-		
+	public void bonusComido() {		
 		puntosAcumulados=puntosAcumulados+VALOR_BONUS*laberinto.getNivel().getNumero();
 		
 	}

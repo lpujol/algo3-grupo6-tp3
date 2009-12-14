@@ -6,10 +6,7 @@ import modelo.EstrategiaIrALaIzquierda;
 import modelo.Juego;
 import modelo.Pacman;
 import modelo.Posicion;
-import modelo.EstrategiaIrALaDerecha;
-import modelo.EstrategiaIrALaIzquierda;
-import modelo.EstrategiaIrHaciaAbajo;
-import modelo.EstrategiaIrHaciaArriba;
+
 
 public class PacmanTest extends TestCase {
 	

@@ -1,6 +1,5 @@
 package Pacman;
 
-import java.awt.Color;
 import java.util.ArrayList;
 
 import vista.*;
@@ -13,7 +12,6 @@ public class Programa {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Juego juego=new Juego();
 		ControladorJuego controlador=new ControladorJuego();
 		VentanaPrincipal ventana=new VentanaPrincipal(controlador,juego.getLaberinto().getPacman());
@@ -59,15 +57,8 @@ public class Programa {
 				vistaPVIHA.setPosicionable(b);
 				controlador.agregarDibujable(vistaPVIHA);
 			}
-			/*if(b instanceof EspacioVacio){
-				VistaEspacioVacio vistaEV=new VistaEspacioVacio();
-				vistaEV.setPosicionable(b);
-				controlador.agregarDibujable(vistaEV);
-			}*/
 			if(b instanceof Punto){
 				vistaPuntos.add((Punto)b);
-				//VistaPunto vistaP=new VistaPunto((Punto)b);
-				//controlador.agregarDibujable(vistaP);
 			}
 			if(b instanceof PuntoDePoder){
 				VistaPuntoPoder vistaP=new VistaPuntoPoder((PuntoDePoder)b);
@@ -126,7 +117,6 @@ public class Programa {
 		VistaEstadoJuego vistaEstadoJuego=new VistaEstadoJuego(estadoJuego);
 		controlador.agregarDibujable(vistaEstadoJuego);
 		
-	
 		controlador.setIntervaloSimulacion(3);
 		controlador.comenzarJuego();
 	}	
