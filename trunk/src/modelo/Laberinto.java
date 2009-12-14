@@ -15,6 +15,7 @@ public class Laberinto {
 	private Posicion posicionCasa;
 	private ArrayList<Posicion> posicionFantasma;
 	private Posicion posicionPuerta;
+//	private ArrayList<Portal> portales;
 
 	public Laberinto(Juego juego) {
 	
@@ -25,7 +26,7 @@ public class Laberinto {
 		this.bloques = this.nivel.getBloques();
 		this.juego = juego;
 		this.fantasmas=nivel.getFantasmas();
-		
+	//	this.portales=nivel.getPortales();
 		
 	
 	}
@@ -262,7 +263,40 @@ public class Laberinto {
 	public Posicion getPosicionPuerta() {
 		return posicionPuerta;
 	}
-	
-	
-	
+
+/*	public void activarPortal(Portal portal) {
+		Posicion posicionPortalActivo= new Posicion(portal.getX(),portal.getY());
+		Posicion posicionPortalDestino=null;
+		if (/*getPacman().getPosicion().equals(posicionPortalActivo)&&(( esPortalDerecho(portal)&&this.getPacman().getDireccion().ordinal()==Direccion.Derecha.ordinal())||(esPortalIzquierdo(portal)&&this.getPacman().getDireccion().ordinal()==Direccion.Izquierda.ordinal()))){
+			for (int i = 0; i < this.portales.size(); i++) {
+				 if (portales.get(i).estaActivo()==false)
+					 posicionPortalDestino=new Posicion(portales.get(i).getX(),portales.get(i).getY());
+			}
+		this.getPacman().setPosicion(posicionPortalDestino);
+		}else{
+			for (int i = 0; i < this.fantasmas.size(); i++) {
+				if (/*(fantasmas.get(i).getPosicion().equals(posicionPortalActivo))&& ((esPortalDerecho(portal)&&fantasmas.get(i).getDireccion().ordinal()==Direccion.Derecha.ordinal())||(esPortalIzquierdo(portal)&&fantasmas.get(i).getDireccion().ordinal()==Direccion.Izquierda.ordinal()))){
+					for (int j = 0; j < this.portales.size(); j++) {
+						 if (portales.get(j).estaActivo()==false)
+							 posicionPortalDestino=new Posicion(portales.get(j).getX(),portales.get(j).getY());
+					}
+					fantasmas.get(i).setPosicion(posicionPortalDestino);
+				}
+			}
+		}
+		portal.portalDesactivado();
+	}
+
+	private boolean esPortalIzquierdo(Portal portal) {
+		if(esPortalDerecho(portal))
+			return false;
+		return true;
+	}
+
+	private boolean esPortalDerecho(Portal portal) {
+		if (portal.getPosicion().getX()>this.getPosicionPuerta().getX())
+			return true;
+		return false;
+	}
+*/
 }
