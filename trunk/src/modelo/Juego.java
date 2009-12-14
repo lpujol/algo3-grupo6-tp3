@@ -16,6 +16,7 @@ public class Juego{
 	private Laberinto laberinto;
 	private double puntosAcumulados;
 	private int cantidadVidas;
+	//private boolean jugando;
 
 	
 	
@@ -24,6 +25,7 @@ public class Juego{
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
+		
 	}	
 	
 	public void pasarNivel(){

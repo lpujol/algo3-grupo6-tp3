@@ -19,7 +19,7 @@ public class EstrategiaClyde implements IEstrategia {
 	public Posicion getDestino() {
 		Laberinto laberinto=fantasma.getLaberinto();
 		Posicion posicionPacman=laberinto.getPacman().getPosicion();
-		if(laberinto.distancia(laberinto.getBloqueEnPosicion(fantasma.getPosicion()), laberinto.getBloqueEnPosicion(posicionPacman))>8)
+		if(laberinto.distancia(laberinto.getBloqueEnPosicion(fantasma.getPosicion()), laberinto.getBloqueEnPosicion(posicionPacman))>8*Laberinto.getTamanoDelBloque())
 		{
 			return posicionPacman;
 		}
