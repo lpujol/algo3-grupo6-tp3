@@ -40,4 +40,9 @@ public class EstadoJuego implements Posicionable {
 		return Integer.toString((int)juego.getPuntosAcumulados());
 	}
 
+	public String numeroNivel() {
+		Integer ret=this.juego.getLaberinto().getNivel().getNumero();
+		return ret.toString();
+	}
+
 }
