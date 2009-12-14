@@ -1,47 +1,61 @@
-<project name="TP3" basedir="." default="test">
+<project name="TP3" default="Prueba" basedir=".">
+
 	
-	<property name="build" location="build" />
-	<property name="tests.dir" value="test.modeloTests"/>
-	<property name="lib" value="lib/" />
+    <property name="build.dir" value="build/clases"/>
+    <property name="tests.dir" value="build/clases/tests"/>
+    <property name="src.dir" value="src/"/>
+    <property name="lib" value="lib/" />
 
+	
 
+	<path id="test.classpath">
+		 <pathelement location="junit.jar"/>
+        <fileset dir="${lib}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+	
 	
 	<target name="setup">
-		<delete dir="${build}" />
-		<mkdir dir="${build}"/>
-	</target>
+			<delete dir="${build.dir}" />
+			<mkdir dir="${build.dir}"/>
+    </target>
+			
+	
 		
-	
-	<target name="build" depends="setup">
-		<javac srcdir="src" destdir="${build}"></javac>
-	</target>
-	
-	
-	<target name="test" depends="build">
-	    <junit>
-	        <classpath>
-	           	<path location="junit.jar" /> 
-	  
-	        	<path location="." /> 
-	  
-	        </classpath>
-	  
-	    	<formatter type="brief" usefile="false" /> 
-	    	<test name="modeloTests.CargadorDeNivelesTests" />
-	    	<test name="modeloTests.FantasmaCelesteTest" />
-	    	<test name="modeloTests.InteraccionPacmanFantasmaTest" />
-	    	<test name="modeloTests.JuegoTest" />
-	    	<test name="modeloTests.LaberintoTests" />
-	    	<test name="modeloTests.PacmanTest" />
-	    	<test name="modeloTests.ParedTests" />
-	    	<test name="modeloTests.PuertaTests" />
-	    	<test name="modeloTests.PuntoDePoderTests" />
-	    	<test name="modeloTests.PuntoTests" />
+	<target name="Compila" depends="setup">
+		<echo>Iniciando compilacion del proyecto </echo>
+		<javac srcdir="src" destdir="${build.dir}">
+	    	<classpath refid="test.classpath"/>
+		</javac>
+ 	</target>
 
-	    </junit>
-	 
-	</target>
-	 
-		
- 
+	
+	
+	<target name="Prueba" depends="Compila">
+		<echo>ejecutando las  pruebas  del proyecto </echo>
+		<mkdir dir="${tests.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+           
+			<test name="modeloTests.CargadorDeNivelesTests" todir="${tests.dir}"/>
+			<test name="modeloTests.FantasmaCelesteTest" todir="${tests.dir}"/>
+			<test name="modeloTests.InteraccionPacmanFantasmaTest" todir="${tests.dir}"/>
+     	    <test name="modeloTests.JuegoTest" todir="${tests.dir}"/>
+    	    <test name="modeloTests.LaberintoTests" todir="${tests.dir}"/>
+    	    <test name="modeloTests.PacmanTest" todir="${tests.dir}"/>
+			<test name="modeloTests.ParedTests" todir="${tests.dir}"/>
+			<test name="modeloTests.PuertaTests" todir="${tests.dir}"/>
+			<test name="modeloTests.PuntoDePoderTests" todir="${tests.dir}"/>
+			<test name="modeloTests.PuntoTests" todir="${tests.dir}"/>
+            <classpath refid="test.classpath"/>
+			
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+			
+      	</junit>
+    </target>   
+
 </project>
