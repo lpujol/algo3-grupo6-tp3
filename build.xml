@@ -1,33 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="sample" default="test" basedir=".">
+<project name="TP3" basedir="." default="test">
 	
+	<property name="build" location="build" />
+	<property name="tests.dir" value="test.modeloTests"/>
+	<property name="lib" value="lib/" />
+
+
 	
-	<target name="build" description="--> compila">
-		<javac srcdir="src/modelo" destdir="." >
-
-			<classpath path="junit.jar" />
-
-		</javac>
+	<target name="setup">
+		<delete dir="${build}" />
+		<mkdir dir="${build}"/>
 	</target>
-
-	<target name="test" depends="build">
-		<junit>
-			<classpath>
-				<path location="junit.jar" />  
-				<path location="." />  
-			</classpath>
-			<formatter type="brief"	usefile="false" /> 
-			<test name="JuegoTest" />
-			<test name="CargadorDeNivelesTests" />
-			<test name="InteraccionPacmanFantasmaTest" />
-			<test name="LaberintoTests" />
-			<test name="PacmanTest" />
-			<test name="ParedTests" />
-			<test name="PuertaTests" />
-					
-			
-		</junit>
 		
+	
+	<target name="build" depends="setup">
+		<javac srcdir="src" destdir="${build}"></javac>
 	</target>
+	
+	
+	<target name="test" depends="build">
+	    <junit>
+	        <classpath>
+	           	<path location="junit.jar" /> 
+	  
+	        	<path location="." /> 
+	  
+	        </classpath>
+	  
+	    	<formatter type="brief" usefile="false" /> 
+	    	<test name="modeloTests.CargadorDeNivelesTests" />
+	    	<test name="modeloTests.FantasmaCelesteTest" />
+	    	<test name="modeloTests.InteraccionPacmanFantasmaTest" />
+	    	<test name="modeloTests.JuegoTest" />
+	    	<test name="modeloTests.LaberintoTests" />
+	    	<test name="modeloTests.PacmanTest" />
+	    	<test name="modeloTests.ParedTests" />
+	    	<test name="modeloTests.PuertaTests" />
+	    	<test name="modeloTests.PuntoDePoderTests" />
+	    	<test name="modeloTests.PuntoTests" />
 
+	    </junit>
+	 
+	</target>
+	 
+		
+ 
 </project>
