@@ -11,12 +11,12 @@ public class EstrategiaIrACasa implements IEstrategia {
 	
 	
 	public Posicion getDestino() {
-		if(fantasma.getPosicion().equals(fantasma.getLaberinto().obtenerPosicionCasa())){
+		if(fantasma.getPosicion().equals(fantasma.getPosicionInicial())){//.getLaberinto().obtenerPosicionCasa())){
 			fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
 			fantasma.recuperarVelocidadInicial();
 			fantasma.estaVivo();
 		}
-		return fantasma.getLaberinto().obtenerPosicionCasa();		
+		return fantasma.getPosicionInicial();//.getLaberinto().obtenerPosicionCasa();		
 	}
 
 }
