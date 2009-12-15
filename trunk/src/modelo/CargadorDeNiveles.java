@@ -128,10 +128,12 @@ public class CargadorDeNiveles {
 				
 				laberinto.setPosicionFantasmaInicial(4,posicion);				
 				break;
-	/*		case 42: //*
-				nivel.agregarPortal(new Portal(posicion,laberinto));
-								
-				break;*/
+			case 42: //*
+				Portal nuevoPortal=new Portal(posicion,laberinto);
+				nivel.agregarPortal(nuevoPortal);
+				nivel.agregarBloque(nuevoPortal);
+				
+				break;
 				
 			default:
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));

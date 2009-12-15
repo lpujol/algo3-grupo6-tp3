@@ -15,7 +15,7 @@ public class Laberinto {
 	private Posicion posicionCasa;
 	private ArrayList<Posicion> posicionFantasma;
 	private Posicion posicionPuerta;
-//	private ArrayList<Portal> portales;
+	private ArrayList<Portal> portales;
 
 	public Laberinto(Juego juego) {
 	
@@ -26,7 +26,7 @@ public class Laberinto {
 		this.bloques = this.nivel.getBloques();
 		this.juego = juego;
 		this.fantasmas=nivel.getFantasmas();
-	//	this.portales=nivel.getPortales();
+		this.portales=nivel.getPortales();
 		
 	
 	}
@@ -264,23 +264,31 @@ public class Laberinto {
 		return posicionPuerta;
 	}
 
-/*	public void activarPortal(Portal portal) {
+	public void activarPortal(Portal portal) {
 		Posicion posicionPortalActivo= new Posicion(portal.getX(),portal.getY());
 		Posicion posicionPortalDestino=null;
-		if (/*getPacman().getPosicion().equals(posicionPortalActivo)&&(( esPortalDerecho(portal)&&this.getPacman().getDireccion().ordinal()==Direccion.Derecha.ordinal())||(esPortalIzquierdo(portal)&&this.getPacman().getDireccion().ordinal()==Direccion.Izquierda.ordinal()))){
+		if (getPacman().getPosicion().equals(posicionPortalActivo)&&(( esPortalDerecho(portal)&&this.getPacman().getDireccion().ordinal()==Direccion.Derecha.ordinal())||(esPortalIzquierdo(portal)&&this.getPacman().getDireccion().ordinal()==Direccion.Izquierda.ordinal()))){
 			for (int i = 0; i < this.portales.size(); i++) {
 				 if (portales.get(i).estaActivo()==false)
-					 posicionPortalDestino=new Posicion(portales.get(i).getX(),portales.get(i).getY());
+					 posicionPortalDestino=new Posicion(portales.get(i).getPosicion().getX(),portales.get(i).getPosicion().getY());
 			}
-		this.getPacman().setPosicion(posicionPortalDestino);
+		if (esPortalDerecho(portal)){	
+		this.getPacman().setPosicion(posicionPortalDestino.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE*2));}
+		else{
+		this.getPacman().setPosicion(posicionPortalDestino.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE*2));}
+		
 		}else{
 			for (int i = 0; i < this.fantasmas.size(); i++) {
-				if (/*(fantasmas.get(i).getPosicion().equals(posicionPortalActivo))&& ((esPortalDerecho(portal)&&fantasmas.get(i).getDireccion().ordinal()==Direccion.Derecha.ordinal())||(esPortalIzquierdo(portal)&&fantasmas.get(i).getDireccion().ordinal()==Direccion.Izquierda.ordinal()))){
+				if (((fantasmas.get(i).getPosicion().equals(posicionPortalActivo.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE)))&&(esPortalDerecho(portal)&&fantasmas.get(i).getDireccion().ordinal()==Direccion.Derecha.ordinal()))||((fantasmas.get(i).getPosicion().equals(posicionPortalActivo.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE)))&&(esPortalIzquierdo(portal)&&fantasmas.get(i).getDireccion().ordinal()==Direccion.Izquierda.ordinal()))){
 					for (int j = 0; j < this.portales.size(); j++) {
 						 if (portales.get(j).estaActivo()==false)
-							 posicionPortalDestino=new Posicion(portales.get(j).getX(),portales.get(j).getY());
+							 posicionPortalDestino=new Posicion(portales.get(j).getPosicion().getX(),portales.get(j).getPosicion().getY());
 					}
-					fantasmas.get(i).setPosicion(posicionPortalDestino);
+					if (esPortalDerecho(portal)){
+					fantasmas.get(i).setPosicion(posicionPortalDestino.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE));}
+					else{
+					fantasmas.get(i).setPosicion(posicionPortalDestino.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE));
+					}
 				}
 			}
 		}
@@ -298,5 +306,5 @@ public class Laberinto {
 			return true;
 		return false;
 	}
-*/
+
 }

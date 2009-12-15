@@ -2,7 +2,7 @@ package modelo;
 
 
 
-public class Portal extends NoComestible {
+public class Portal extends Comestible {
 
 	private boolean activado;
 	
@@ -10,7 +10,7 @@ public class Portal extends NoComestible {
 		super(posicion, laberinto);
 		this.activado=false;
 	}
-/*
+
 	public boolean esOcupable(Fantasma unFantasma){
 		this.portalActivado();
 		this.laberinto.activarPortal(this);
@@ -19,8 +19,7 @@ public class Portal extends NoComestible {
 	
 
 	public boolean esOcupablePorPacman() {		
-		this.laberinto.activarPortal(this);
-		this.laberinto.getPacman().setPosicion(this.laberinto.getPosicionPuerta());
+		
 		return true;
 	}
 
@@ -34,11 +33,14 @@ public class Portal extends NoComestible {
 
 	public boolean estaActivo() {
 		return this.activado;
-	}*/
+	}
 
 	@Override
-	public boolean esOcupablePorPacman() {
-		// TODO Auto-generated method stub
-		return false;
+	public void comer() {
+		this.portalActivado();
+		this.laberinto.activarPortal(this);
+		
 	}
+
+
 }
