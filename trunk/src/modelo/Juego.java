@@ -80,16 +80,20 @@ public class Juego{
 			fantasma.estaHuyendo();
 		}
 		
+		int duracionPuntoDePoder=11-this.getLaberinto().getNivel().getNumero();
 		
-		Timer t=new Timer();
-		t.schedule(new TimerTask(){
-			@Override
-			public void run() {
-				efectoPuntoDePoderTerminado();				
-			}			
+		System.out.print(duracionPuntoDePoder);
+		if(duracionPuntoDePoder<0) efectoPuntoDePoderTerminado();
+		else{
+			Timer t=new Timer();
+			t.schedule(new TimerTask(){
+				@Override
+				public void run() {
+					efectoPuntoDePoderTerminado();				
+				}			
+			}
+			, duracionPuntoDePoder*1000);
 		}
-		, 5000);
-		
 	}
 		
 	
