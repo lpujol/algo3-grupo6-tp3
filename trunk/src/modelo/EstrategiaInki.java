@@ -19,31 +19,31 @@ public class EstrategiaInki implements IEstrategia {
 		Laberinto laberinto=fantasma.getLaberinto();
 		ArrayList<Fantasma> fantasmas=laberinto.getFantasmas();
 		Fantasma cazador=null;
-		for(Fantasma f : fantasmas)
+		/*for(Fantasma f : fantasmas)
 		{
 			//Usa RTTI
 			if(f.getEstrategiaActual() instanceof EstrategiaPerseguidor)
 				cazador=f;
 		}
 		if(cazador== null || laberinto.distancia(laberinto.getBloqueEnPosicion(fantasma.getPosicion()), laberinto.getBloqueEnPosicion(cazador.getPosicion()))>5*Laberinto.getTamanoDelBloque())
-		{
+		{*/
 			Direccion direccionPacman=laberinto.getPacman().getDireccion();
 			switch(direccionPacman)
 			{
 			case Arriba:
-				return interceptarDesdeArriba();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY()-4*factor);
+				return interceptarDesdeAbajo();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY()-4*factor);
 			case Abajo:
-				return interceptarDesdeAbajo();//new Posicion(posicionPacman.getX(),posicionPacman.getY()+4*factor);
+				return interceptarDesdeArriba();//new Posicion(posicionPacman.getX(),posicionPacman.getY()+4*factor);
 			case Derecha:
-				return interceptarDesdeDerecha();//new Posicion(posicionPacman.getX()+4*factor,posicionPacman.getY());
+				return interceptarDesdeIzquierda();//new Posicion(posicionPacman.getX()+4*factor,posicionPacman.getY());
 			case Izquierda:
-				return interceptarDesdeIzquierda();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY());
+				return interceptarDesdeDerecha();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY());
 			}
-		}
+		/*}
 		else
 		{
 			return laberinto.getPacman().getPosicion();
-		}
+		}*/
 		return null;
 	}
 	private Posicion interceptarDesdeIzquierda() {
