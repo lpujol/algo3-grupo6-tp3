@@ -62,7 +62,7 @@ public class PacmanTest extends TestCase {
 		 * 
 		 * */
 
-		public void testVivirCambioDireccionLaIzquierda() {
+	/*	public void testVivirCambioDireccionLaIzquierda() {
 			unPacman.cambiarDireccion(Direccion.Derecha);
 			unPacman.setPosicion(new Posicion(120,376));
 			unPacman.vivir();	
@@ -138,8 +138,39 @@ public class PacmanTest extends TestCase {
 			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
 		
 
-		}
+		}*/
 
+		public void testAtravesarPortal(){
+			unPacman.setPosicion(new Posicion(376,232));//lo ubica en el pasillo que lleva al portal
+			unPacman.vivir();
+			for(int i=0;i<10;i++){
+				unPacman.vivir();
+			}
+			
+			unPacman.vivir();
+			Posicion posicionSiguiente=new Posicion(56,232);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			
+			unPacman.setEstrategia(new EstrategiaIrALaIzquierda(unPacman));
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			unPacman.vivir();
+			
+			posicionSiguiente=new Posicion(392,232);
+			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
+			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
+			
+			
+		} 
+			
+		
+		
 		/*prueba  como la cantidad de vidas se va  actualizando
 		 *  medida que pacman  va siendo  comido 
 		 */

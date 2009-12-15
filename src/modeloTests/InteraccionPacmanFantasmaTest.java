@@ -22,12 +22,14 @@ public class InteraccionPacmanFantasmaTest extends TestCase {
 	}
 	
 	public void testPacmanComido(){
-		int vidas=pacman.getCantidadVidas();
+		int vidas=pacman.getCantidadVidas();		
+		pacman.cambiarDireccion(Direccion.Izquierda);
 		
-		miFantasma.vivir();
-		miFantasma.vivir();
-		miFantasma.vivir();
-		assertNotSame(vidas,pacman.getCantidadVidas());
+		miFantasma.vivir();		
+	//	miFantasma.vivir();
+//		miFantasma.vivir();
+		assertEquals(2,pacman.getCantidadVidas());
+		assertEquals(Direccion.Derecha,pacman.getDireccion());
 	}
 	
 	public void testFantasmaComido(){
