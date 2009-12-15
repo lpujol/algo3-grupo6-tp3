@@ -61,10 +61,10 @@ public class Posicion implements Posicionable{
 	
 	public boolean equals(Posicion posicion){
 		return((this.x==posicion.getX())&& (this.y==posicion.getY()));
-				
-		
-		
-		
-	};
+	}
+	
+	public Posicion clone(){
+		return new Posicion(this.x,this.y);
+	}
 	
 }

@@ -147,13 +147,18 @@ public abstract class Fantasma extends Vivo {
 
 
 	public void moverAPosicionInicial(){
-		this.posicion=new Posicion(posicionInicial.getX(),posicionInicial.getY());
+		this.posicion=this.posicionInicial.clone();
 		this.estrategiaActual=new EstrategiaSalirDeCasa(this);
 	}
 
 
 	public void setPosicion(Posicion nuevaPosicion) {
 		this.posicion=nuevaPosicion;		
+	}
+
+
+	public Posicion getPosicionInicial() {
+		return this.posicionInicial.clone();
 	}
 	
 }
