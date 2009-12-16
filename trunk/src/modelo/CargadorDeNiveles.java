@@ -107,6 +107,11 @@ public class CargadorDeNiveles {
 				
 				laberinto.setPosicionCasa(posicion);
 				break;
+			case 66:// B=Bonus
+				Bonus bonus=new Bonus(posicion,laberinto);
+				nivel.agregarBloque(bonus);
+				laberinto.setBonus(bonus);
+				break;
 				//en Texto hay 1 2 3 4
 			case 49: //1
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));

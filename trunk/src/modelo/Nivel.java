@@ -96,6 +96,7 @@ public class Nivel {
 	public void puntoComido() {
 		this.puntosComidos++;
 		if(cantidadPuntos-puntosComidos<=20) this.fantasmas.get(0).setEstrategiaActual(new EstrategiaColaborativa(this.fantasmas.get(0)));
+		if(puntosComidos==100) this.pacman.laberinto.activarBonus();
 		if(puntosComidos>=cantidadPuntos)
 		this.pasarDeNivel();
 	}
