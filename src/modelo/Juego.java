@@ -17,7 +17,7 @@ public class Juego{
 	private double puntosAcumulados;
 	private int cantidadVidas;
 	private boolean jugando;
-
+	private int valorBonus;
 	
 	
 	public Juego(){
@@ -26,11 +26,14 @@ public class Juego{
 		this.laberinto = new Laberinto(this);
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
 		this.jugando=false;
-		
+		valorBonus=VALOR_BONUS;
 	}	
 	
 	public void pasarNivel(){
 			this.laberinto.getNivel().pasarDeNivel();
+			this.puntoDePoderActivo=false;
+			this.valorBonus=valorBonus+200;
+			
 	}
 	
 	public boolean perdido(){
@@ -154,10 +157,22 @@ public class Juego{
 		}
 	}
 
-	public int getCantidadVidas() {
 
+	public void desactivarPuntoDePoder() {
+		this.puntoDePoderActivo=false;		
+	}
+
+	public int getCantidadVidas() {
 		return this.cantidadVidas;
 	}
+
+
+	public void incrementarValorBonus(int incremento) {
+		valorBonus=valorBonus+incremento;		
+	}
+
+
+
 
 
 

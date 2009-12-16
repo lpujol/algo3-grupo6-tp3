@@ -144,5 +144,10 @@ public class CargadorDeNiveles {
 				nivel.agregarBloque(new EspacioVacio(posicion,laberinto));
 		}		
 	}
+
+	public Juego getJuego() {
+		
+		return juego;
+	}
 	
 }

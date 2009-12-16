@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Nivel {
 
+	private static final int INCREMENTO_VELOCIDAD_POR_NIVEL = 1;
+	private static final int INCREMENTO_BONUS_POR_NIVEL = 200;
 	private int numero;
 	private ArrayList<Bloque> bloques;
 	private ArrayList<Fantasma> fantasmas;
@@ -66,7 +68,14 @@ public class Nivel {
 	}
 	
 	public void pasarDeNivel() {
-        this.numero++;
+        this.numero++;        
+        int incremento=INCREMENTO_VELOCIDAD_POR_NIVEL;
+        this.pacman.incrementarVelocidad(incremento);
+        for(Fantasma fantasma:fantasmas){
+			fantasma.incrementarVelocidad(incremento);
+		}
+        this.cargadorDeNiveles.getJuego().desactivarPuntoDePoder();
+        this.cargadorDeNiveles.getJuego().incrementarValorBonus(INCREMENTO_BONUS_POR_NIVEL);
         resetearBloques();
         reiniciarPosicionesYEstados();
 	}
