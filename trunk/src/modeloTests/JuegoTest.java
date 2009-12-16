@@ -50,6 +50,28 @@ public class JuegoTest extends TestCase {
 			unJuego.puntoDePoderComido();
 			assertTrue(unJuego.puntoDePoderActivo());
 		}
+		
+		/* prueba  que    comenzar()   hace que el  juego  se  inicie
+		 * dejandolo  en un estado "jugando"  y  con  su demas  estado
+		 *   inicial
+		 */
+		public void  testComenzar(){
+			
+			assertEquals(unJuego.estaJugando(),false);
+			unJuego.comenzar();
+			assertEquals(unJuego.estaJugando(),true);
+			
+			unJuego.pasarNivel();
+			unJuego.setPuntosAcumulados(1000);
+			unJuego.pacmanComido();
+			unJuego.pacmanComido();
+			unJuego.pacmanComido();
+			unJuego.pacmanComido();
+			unJuego.comenzar();
+		    assertEquals(unJuego.getLaberinto().getNivel().getNumero(),1);
+		    assertEquals(unJuego.getCantidadVidas(),3);
+
+		}
 
 		
 		public void testFantasmaComido() {
