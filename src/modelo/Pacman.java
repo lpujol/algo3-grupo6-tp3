@@ -42,7 +42,8 @@ public class Pacman extends Vivo{
 		if (fantasmasEnElMismoBloque.isEmpty()==false){
 			if(this.laberinto.getJuego().puntoDePoderActivo()){ 
 				for (int i = 0; i < fantasmasEnElMismoBloque.size(); i++) {
-					fantasmasEnElMismoBloque.get(i).comer();
+					if((fantasmasEnElMismoBloque.get(i).getEstado().ordinal()==EstadoFantasma.Huyendo.ordinal()))
+						fantasmasEnElMismoBloque.get(i).comer();
 				};
 			}
 			else{

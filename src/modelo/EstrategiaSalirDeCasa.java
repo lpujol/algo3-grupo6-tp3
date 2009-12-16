@@ -13,8 +13,10 @@ public class EstrategiaSalirDeCasa implements IEstrategia {
 	public Posicion getDestino() {
 		
 		Posicion posicionPuerta=fantasma.getLaberinto().getPosicionPuerta();
-		if(this.fantasma.getPosicion().equals(posicionPuerta))
+		if(this.fantasma.getPosicion().equals(posicionPuerta)){
 			fantasma.restablecerEstrategiaNativa();
+			fantasma.setEnCasa(false);
+		}
 		return posicionPuerta;
 	}
 

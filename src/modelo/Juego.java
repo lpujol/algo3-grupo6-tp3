@@ -76,8 +76,10 @@ public class Juego{
 		
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
-			fantasma.setEstrategiaActual(new EstrategiaEscapar(fantasma));
-			fantasma.estaHuyendo();
+			if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()&&(fantasma.estaEnCasa()==false)){
+				fantasma.setEstrategiaActual(new EstrategiaEscapar(fantasma));
+				fantasma.estaHuyendo();
+			}
 		}
 		
 		int duracionPuntoDePoder=11-this.getLaberinto().getNivel().getNumero();
@@ -101,10 +103,10 @@ public class Juego{
 		this.puntoDePoderActivo=false;
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
-			if(fantasma.getEstado()!=EstadoFantasma.Muerto){
-			fantasma.restablecerEstrategiaNativa();
-			fantasma.recuperarVelocidadInicial();
-			fantasma.estaVivo();
+/**/		if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()){
+				fantasma.restablecerEstrategiaNativa();
+				fantasma.recuperarVelocidadInicial();
+				fantasma.estaVivo();
 			}
 		}
 	}
