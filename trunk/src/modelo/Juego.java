@@ -154,6 +154,11 @@ public class Juego{
 		}
 	}
 
+	public int getCantidadVidas() {
+
+		return this.cantidadVidas;
+	}
+
 
 
 
