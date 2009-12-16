@@ -16,6 +16,7 @@ public class Laberinto {
 	private ArrayList<Posicion> posicionFantasma;
 	private Posicion posicionPuerta;
 	private ArrayList<Portal> portales;
+	private Bonus bonus;
 
 	public Laberinto(Juego juego) {
 	
@@ -305,6 +306,15 @@ public class Laberinto {
 		if (portal.getPosicion().getX()>this.getPosicionPuerta().getX())
 			return true;
 		return false;
+	}
+
+	public void setBonus(Bonus bonus) {
+		this.bonus=bonus;
+		
+	}
+	
+	public void activarBonus(){
+		this.bonus.mostrar();
 	}
 
 }

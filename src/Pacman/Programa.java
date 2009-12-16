@@ -69,6 +69,11 @@ public class Programa {
 				vistaP.setPosicionable(b);
 				controlador.agregarDibujable(vistaP);
 			}
+			if(b instanceof Bonus){
+				VistaBonus vistaB=new VistaBonus((Bonus)b);
+				vistaB.setPosicionable(b);
+				controlador.agregarDibujable(vistaB);
+			}
 		}
 		
 		controlador.agregarDibujable(vistaPuntos);
