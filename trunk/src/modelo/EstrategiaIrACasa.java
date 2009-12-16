@@ -15,6 +15,7 @@ public class EstrategiaIrACasa implements IEstrategia {
 			fantasma.setEstrategiaActual(new EstrategiaSalirDeCasa(fantasma));
 			fantasma.recuperarVelocidadInicial();
 			fantasma.estaVivo();
+			fantasma.setEnCasa(true);
 		}
 		return fantasma.getPosicionInicial();//.getLaberinto().obtenerPosicionCasa();		
 	}

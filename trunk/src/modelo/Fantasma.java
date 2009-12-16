@@ -10,6 +10,7 @@ public abstract class Fantasma extends Vivo {
 	private EstadoFantasma estado=EstadoFantasma.Vivo;
 	private int velocidadNativa;
 	private Posicion posicionInicial;
+	private boolean enCasa;
 	
 	public Fantasma(Laberinto laberinto, int velocidad,Posicion posicionInicial){
 		this.laberinto=laberinto;
@@ -18,7 +19,7 @@ public abstract class Fantasma extends Vivo {
 		this.posicion=new Posicion(posicionInicial.getX(),posicionInicial.getY());
 		this.velocidad=velocidad;
 		this.direccion=Direccion.Derecha;
-		
+		this.enCasa=true;
 	}
 
 		
@@ -45,7 +46,7 @@ public abstract class Fantasma extends Vivo {
 				mover();
 			}
 			if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
-				if(this.laberinto.getJuego().puntoDePoderActivo()){ 
+				if(this.laberinto.getJuego().puntoDePoderActivo()&&(this.getEstado().ordinal()==EstadoFantasma.Huyendo.ordinal())){ 
 					this.comer();}
 				else{
 					if(this.estado==EstadoFantasma.Vivo)
@@ -160,7 +161,15 @@ public abstract class Fantasma extends Vivo {
 	public Posicion getPosicionInicial() {
 		return this.posicionInicial.clone();
 	}
-	
+
+	public boolean estaEnCasa(){
+		return this.enCasa;
+	}
+
+
+	public void setEnCasa(boolean b) {
+		this.enCasa=b;		
+	}
 }
 
 	
