@@ -93,4 +93,7 @@ public abstract class Vivo implements Posicionable,ObjetoVivo {
 		return y-Laberinto.getTamanoDelBloque()/4;
 	}
 
+	public void incrementarVelocidad(int incremento){
+		velocidad=velocidad+incremento;
+	};
 }

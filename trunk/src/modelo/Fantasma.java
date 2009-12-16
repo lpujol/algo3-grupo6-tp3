@@ -170,6 +170,11 @@ public abstract class Fantasma extends Vivo {
 	public void setEnCasa(boolean b) {
 		this.enCasa=b;		
 	}
+	
+	public void incrementarVelocidad(int incremento){
+		velocidad=velocidad+incremento;
+		velocidadNativa=velocidadNativa+incremento;
+	};
 }
 
 	
