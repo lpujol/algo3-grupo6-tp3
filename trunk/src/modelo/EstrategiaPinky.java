@@ -9,22 +9,26 @@ public class EstrategiaPinky implements IEstrategia {
 		this.fantasma=fantasma;
 	}
 	
+	/*
+	 * trata de ubicarse 4 bloques mas adelante en la direccion
+	 * hacia donde se dirige el pacman
+	 * @see modelo.IEstrategia#getDestino()
+	 */
 	@Override
 	public Posicion getDestino() {
 		Laberinto laberinto=fantasma.getLaberinto();
-		//Posicion posicionPacman=laberinto.getPacman().getPosicion();
 		Direccion direccionPacman=laberinto.getPacman().getDireccion();
 		
 		switch(direccionPacman)
 		{
 		case Arriba:
-			return cuatroBloquesArriba();//new Posicion(posicionPacman.getX(),posicionPacman.getY()-4);
+			return cuatroBloquesArriba();
 		case Abajo:
-			return cuatroBloquesAbajo();//new Posicion(posicionPacman.getX(),posicionPacman.getY()+4);
+			return cuatroBloquesAbajo();
 		case Derecha:
-			return cuatroBloquesDerecha();//new Posicion(posicionPacman.getX()+4,posicionPacman.getY());
+			return cuatroBloquesDerecha();
 		case Izquierda:
-			return cuatroBloquesIzquierda();//new Posicion(posicionPacman.getX()-4,posicionPacman.getY());
+			return cuatroBloquesIzquierda();
 			
 			
 		}

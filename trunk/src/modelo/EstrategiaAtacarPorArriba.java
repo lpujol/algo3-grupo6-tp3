@@ -8,6 +8,13 @@ public class EstrategiaAtacarPorArriba implements IEstrategia {
 		this.laberinto=laberinto;
 	}
 
+	/*
+	 * 
+	 * Estrategia atacar por arriba, es utilizada por la estrategia colaborativa
+	 * se trata de ubicar el bloque que este
+	 * 3 posiciones mas arriba del pacman, y tutilizar ese como destino
+	 * @see modelo.IEstrategia#getDestino()
+	 */
 	@Override
 	public Posicion getDestino() {
 		Posicion posicionPacman=laberinto.getPacman().getPosicion();

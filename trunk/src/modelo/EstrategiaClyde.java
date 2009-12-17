@@ -13,7 +13,7 @@ public class EstrategiaClyde implements IEstrategia {
 	 * (non-Javadoc)
 	 * la estrategia de este fantasma es acercarse al pacman cuando
 	 * esta a mas de 8 cuadros de distancia
-	 * y luego alejarse :S
+	 * y luego alejarse, para dar un poco de variabilidad
 	 */
 	@Override
 	public Posicion getDestino() {

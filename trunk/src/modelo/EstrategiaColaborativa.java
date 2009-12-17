@@ -6,6 +6,10 @@ public class EstrategiaColaborativa implements IEstrategia {
 	
 	private Fantasma fantasma;
 	
+	/*
+	 * estrategia colaborativa, obtiene los demas fantasmas
+	 * y les asigna diferentes estrategias
+	 */
 	public EstrategiaColaborativa(Fantasma fantasma){
 		this.fantasma=fantasma;
 		ArrayList<Fantasma> fantasmas=fantasma.getLaberinto().getFantasmas();
@@ -23,7 +27,13 @@ public class EstrategiaColaborativa implements IEstrategia {
 		}
 	}
 
-	//este ataca por abajo
+	/*
+	 * 
+	 * Estrategia atacar por abajo, es utilizada por la estrategia colaborativa
+	 * se trata de ubicar el bloque que este
+	 * 3 posiciones mas a la derecha del pacman, y tutilizar ese como destino
+	 * @see modelo.IEstrategia#getDestino()
+	 */
 	@Override
 	public Posicion getDestino() {
 		Posicion posicionPacman=fantasma.getLaberinto().getPacman().getPosicion();

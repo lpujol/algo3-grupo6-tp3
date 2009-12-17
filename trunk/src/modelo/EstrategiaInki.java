@@ -1,6 +1,5 @@
 package modelo;
 
-import java.util.ArrayList;
 
 public class EstrategiaInki implements IEstrategia {
 
@@ -10,24 +9,14 @@ public class EstrategiaInki implements IEstrategia {
 		this.fantasma=fantasma; 
 	}
 	/*
-	 * (non-Javadoc)
+	 * segun la direccion en la que este llendo el pacman, se trata de interceptar por diferentes lados
 	 * @see modelo.IEstrategia#getDestino()
 	 */
 	
 	@Override
 	public Posicion getDestino() {
 		Laberinto laberinto=fantasma.getLaberinto();
-		ArrayList<Fantasma> fantasmas=laberinto.getFantasmas();
-		Fantasma cazador=null;
-		/*for(Fantasma f : fantasmas)
-		{
-			//Usa RTTI
-			if(f.getEstrategiaActual() instanceof EstrategiaPerseguidor)
-				cazador=f;
-		}
-		if(cazador== null || laberinto.distancia(laberinto.getBloqueEnPosicion(fantasma.getPosicion()), laberinto.getBloqueEnPosicion(cazador.getPosicion()))>5*Laberinto.getTamanoDelBloque())
-		{*/
-			Direccion direccionPacman=laberinto.getPacman().getDireccion();
+		Direccion direccionPacman=laberinto.getPacman().getDireccion();
 			switch(direccionPacman)
 			{
 			case Arriba:
@@ -39,11 +28,7 @@ public class EstrategiaInki implements IEstrategia {
 			case Izquierda:
 				return interceptarDesdeDerecha();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY());
 			}
-		/*}
-		else
-		{
-			return laberinto.getPacman().getPosicion();
-		}*/
+
 		return null;
 	}
 	private Posicion interceptarDesdeIzquierda() {

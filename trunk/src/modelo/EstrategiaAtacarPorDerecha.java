@@ -7,6 +7,14 @@ public class EstrategiaAtacarPorDerecha implements IEstrategia {
 	public EstrategiaAtacarPorDerecha(Laberinto laberinto) {
 		this.laberinto=laberinto;
 	}
+	
+	/*
+	 * 
+	 * Estrategia atacar por derecha, es utilizada por la estrategia colaborativa
+	 * se trata de ubicar el bloque que este
+	 * 3 posiciones mas a la derecha del pacman, y tutilizar ese como destino
+	 * @see modelo.IEstrategia#getDestino()
+	 */
 
 	@Override
 	public Posicion getDestino() {
