@@ -67,11 +67,14 @@ public class FantasmaTest extends TestCase {
 		
 	};
 	
+	/*
+	 *Prueba que el fantasma atraviesa correctamente ambos portales. 
+	 * */
 	public void testFantasmaAtraviesaPortal(){
         Juego miJuego = new Juego();        
         Pacman miPacman= miJuego.getLaberinto().getPacman();		
         miPacman.setPosicion(new Posicion(376,232));
-        miJuego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(360,232,miJuego.getLaberinto(),4));
+        miJuego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(360,232,miJuego.getLaberinto(),4));// ubica al fantasma en el pasillo que lleva al portal
         ArrayList<Portal> portales=miJuego.getLaberinto().getNivel().getPortales();
         Posicion posicionPortalIzquierdo=null;
         Posicion posicionLuegoDeAtravesarPortalIzq=null;
@@ -79,7 +82,7 @@ public class FantasmaTest extends TestCase {
         	if (portales.get(j).getPosicion().getX()<miJuego.getLaberinto().getPosicionPuerta().getX())
         		posicionPortalIzquierdo=portales.get(j).getPosicion().clone();
         	}
-        posicionLuegoDeAtravesarPortalIzq=posicionPortalIzquierdo.getPosicionSiguienteHorizontal(20);
+        posicionLuegoDeAtravesarPortalIzq=posicionPortalIzquierdo.getPosicionSiguienteHorizontal(20);//Atraviesa el portal derecho y aparece 1 casillero(16 pasos) por delante del portal izquierdo y ademas avanza 4 mas porque invoca a moverse luego de atravesarlo.
         Fantasma miFantasma=miJuego.getLaberinto().getFantasmas().get(0);		
 		miFantasma.setPosicion(new Posicion(360,232));
 		miFantasma.restablecerEstrategiaNativa();		
@@ -88,13 +91,16 @@ public class FantasmaTest extends TestCase {
 		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
 		for(int i=0;i<15;i++){
 			miFantasma.vivir();
-			miPacman.vivir();
+			miPacman.vivir();	
 		}		
 	
 		assertEquals(posicionLuegoDeAtravesarPortalIzq.getX(),miFantasma.getPosicion().getX());
 		assertEquals(posicionLuegoDeAtravesarPortalIzq.getY(),miFantasma.getPosicion().getY());
 	}
 
+	/*
+	 * Prueba que luego de ser comido, el fantasma adquiere estado muerto.
+	 * */
 	public void testFantasmaComido(){
 		Juego miJuego = new Juego();  
         FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);
