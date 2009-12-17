@@ -13,14 +13,13 @@ public class PacmanTest extends TestCase {
 	//Pruebas realizadas con un pacman de velocidad 4.
 	private Juego unJuego;
 	private Pacman unPacman;
-	private Posicion unaPosicion;
+	
 	
 		
 		protected void setUp() throws Exception {
 	        super.setUp();
 	    
 	        unJuego = new Juego();
-	        unaPosicion= unJuego.getLaberinto().getPacman().getPosicion();
 	        unPacman= unJuego.getLaberinto().getPacman();
 	        
 	}
@@ -80,7 +79,7 @@ public class PacmanTest extends TestCase {
 		}
 
 		/*
-		 *Prueba que el pacma atraviesa correctamente ambos portales. 
+		 *Prueba que el pacman atraviesa correctamente ambos portales. 
 		 * */
 		public void testAtravesarPortal(){
 			unPacman.setPosicion(new Posicion(376,232));//lo ubica en el pasillo que lleva al portal
