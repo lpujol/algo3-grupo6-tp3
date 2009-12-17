@@ -269,7 +269,7 @@ public class Laberinto {
 					 posicionPortalDestino=new Posicion(portales.get(i).getPosicion().getX(),portales.get(i).getPosicion().getY());
 			}
 		if (esPortalDerecho(portal)){	
-		this.getPacman().setPosicion(posicionPortalDestino.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE*2));}
+		this.getPacman().setPosicion(posicionPortalDestino.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE*2));}//Pacman aparece TAMANO_DEL_BLOQUE*2 posiciones luego del portal 
 		else{
 		this.getPacman().setPosicion(posicionPortalDestino.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE*2));}
 		
@@ -283,7 +283,7 @@ public class Laberinto {
 					if (esPortalDerecho(portal)){
 					fantasmas.get(i).setPosicion(posicionPortalDestino.getPosicionSiguienteHorizontal(TAMANO_DEL_BLOQUE));}
 					else{
-					fantasmas.get(i).setPosicion(posicionPortalDestino.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE));
+					fantasmas.get(i).setPosicion(posicionPortalDestino.getPosicionAnteriorHorizontal(TAMANO_DEL_BLOQUE));//Fantasma aparece TAMANO_DEL_BLOQUE posiciones luego del portal
 					}
 				}
 			}
