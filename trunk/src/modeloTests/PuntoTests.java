@@ -5,6 +5,7 @@ import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Posicion;
+import modelo.PosicionInvalidaException;
 import modelo.Punto;
 
 public class PuntoTests extends TestCase {
@@ -33,7 +34,7 @@ public class PuntoTests extends TestCase {
 			@SuppressWarnings("unused")
 			Punto punto = new Punto(new Posicion(0, -1), this.laberinto);
 			fail();
-		} catch (IllegalArgumentException e) {
+		} catch (PosicionInvalidaException e) {
 			assertNotNull(e);
 		}
 	}

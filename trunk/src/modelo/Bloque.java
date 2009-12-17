@@ -8,12 +8,11 @@ public abstract class Bloque implements Posicionable {
 	protected Posicion posicion;
 	protected boolean comido;
 
-	public Bloque(Posicion posicion, Laberinto laberinto)
-			throws IllegalArgumentException {
+	public Bloque(Posicion posicion, Laberinto laberinto) {
 		if ((posicion.getX() > 0) && (posicion.getY() > 0)) {
 			this.posicion = posicion;
 		} else {
-			throw new IllegalArgumentException();
+			throw new PosicionInvalidaException();
 		}
 		this.comido = false;
 		this.laberinto = laberinto;

@@ -52,7 +52,7 @@ public abstract class Fantasma extends Vivo {
 				mover();
 			}
 			if (this.laberinto.mismoBloque(this.posicion,this.laberinto.getPacman().getPosicion()))
-				if(this.laberinto.getJuego().puntoDePoderActivo()&&(this.getEstado().ordinal()==EstadoFantasma.Huyendo.ordinal())){ 
+				if((this.laberinto.getJuego().getPuntosDePoderActivos()>0)&&(this.getEstado().ordinal()==EstadoFantasma.Huyendo.ordinal())){ 
 					this.comer();}
 				else{
 					if(this.estado==EstadoFantasma.Vivo)

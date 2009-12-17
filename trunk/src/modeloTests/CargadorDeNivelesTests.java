@@ -3,9 +3,11 @@ package modeloTests;
 import java.util.ArrayList;
 
 import modelo.Bloque;
+import modelo.CargadorDeNiveles;
 import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Nivel;
+import modelo.PosicionPacmanInexistenteException;
 import junit.framework.TestCase;
 
 public class CargadorDeNivelesTests extends TestCase {
@@ -42,4 +44,17 @@ public class CargadorDeNivelesTests extends TestCase {
 		Bloque bloque2 = bloques.remove(29);
 		assertTrue(bloque2.esOcupablePorFantasma(new FantasmaRojo(juego.getLaberinto(),1)));
 	}
+	
+	public void testCargaSinPacmanError(){
+		CargadorDeNiveles miCargador=new CargadorDeNiveles(juego, juego.getLaberinto());
+		try{
+			miCargador.cargar(nivel,"nivelTest.txt");
+			fail();
+		
+		}catch(PosicionPacmanInexistenteException e ){
+			assertTrue(true);
+		}
+		
+	};
+	
 }

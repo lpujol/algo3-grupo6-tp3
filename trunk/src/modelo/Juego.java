@@ -12,7 +12,7 @@ public class Juego{
 
 	private static final int VALOR_BONUS = 1000;
 	private static final int VALOR_PUNTO = 10;
-	private boolean puntoDePoderActivo;
+//	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
 	private double puntosAcumulados;
 	private int cantidadVidas;
@@ -21,7 +21,7 @@ public class Juego{
 	private int puntosDePoderActivos;
 	
 	public Juego(){
-		this.puntoDePoderActivo=false;
+	//	this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
@@ -30,12 +30,12 @@ public class Juego{
 		puntosDePoderActivos=0;
 	}	
 	
-	public void pasarNivel(){
-			this.laberinto.getNivel().pasarDeNivel();
-			this.puntoDePoderActivo=false;
-			this.valorBonus=valorBonus+200;
+//	public void pasarNivel(){
+	//		this.laberinto.getNivel().pasarDeNivel();
+	//		this.puntoDePoderActivo=false;
+		//	this.valorBonus=valorBonus+200;
 			
-	}
+	//}
 	
 	public boolean perdido(){
 		if(this.cantidadVidas>0)
@@ -44,9 +44,9 @@ public class Juego{
 	}
 	
 			
-	public boolean puntoDePoderActivo(){
+/*	public boolean puntoDePoderActivo(){
 		return this.puntoDePoderActivo;
-	}
+	}*/
 	
 	
 	public Laberinto getLaberinto(){
@@ -76,7 +76,7 @@ public class Juego{
 
 
 	public void puntoDePoderComido() {
-		this.puntoDePoderActivo=true;
+	//	this.puntoDePoderActivo=true;
 		this.puntosDePoderActivos++;
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
@@ -87,8 +87,7 @@ public class Juego{
 		}
 		
 		int duracionPuntoDePoder=11-this.getLaberinto().getNivel().getNumero();
-		
-		System.out.print(duracionPuntoDePoder);
+				
 		if(duracionPuntoDePoder<0) efectoPuntoDePoderTerminado();
 		else{
 			Timer t=new Timer();
@@ -108,7 +107,7 @@ public class Juego{
 		
 		this.puntosDePoderActivos--;
 		if(puntosDePoderActivos==0){
-			this.puntoDePoderActivo=false;
+	//		this.puntoDePoderActivo=false;
 			ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 			for(Fantasma fantasma:fantasmas){
 				/**/		if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()){
@@ -166,7 +165,7 @@ public class Juego{
 
 
 	public void desactivarPuntoDePoder() {
-		this.puntoDePoderActivo=false;		
+		this.puntosDePoderActivos=0;		
 	}
 
 	public int getCantidadVidas() {
@@ -179,7 +178,11 @@ public class Juego{
 	}
 
 	public void activarPuntoDePoder() {
-		this.puntoDePoderActivo=true;		
+		this.puntosDePoderActivos=1;		
+	}
+
+	public int getPuntosDePoderActivos() {
+		return this.puntosDePoderActivos;
 	}
 
 

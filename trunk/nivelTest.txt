@@ -1,0 +1,33 @@
+28
+31
+r------------qr------------q
+|oooooooooooo||oooooooooooo|
+|or--qor---qo||or---qor--qo|
+|O|  |o|   |o||o|   |o|  |O|
+|oL--joL---joLjoL---joL--jo|
+|oooooooooooooooooooooooooo|
+|or--qorqor------qorqor--qo|
+|oL--jo||oL--qr--jo||oL--jo|
+|oooooo||oooo||oooo||oooooo|
+L----qo|L--q || r--j|or----j
+----q|o|r--j Lj L--q|o|r----
+    ||o||          ||o||   
+----j|o|| r--..--q ||o|L----
+-----joLj |  C   | LjoL-----
+ *    o   | 1234 |   o    * 
+-----qorq |      | rqor-----
+----q|o|| L------j ||o|r----
+    ||o||    B     ||o||   
+----j|o|| r------q ||o|L----
+r----joLj L--qr--j LjoL----q
+|oooooooooooo||oooooooooooo|
+|or--qor---qo||or---qor--qo|
+|oL-q|oL---joLjoL---jo|r-jo|
+|Ooo||ooooooo  ooooooo||ooO|
+L-qo||orqor------qorqo||or-j
+r-joLjo||oL--qr--jo||oLjoL-q
+|oooooo||oooo||oooo||oooooo|
+|or----jL--qo||or--jL----qo|
+|oL--------joLjoL--------jo|
+|oooooooooooooooooooooooooo|
+L--------------------------j

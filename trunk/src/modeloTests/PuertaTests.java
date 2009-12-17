@@ -4,6 +4,7 @@ import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Posicion;
+import modelo.PosicionInvalidaException;
 import modelo.Puerta;
 import junit.framework.TestCase;
 
@@ -34,7 +35,7 @@ public class PuertaTests extends TestCase {
 			@SuppressWarnings("unused")
 			Puerta puerta = new Puerta(new Posicion(0, -1), this.laberinto);
 			fail();
-		} catch (IllegalArgumentException e) {
+		} catch (PosicionInvalidaException e) {
 			assertTrue(true);
 		}
 	}
