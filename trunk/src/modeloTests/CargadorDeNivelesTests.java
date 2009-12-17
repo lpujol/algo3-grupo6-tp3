@@ -22,8 +22,7 @@ public class CargadorDeNivelesTests extends TestCase {
 		super.setUp();
 		juego = new Juego();
 		nivel = juego.getLaberinto().getNivel();	
-		//CargadorDeNiveles cargador = new CargadorDeNiveles(this.juego, this.laberinto);
-		//nivel=cargador.cargar(new Nivel("nivel.txt",juego,laberinto), "nivel.txt");
+
 	}
 	
 	// Testea que le de al nivel devuelto su numero correcto
@@ -38,13 +37,9 @@ public class CargadorDeNivelesTests extends TestCase {
 		ArrayList<Bloque> bloques = this.nivel.getBloques();
 		
 		assertTrue(28*31==bloques.size());
-		
-		//Bloque bloque = bloques.remove(bloques.size() - 1);
-		//Posicion posicion=laberinto.aCoordenadasReales(new Posicion(28,31));
-		//assertTrue(bloque.getPosicion().getX() == posicion.getX());
-		//assertTrue(bloque.getPosicion().getY() == posicion.getY());
+			
 		
 		Bloque bloque2 = bloques.remove(29);
-		assertTrue(bloque2.esOcupable(new FantasmaRojo(juego.getLaberinto(),1)));
+		assertTrue(bloque2.esOcupablePorFantasma(new FantasmaRojo(juego.getLaberinto(),1)));
 	}
 }

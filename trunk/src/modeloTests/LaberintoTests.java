@@ -1,8 +1,10 @@
 package modeloTests;
 
 import modelo.Bloque;
+import modelo.Direccion;
 import modelo.Juego;
 import modelo.Laberinto;
+import modelo.Pacman;
 import modelo.Posicion;
 import junit.framework.TestCase;
 
@@ -20,7 +22,7 @@ public class LaberintoTests extends TestCase {
 	// Testea que el laberinto devuelva el bloque que se le pide.
 	public void testObtenerBloque() {
 		Bloque bloque1 = this.laberinto.getBloqueEnPosicion(new Posicion(8,8));
-		assertTrue(bloque1.getClass().getSimpleName().equals("Pared"));
+		assertTrue(bloque1.getClass().getSimpleName().equals("ParedVerticalIzquierdaHorizontalArriba"));
 		Bloque bloque2 = this.laberinto.getBloqueEnPosicion(new Posicion(24,24));
 		assertTrue(bloque2.getClass().getSimpleName().equals("Punto"));
 	}
@@ -35,11 +37,11 @@ public class LaberintoTests extends TestCase {
 	
 	/*se prueba que al empezar el juego pacman puede ocupar
 	 * las posiciones de su izquierda y derecha */
-	/*public void testPosicionSiguienteOcupableOk(){
-		
-		assertTrue(unPacman.posicionSiguienteOcupable());
+	public void testPosicionSiguienteOcupableOk(){
+		Pacman unPacman=juego.getLaberinto().getPacman();
+		assertTrue(juego.getLaberinto().posicionSiguienteOcupable(unPacman.getPosicion(),unPacman.getDireccion()));
 		unPacman.cambiarDireccion(Direccion.Izquierda);
-		assertTrue(unPacman.posicionSiguienteOcupable());
+		assertTrue(juego.getLaberinto().posicionSiguienteOcupable(unPacman.getPosicion(),unPacman.getDireccion()));
 		
 	}
 	
@@ -47,14 +49,12 @@ public class LaberintoTests extends TestCase {
 	 * al empezar el juego le cambiamos  la direccion hacia 
 	 * arriba  encuentra una posicion no ocupable (pared)
 	 */
-	/*public void testPosicionSiguienteOcupableError(){
-		
-		unPacman.cambiarDireccion(Direccion.Arriba);			
-		unPacman.vivir();
+	public void testPosicionSiguienteOcupableError(){
+		Pacman unPacman=juego.getLaberinto().getPacman();				
 		unPacman.cambiarDireccion(Direccion.Arriba);
-		assertFalse(unPacman.posicionSiguienteOcupable());
+		assertFalse(juego.getLaberinto().posicionSiguienteOcupable(unPacman.getPosicion(),unPacman.getDireccion()));
 	}
-    */
+    
 	
 }
 

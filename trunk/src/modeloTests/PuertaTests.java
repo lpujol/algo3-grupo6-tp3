@@ -35,7 +35,7 @@ public class PuertaTests extends TestCase {
 			Puerta puerta = new Puerta(new Posicion(0, -1), this.laberinto);
 			fail();
 		} catch (IllegalArgumentException e) {
-			assertNotNull(e);
+			assertTrue(true);
 		}
 	}
 	
@@ -48,10 +48,10 @@ public class PuertaTests extends TestCase {
 	// Testea que una puerta no pueda ser ocupada
 	public void testPuertaNoEsOcupable() {
 		Puerta puerta = new Puerta(new Posicion(1, 1), this.laberinto);
-		assertFalse(puerta.esOcupable(new FantasmaRojo(laberinto,1)));
+		assertFalse(puerta.esOcupablePorFantasma(new FantasmaRojo(laberinto,1)));
 	}
 	
-	// Testea que comer una puerta no pueda ser comida
+	// Testea que  una puerta no pueda ser comida
 	public void testComerPuertaCambiaElEstado() {
 		Puerta puerta = new Puerta(new Posicion(1, 1), this.laberinto);
 		puerta.comer();

@@ -45,7 +45,7 @@ public abstract class Vivo implements Posicionable,ObjetoVivo {
 	abstract public void vivir();
 
 	
-	public void mover() {
+	protected void mover() {
 		switch(direccion){
 		case Arriba:
 			irHaciaArriba();

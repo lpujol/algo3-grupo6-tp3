@@ -9,7 +9,7 @@ public class EstrategiaEscapar implements IEstrategia {
 	public EstrategiaEscapar(Fantasma fantasma)
 	{
 		this.fantasma=fantasma;
-		this.fantasma.setVelocidad(fantasma.getVelocidad()-1);
+		this.fantasma.setVelocidad(fantasma.getVelocidadNativa()-1);
 		this.laberinto=fantasma.getLaberinto();
 	}
 	

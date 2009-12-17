@@ -18,7 +18,7 @@ public class Juego{
 	private int cantidadVidas;
 	private boolean jugando;
 	private int valorBonus;
-	
+	private int puntosDePoderActivos;
 	
 	public Juego(){
 		this.puntoDePoderActivo=false;
@@ -27,6 +27,7 @@ public class Juego{
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
 		this.jugando=false;
 		valorBonus=VALOR_BONUS;
+		puntosDePoderActivos=0;
 	}	
 	
 	public void pasarNivel(){
@@ -76,7 +77,7 @@ public class Juego{
 
 	public void puntoDePoderComido() {
 		this.puntoDePoderActivo=true;
-		
+		this.puntosDePoderActivos++;
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
 			if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()&&(fantasma.estaEnCasa()==false)){
@@ -94,6 +95,7 @@ public class Juego{
 			t.schedule(new TimerTask(){
 				@Override
 				public void run() {
+					
 					efectoPuntoDePoderTerminado();				
 				}			
 			}
@@ -103,16 +105,21 @@ public class Juego{
 		
 	
 	public void efectoPuntoDePoderTerminado(){
-		this.puntoDePoderActivo=false;
-		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
-		for(Fantasma fantasma:fantasmas){
-/**/		if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()){
-				fantasma.restablecerEstrategiaNativa();
-				fantasma.recuperarVelocidadInicial();
-				fantasma.estaVivo();
+		
+		this.puntosDePoderActivos--;
+		if(puntosDePoderActivos==0){
+			this.puntoDePoderActivo=false;
+			ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
+			for(Fantasma fantasma:fantasmas){
+				/**/		if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()){
+					fantasma.restablecerEstrategiaNativa();
+					fantasma.recuperarVelocidadInicial();
+					fantasma.estaVivo();
+				}
 			}
 		}
 	}
+		
 
 
 	public void pacmanComido() {
@@ -169,6 +176,10 @@ public class Juego{
 
 	public void incrementarValorBonus(int incremento) {
 		valorBonus=valorBonus+incremento;		
+	}
+
+	public void activarPuntoDePoder() {
+		this.puntoDePoderActivo=true;		
 	}
 
 

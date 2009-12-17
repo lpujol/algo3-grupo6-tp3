@@ -1,10 +1,14 @@
 package modeloTests;
 
+import java.util.ArrayList;
+
+import modelo.EstadoFantasma;
 import modelo.Fantasma;
 import modelo.FantasmaCeleste;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Pacman;
+import modelo.Portal;
 import modelo.Posicion;
 import junit.framework.TestCase;
 
@@ -24,7 +28,7 @@ public class FantasmaCelesteTest extends TestCase {
  * 
  * */
 	
-	public void testMovimiento(){
+	public void testMovimientoEstrategico(){
 		Laberinto miLaberinto=new Laberinto(null);
 		Fantasma unFantasma=new FantasmaCeleste(152,312,miLaberinto,4);
 		miLaberinto.getNivel().agregarFantasma(unFantasma);
@@ -32,10 +36,16 @@ public class FantasmaCelesteTest extends TestCase {
 		Posicion posicionSiguiente=new Posicion(152,316);
 		assertEquals(posicionSiguiente.getX(),unFantasma.getPosicion().getX());
 		assertEquals(posicionSiguiente.getY(),unFantasma.getPosicion().getY());
-		unFantasma.vivir();
-		unFantasma.vivir();
-		unFantasma.vivir();
+		for(int i=0;i<3;i++){
+		unFantasma.vivir();		
+		};
 		posicionSiguiente=new Posicion(152,328);
+		assertEquals(posicionSiguiente.getX(),unFantasma.getPosicion().getX());
+		assertEquals(posicionSiguiente.getY(),unFantasma.getPosicion().getY());
+		for(int i=0;i<4;i++){
+			unFantasma.vivir();		
+			};
+		posicionSiguiente=new Posicion(168,328);
 		assertEquals(posicionSiguiente.getX(),unFantasma.getPosicion().getX());
 		assertEquals(posicionSiguiente.getY(),unFantasma.getPosicion().getY());
 		
@@ -47,66 +57,57 @@ public class FantasmaCelesteTest extends TestCase {
 	  
 	 * */
 	
-/*	public void testPersecucion(){
+ 	public void testPersecucion(){
         Juego miJuego = new Juego();        
         Pacman miPacman= miJuego.getLaberinto().getPacman();		
         miJuego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(200,56,miJuego.getLaberinto(),4));
 		Fantasma miFantasma=miJuego.getLaberinto().getFantasmas().get(0);				
-		miFantasma.vivir();	
-		miPacman.vivir();
-		miFantasma.vivir();
-		miPacman.vivir();
-		miFantasma.vivir();
-		miPacman.vivir();
-		miFantasma.vivir();
-		miPacman.vivir();
-		Posicion posicionSiguiente=new Posicion(200,72);
-		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
-		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
-		for(int i = 0; i < 108; i++){
-			miFantasma.vivir();
-			miPacman.vivir();}		
-		posicionSiguiente=new Posicion(296,312);
-		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
-		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
-		for(int i = 0; i < 4; i++){
-			miFantasma.vivir();
-			miPacman.vivir();}		
-		posicionSiguiente=new Posicion(296,328);
-		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
-		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());	
-		for(int i = 0; i < 12; i++){
-			miFantasma.vivir();
-			miPacman.vivir();}		
-		posicionSiguiente=new Posicion(344,328);
-		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
-		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
-		miFantasma.vivir();
-		miPacman.vivir();		
-		posicionSiguiente=new Posicion(344,332);
-		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
-		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
 		
 	};
-	*/
-	public void testFantasmaPortal(){
+	
+	public void testFantasmaAtraviesaPortal(){
         Juego miJuego = new Juego();        
         Pacman miPacman= miJuego.getLaberinto().getPacman();		
         miPacman.setPosicion(new Posicion(376,232));
         miJuego.getLaberinto().getNivel().agregarFantasma(new FantasmaCeleste(360,232,miJuego.getLaberinto(),4));
-		Fantasma miFantasma=miJuego.getLaberinto().getFantasmas().get(0);		
+        ArrayList<Portal> portales=miJuego.getLaberinto().getNivel().getPortales();
+        Posicion posicionPortalIzquierdo=null;
+        Posicion posicionLuegoDeAtravesarPortalIzq=null;
+        for(int j=0;j<portales.size();j++){
+        	if (portales.get(j).getPosicion().getX()<miJuego.getLaberinto().getPosicionPuerta().getX())
+        		posicionPortalIzquierdo=portales.get(j).getPosicion().clone();
+        	}
+        posicionLuegoDeAtravesarPortalIzq=posicionPortalIzquierdo.getPosicionSiguienteHorizontal(20);
+        Fantasma miFantasma=miJuego.getLaberinto().getFantasmas().get(0);		
 		miFantasma.setPosicion(new Posicion(360,232));
-		miFantasma.restablecerEstrategiaNativa();
+		miFantasma.restablecerEstrategiaNativa();		
 		Posicion posicionSiguiente=new Posicion(360,232);
 		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
 		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
-		for(int i=0;i<16;i++){
+		for(int i=0;i<15;i++){
 			miFantasma.vivir();
 			miPacman.vivir();
-		}
-		miFantasma.vivir();
-		posicionSiguiente=new Posicion(424,232);
-		assertEquals(posicionSiguiente.getX(),miFantasma.getPosicion().getX());
-		assertEquals(posicionSiguiente.getY(),miFantasma.getPosicion().getY());
+		}		
+	
+		assertEquals(posicionLuegoDeAtravesarPortalIzq.getX(),miFantasma.getPosicion().getX());
+		assertEquals(posicionLuegoDeAtravesarPortalIzq.getY(),miFantasma.getPosicion().getY());
 	}
+
+	public void testFantasmaComido(){
+		Juego miJuego = new Juego();  
+        FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);
+		miJuego.getLaberinto().getNivel().agregarFantasma(unFantasma);
+        unFantasma.comer();
+        assertEquals(EstadoFantasma.Muerto,unFantasma.getEstado());	
+	}
+
+	public void testIncrementoDeVelocidad(){
+		Juego miJuego = new Juego();  
+        FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);
+		miJuego.getLaberinto().getNivel().agregarFantasma(unFantasma);
+		int nuevaVelocidad=unFantasma.getVelocidad()+8;
+		unFantasma.incrementarVelocidad(8);
+		assertEquals(nuevaVelocidad,unFantasma.getVelocidad());
+	};
+
 }

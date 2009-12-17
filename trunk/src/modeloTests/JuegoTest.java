@@ -22,15 +22,12 @@ public class JuegoTest extends TestCase {
 		 */
 		public void testPasarNivel() {
 			
-			int numeroNivel= unJuego.getLaberinto().getNivel().getNumero();
-			unJuego.pasarNivel();
-			Nivel otroNivel= unJuego.getLaberinto().getNivel();
-			assertFalse(numeroNivel==otroNivel.getNumero());
-			
+			unJuego.getLaberinto().getNivel().pasarDeNivel();
+			assertEquals(2,unJuego.getLaberinto().getNivel().getNumero());
 		}
 
 		
-		/* se  come  a pacman 3 veces  y se  prueva  que el  juego
+		/* se  come  a pacman 3 veces  y se  prueba  que el  juego
 		 *   esta  perdido*/
 		public void testPerdido() {
 
@@ -45,10 +42,11 @@ public class JuegoTest extends TestCase {
 	   /*  se  come el punto de poder y se prueba  que 
 	    * se  activo  el punto de poder
 	    */
-		public void testPuntoDePoderActivo() {
+		public void testPuntoDePoderComido() {
 			
 			unJuego.puntoDePoderComido();
 			assertTrue(unJuego.puntoDePoderActivo());
+			
 		}
 		
 		/* prueba  que    comenzar()   hace que el  juego  se  inicie
@@ -68,8 +66,8 @@ public class JuegoTest extends TestCase {
 			unJuego.pacmanComido();
 			unJuego.pacmanComido();
 			unJuego.comenzar();
-		    assertEquals(unJuego.getLaberinto().getNivel().getNumero(),1);
-		    assertEquals(unJuego.getCantidadVidas(),3);
+		    assertEquals(1,unJuego.getLaberinto().getNivel().getNumero());
+		    assertEquals(3,unJuego.getCantidadVidas());
 
 		}
 
@@ -84,7 +82,7 @@ public class JuegoTest extends TestCase {
 
 		
 		/* se prueba que  ante el mensaje del juego pacmanComido()
-		 * pacman reducio  su vida  una unidad
+		 * pacman redujo  su vida  una unidad
 		 */
 		public void testPacmanComido() {
 			

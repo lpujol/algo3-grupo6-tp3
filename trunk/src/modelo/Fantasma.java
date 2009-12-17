@@ -36,7 +36,13 @@ public abstract class Fantasma extends Vivo {
 		this.estrategiaActual=estrategiaNativa;
 				
 	}
-	
+
+
+	public Laberinto getLaberinto() {
+		return this.laberinto;
+	}
+
+
 	public void vivir(){
 		for(int i=0;i<velocidad;i++){
 			if (laberinto.cambioDeDireccionPermitido(this.posicion)){
@@ -72,17 +78,51 @@ public abstract class Fantasma extends Vivo {
 	}
 
 	
-	public Laberinto getLaberinto() {
-		return this.laberinto;
+	public EstadoFantasma getEstado(){
+		return this.estado;
 	}
-	
 
-	/* Los fantasmas se mueven eligiendo el casillero ocupable que menor distancia 
-	 * tiene a su objetivo.
-	  
-	 */
-	
-	public void moverse(Posicion destino){
+
+	public void setVelocidad(int i) {
+		this.velocidad=i;
+		
+	}
+
+
+	public void estaVivo() {
+		estado=EstadoFantasma.Vivo;
+		
+	}
+
+
+	public void estaHuyendo() {
+		estado=EstadoFantasma.Huyendo;
+	}
+
+
+	public void recuperarVelocidadInicial() {
+		this.velocidad=velocidadNativa;
+		
+	}
+
+
+	public void moverAPosicionInicial(){
+		this.posicion=this.posicionInicial.clone();
+		this.estrategiaActual=new EstrategiaSalirDeCasa(this);
+	}
+
+
+	public void setPosicion(Posicion nuevaPosicion) {
+		this.posicion=nuevaPosicion;		
+	}
+
+
+	public Posicion getPosicionInicial() {
+		return this.posicionInicial.clone();
+	}
+
+
+	private void moverse(Posicion destino){
 		
 
 		Posicion posicionPosibleIzquierda=laberinto.getPosicionBloqueAnteriorHorizontal(posicion);
@@ -118,48 +158,9 @@ public abstract class Fantasma extends Vivo {
 	private boolean esAdecuadoMoverse(Posicion destino,
 			Posicion posicionPosible, double distanciaMinima) {
 		
-		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupable(this))&& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
+		return ((laberinto.getBloqueEnPosicion(posicionPosible).esOcupablePorFantasma(this))&& (laberinto.distancia(laberinto.getBloqueEnPosicion(posicionPosible),laberinto.getBloqueEnPosicion(destino))<distanciaMinima));
 			
 		
-	}
-
-	public void setVelocidad(int i) {
-		this.velocidad=i;
-		
-	}
-	
-	public EstadoFantasma getEstado(){
-		return this.estado;
-	}
-
-	public void estaHuyendo() {
-		estado=EstadoFantasma.Huyendo;
-	}
-
-	public void estaVivo() {
-		estado=EstadoFantasma.Vivo;
-		
-	}
-
-	public void recuperarVelocidadInicial() {
-		this.velocidad=velocidadNativa;
-		
-	}
-
-
-	public void moverAPosicionInicial(){
-		this.posicion=this.posicionInicial.clone();
-		this.estrategiaActual=new EstrategiaSalirDeCasa(this);
-	}
-
-
-	public void setPosicion(Posicion nuevaPosicion) {
-		this.posicion=nuevaPosicion;		
-	}
-
-
-	public Posicion getPosicionInicial() {
-		return this.posicionInicial.clone();
 	}
 
 	public boolean estaEnCasa(){
@@ -174,6 +175,11 @@ public abstract class Fantasma extends Vivo {
 	public void incrementarVelocidad(int incremento){
 		velocidad=velocidad+incremento;
 		velocidadNativa=velocidadNativa+incremento;
+	}
+
+
+	public int getVelocidadNativa() {
+		return this.velocidadNativa;
 	};
 }
 

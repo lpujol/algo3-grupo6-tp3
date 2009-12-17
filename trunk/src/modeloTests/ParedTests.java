@@ -1,5 +1,6 @@
 package modeloTests;
 
+import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Posicion;
@@ -34,7 +35,7 @@ public class ParedTests extends TestCase {
 			Pared pared = new Pared(new Posicion(0, -1), this.laberinto);
 			fail();
 		} catch (IllegalArgumentException e) {
-			assertNotNull(e);
+			assertTrue(true);
 		}
 	}
 	
@@ -44,10 +45,10 @@ public class ParedTests extends TestCase {
 		assertTrue(pared.comido() == false);
 	}
 	
-	// Testea que una pared no pueda ser ocupada
+	// Testea que una pared no pueda ser ocupada por un fantasma
 	public void testParedNoEsOcupable() {
 		Pared pared = new Pared(new Posicion(1, 1), this.laberinto);
-		assertFalse(pared.esOcupable(null));
+		assertFalse(pared.esOcupablePorFantasma(new FantasmaRojo(laberinto,1)));
 	}
 	
 	// Testea que comer una pared no pueda ser comida
