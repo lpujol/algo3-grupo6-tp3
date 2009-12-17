@@ -12,7 +12,6 @@ public class Juego{
 
 	private static final int VALOR_BONUS = 1000;
 	private static final int VALOR_PUNTO = 10;
-//	private boolean puntoDePoderActivo;
 	private Laberinto laberinto;
 	private double puntosAcumulados;
 	private int cantidadVidas;
@@ -21,7 +20,6 @@ public class Juego{
 	private int puntosDePoderActivos;
 	
 	public Juego(){
-	//	this.puntoDePoderActivo=false;
 		this.puntosAcumulados=0;
 		this.laberinto = new Laberinto(this);
 		this.cantidadVidas=laberinto.getNivel().getPacman().getCantidadVidas();
@@ -30,23 +28,16 @@ public class Juego{
 		puntosDePoderActivos=0;
 	}	
 	
-//	public void pasarNivel(){
-	//		this.laberinto.getNivel().pasarDeNivel();
-	//		this.puntoDePoderActivo=false;
-		//	this.valorBonus=valorBonus+200;
-			
-	//}
-	
+
+	/*
+	 * Devuelve true si se perdio el juego, false en caso contrario.
+	 * 
+	 * */
 	public boolean perdido(){
 		if(this.cantidadVidas>0)
 			return false;
 		else return true;
 	}
-	
-			
-/*	public boolean puntoDePoderActivo(){
-		return this.puntoDePoderActivo;
-	}*/
 	
 	
 	public Laberinto getLaberinto(){
@@ -72,11 +63,13 @@ public class Juego{
 		
 	}
 
-	
-
-
+	/*
+	 * Realiza los cambios de estado correspondientes a cuando
+	 * comienza el efecto del punto de poder.
+	 * 
+	 * */
 	public void puntoDePoderComido() {
-	//	this.puntoDePoderActivo=true;
+		
 		this.puntosDePoderActivos++;
 		ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 		for(Fantasma fantasma:fantasmas){
@@ -102,15 +95,19 @@ public class Juego{
 		}
 	}
 		
-	
+	/*
+	 * Realiza los cambios de estado correspondientes a cuando
+	 * termina el efecto del punto de poder.
+	 * 
+	 * */
 	public void efectoPuntoDePoderTerminado(){
 		
 		this.puntosDePoderActivos--;
 		if(puntosDePoderActivos==0){
-	//		this.puntoDePoderActivo=false;
+	
 			ArrayList<Fantasma> fantasmas=this.laberinto.getFantasmas();
 			for(Fantasma fantasma:fantasmas){
-				/**/		if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()){
+				if(fantasma.getEstado().ordinal()!=EstadoFantasma.Muerto.ordinal()){
 					fantasma.restablecerEstrategiaNativa();
 					fantasma.recuperarVelocidadInicial();
 					fantasma.estaVivo();
@@ -120,7 +117,10 @@ public class Juego{
 	}
 		
 
-
+	/*
+	 * Reinicia los estados y posiciones de los objetos vivos y
+	 * disminuye la vida de pacman.
+	 * */
 	public void pacmanComido() {
 		laberinto.getNivel().reiniciarPosicionesYEstados();
 		if(this.cantidadVidas>0){
@@ -136,14 +136,14 @@ public class Juego{
 		return this.laberinto.getNivel().getPacman().getCantidadVidas();
 	}
 
-
+	//Incrementa el puntaje de acuerdo al valor del punto.
 	public void puntoComido() {		
 		puntosAcumulados=puntosAcumulados+VALOR_PUNTO*laberinto.getNivel().getNumero();		
 	}
 	
-
+	//Incrementa el puntaje de acuerdo al valor del bonus.
 	public void bonusComido() {		
-		puntosAcumulados=puntosAcumulados+VALOR_BONUS*laberinto.getNivel().getNumero();
+		puntosAcumulados=puntosAcumulados+valorBonus*laberinto.getNivel().getNumero();
 		
 	}
 	
@@ -151,6 +151,10 @@ public class Juego{
 		return this.jugando;
 	}
 
+	/*
+	 * Resetea los estados adecuadamente para el comienzo del juego.
+	 * 
+	 * */
 	public void comenzar() {
 		if(this.jugando==false){
 			this.jugando=true;
@@ -160,6 +164,8 @@ public class Juego{
 			laberinto.getPacman().setCantidadVidas(3);
 			this.cantidadVidas=laberinto.getPacman().getCantidadVidas();
 			this.puntosAcumulados=0;
+			this.valorBonus=VALOR_BONUS;
+			this.puntosDePoderActivos=0;
 		}
 	}
 

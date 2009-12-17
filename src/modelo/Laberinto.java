@@ -77,14 +77,7 @@ public class Laberinto {
 		return posicionBloque;
 	}
 	
-	
-	
-	public Posicion aCoordenadasReales(Posicion posicion){
-		return new Posicion(
-				posicion.getX()*TAMANO_DEL_BLOQUE+TAMANO_DEL_BLOQUE/2,
-				posicion.getY()*TAMANO_DEL_BLOQUE+TAMANO_DEL_BLOQUE/2
-				);
-	}
+		
 
 	private Bloque buscarBloque(Posicion posicionBuscada) {
 		Bloque bloque;
