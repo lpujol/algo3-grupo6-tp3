@@ -3,13 +3,14 @@ package modeloTests;
 import junit.framework.TestCase;
 import modelo.Direccion;
 import modelo.EstrategiaIrALaIzquierda;
+import modelo.EstrategiaNulaException;
 import modelo.Juego;
 import modelo.Pacman;
 import modelo.Posicion;
 
 
 public class PacmanTest extends TestCase {
-	
+	//Pruebas realizadas con un pacman de velocidad 4.
 	private Juego unJuego;
 	private Pacman unPacman;
 	private Posicion unaPosicion;
@@ -86,7 +87,7 @@ public class PacmanTest extends TestCase {
 			}
 			
 			unPacman.vivir();
-			Posicion posicionSiguiente=new Posicion(56,232);
+			Posicion posicionSiguiente=new Posicion(56,232); //Atraviesa el portal derecho y aparece 2 casilleros(32 pasos) por delante del portal izquierdo
 			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
 			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
 			
@@ -94,7 +95,7 @@ public class PacmanTest extends TestCase {
 			for(int i=0;i<8;i++){
 				unPacman.vivir();			
 			}
-			posicionSiguiente=new Posicion(392,232);
+			posicionSiguiente=new Posicion(392,232);//Atraviesa el portal izquierdo y aparece 2 casilleros(32 pasos) por detras del portal derecho
 			assertEquals(posicionSiguiente.getX(),unPacman.getPosicion().getX());
 			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
 			
@@ -113,6 +114,25 @@ public class PacmanTest extends TestCase {
 			unPacman.comer();
 			assertEquals(1,unPacman.getCantidadVidas());
 		}
+		
+		/*
+		 * Se prueba que no es posible asignarle un elemento nulo
+		 *  a la estrategia de pacman.
+		 * 
+		 * */
+		
+		public void testSetEstrategiaNulaError(){
+			try{
+				this.unPacman.setEstrategia(null);
+				fail();
+			}catch (EstrategiaNulaException e){
+				assertTrue(true);
+			}
+			
+			
+		};
+		
+		
 	}
 
 

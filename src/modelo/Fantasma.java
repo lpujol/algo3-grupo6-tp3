@@ -24,6 +24,8 @@ public abstract class Fantasma extends Vivo {
 
 		
 	public void setEstrategiaActual(IEstrategia unaEstrategia){
+		if(unaEstrategia==null)
+			throw new EstrategiaNulaException();
 		this.estrategiaActual=unaEstrategia;
 	}
 	
@@ -84,6 +86,8 @@ public abstract class Fantasma extends Vivo {
 
 
 	public void setVelocidad(int i) {
+		if(i<0)
+			throw new VelocidadInvalidaException();
 		this.velocidad=i;
 		
 	}

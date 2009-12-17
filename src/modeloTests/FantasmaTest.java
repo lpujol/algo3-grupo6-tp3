@@ -3,6 +3,7 @@ package modeloTests;
 import java.util.ArrayList;
 
 import modelo.EstadoFantasma;
+import modelo.EstrategiaNulaException;
 import modelo.Fantasma;
 import modelo.FantasmaCeleste;
 import modelo.Juego;
@@ -10,9 +11,10 @@ import modelo.Laberinto;
 import modelo.Pacman;
 import modelo.Portal;
 import modelo.Posicion;
+import modelo.VelocidadInvalidaException;
 import junit.framework.TestCase;
 
-public class FantasmaCelesteTest extends TestCase {
+public class FantasmaTest extends TestCase {
 
 /*
  * Testea el movimiento del fantasma siguiendo una estrategia perseguidor que 
@@ -108,6 +110,31 @@ public class FantasmaCelesteTest extends TestCase {
 		int nuevaVelocidad=unFantasma.getVelocidad()+8;
 		unFantasma.incrementarVelocidad(8);
 		assertEquals(nuevaVelocidad,unFantasma.getVelocidad());
+	};
+	
+	public void testSetEstrategiaActualNulaError(){
+		Juego miJuego = new Juego();  
+        FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);
+		miJuego.getLaberinto().getNivel().agregarFantasma(unFantasma);
+		try{
+			unFantasma.setEstrategiaActual(null);
+			fail();
+		}catch(EstrategiaNulaException e){
+			assertTrue(true);
+		}
+		
+	};
+	
+	public void testSetVelocidadNegativaError(){
+		Juego miJuego = new Juego();  
+        FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);
+		miJuego.getLaberinto().getNivel().agregarFantasma(unFantasma);
+		try{
+			unFantasma.setVelocidad(-1);
+			fail();
+		}catch(VelocidadInvalidaException e){
+			assertTrue(true);
+		}
 	};
 
 }
