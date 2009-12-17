@@ -2,6 +2,12 @@ package modelo;
 
 public class EstrategiaSalirDeCasa implements IEstrategia {
 
+	/*
+	 * Estrategia para que los fantrasmas puedan salir 
+	 * de la casa, dandole la direccion de la puerta.
+	 * 
+	 * */
+	
 	Fantasma fantasma;
 	
 	public EstrategiaSalirDeCasa(Fantasma fantasma)

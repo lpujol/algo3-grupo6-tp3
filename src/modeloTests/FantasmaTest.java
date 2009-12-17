@@ -112,6 +112,12 @@ public class FantasmaTest extends TestCase {
 		assertEquals(nuevaVelocidad,unFantasma.getVelocidad());
 	};
 	
+	
+	/*
+	 * Prueba que no se le pueda asignar un elemento nulo 
+	 * a la estrategia del fantasma.
+	 * 
+	 * */
 	public void testSetEstrategiaActualNulaError(){
 		Juego miJuego = new Juego();  
         FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);
@@ -125,6 +131,11 @@ public class FantasmaTest extends TestCase {
 		
 	};
 	
+	/*
+	 * Prueba que no se le pueda asignar una velocidad
+	 * negativa al fantasma.
+	 * 
+	 * */
 	public void testSetVelocidadNegativaError(){
 		Juego miJuego = new Juego();  
         FantasmaCeleste unFantasma = new FantasmaCeleste(360,232,miJuego.getLaberinto(),4);

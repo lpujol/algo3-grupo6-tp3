@@ -10,7 +10,7 @@ public class EstrategiaClyde implements IEstrategia {
 	}
 	
 	/*
-	 * (non-Javadoc)
+	 * 
 	 * la estrategia de este fantasma es acercarse al pacman cuando
 	 * esta a mas de 8 cuadros de distancia
 	 * y luego alejarse, para dar un poco de variabilidad
@@ -40,7 +40,7 @@ public class EstrategiaClyde implements IEstrategia {
 					return new Posicion(1,1);//esquina superior Izquierda
 			}
 		}
-		// TODO Auto-generated method stub
+		
 		
 	}
 

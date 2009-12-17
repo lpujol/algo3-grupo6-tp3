@@ -45,6 +45,12 @@ public class CargadorDeNivelesTests extends TestCase {
 		assertTrue(bloque2.esOcupablePorFantasma(new FantasmaRojo(juego.getLaberinto(),1)));
 	}
 	
+	/*
+	 * 
+	 * Prueba que no se puede cargar un nivel si en el archivo fuente
+	 * no hay una posicion asiganada para pacman.
+	 * 
+	 * */
 	public void testCargaSinPacmanError(){
 		CargadorDeNiveles miCargador=new CargadorDeNiveles(juego, juego.getLaberinto());
 		try{

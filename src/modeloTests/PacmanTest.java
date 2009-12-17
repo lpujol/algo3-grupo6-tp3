@@ -79,6 +79,9 @@ public class PacmanTest extends TestCase {
 			assertEquals(posicionSiguiente.getY(),unPacman.getPosicion().getY());
 		}
 
+		/*
+		 *Prueba que el pacma atraviesa correctamente ambos portales. 
+		 * */
 		public void testAtravesarPortal(){
 			unPacman.setPosicion(new Posicion(376,232));//lo ubica en el pasillo que lleva al portal
 			unPacman.vivir();

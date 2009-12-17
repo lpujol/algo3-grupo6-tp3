@@ -10,7 +10,7 @@ public class EstrategiaInki implements IEstrategia {
 	}
 	/*
 	 * segun la direccion en la que este llendo el pacman, se trata de interceptar por diferentes lados
-	 * @see modelo.IEstrategia#getDestino()
+	 * 
 	 */
 	
 	@Override
@@ -20,13 +20,13 @@ public class EstrategiaInki implements IEstrategia {
 			switch(direccionPacman)
 			{
 			case Arriba:
-				return interceptarDesdeAbajo();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY()-4*factor);
+				return interceptarDesdeAbajo();
 			case Abajo:
-				return interceptarDesdeArriba();//new Posicion(posicionPacman.getX(),posicionPacman.getY()+4*factor);
+				return interceptarDesdeArriba();
 			case Derecha:
-				return interceptarDesdeIzquierda();//new Posicion(posicionPacman.getX()+4*factor,posicionPacman.getY());
+				return interceptarDesdeIzquierda();
 			case Izquierda:
-				return interceptarDesdeDerecha();//new Posicion(posicionPacman.getX()-4*factor,posicionPacman.getY());
+				return interceptarDesdeDerecha();
 			}
 
 		return null;

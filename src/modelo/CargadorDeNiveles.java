@@ -17,6 +17,11 @@ public class CargadorDeNiveles {
 		this.laberinto = laberinto;
 	}
 	
+	
+	/*
+	 *Transforma una posicion en coordenadas de bloque(obtenidas del archivo fuente del nivel) a 
+	 *coordenadas globales. 
+	 * */
 	private Posicion pasarAPosicionGlobal(Posicion posicionVieja) {
 		Posicion posicionGlobal;
 		int x;
@@ -71,10 +76,7 @@ public class CargadorDeNiveles {
 				break;
 			case 124:// |
 				nivel.agregarBloque(new ParedVertical(posicion, laberinto));
-				break;
-			/*case 41:// )
-				nivel.agregarBloque(new ParedVerticalDerecha(posicion, laberinto));
-				break;*/
+				break;			
 			case 45:// -
 				nivel.agregarBloque(new ParedHorizontal(posicion, laberinto));
 				break;

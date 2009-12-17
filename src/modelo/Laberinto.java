@@ -99,25 +99,13 @@ public class Laberinto {
 		
 		return Math.hypot(coordenadaXBloque2-coordenadaXBloque1,coordenadaYBloque2 -coordenadaYBloque1);
 	}
-	
-	public double distancia(Posicion posicion1,Posicion posicion2){
-		int coordenadaXBloque1=posicion1.getX();
-		int coordenadaYBloque1=posicion1.getY();
-		int coordenadaXBloque2=posicion2.getX();
-		int coordenadaYBloque2=posicion2.getY();
 		
-		return Math.hypot(coordenadaXBloque2-coordenadaXBloque1,coordenadaYBloque2 -coordenadaYBloque1);
-	
-	}
-	
-	
 	
 	public Posicion getPosicionFantasma(int n) {
 		if(posicionFantasma.size()<n)
 			return new Posicion(this.posicionCasa.getX(),this.posicionCasa.getY());
 		else
-		
-		
+				
 		 return new Posicion(this.posicionFantasma.get(n).getX(),this.posicionFantasma.get(n).getY());
 		
 	}
@@ -126,6 +114,9 @@ public class Laberinto {
 		return new Posicion(posicionCasa.getX(),posicionCasa.getY());
 	}
 
+	/*
+	 * Indica si dos posiciones se encuentran en el mismo bloque.
+	 * */
 	public boolean mismoBloque(Posicion posicion, Posicion posicion2) {
 		Posicion posicionDeBloque1=this.aCoordenadasDeBloque(posicion);
 		Posicion posicionDeBloque2=this.aCoordenadasDeBloque(posicion2);
@@ -150,22 +141,34 @@ public class Laberinto {
 	return this.fantasmas;
 	}
 
+	/*
+	 * Devuelve la posicion central del bloque anterior,horizontalmente, a una determinada posicion.
+	 * */
 	public Posicion getPosicionBloqueAnteriorHorizontal(Posicion posicion) {
 		return aCoordenadasDeBloque(posicion.getPosicionAnteriorHorizontal(16));
 		
 	}
 
+	/*
+	 * Devuelve la posicion central del bloque anterior,verticalmente, a una determinada posicion.
+	 * */
 	public Posicion getPosicionBloqueAnteriorVertical(Posicion posicion) {
 		return aCoordenadasDeBloque(posicion.getPosicionAnteriorVertical(16));
 		
 	}
 
+	/*
+	 * Devuelve la posicion central del bloque siquiente, horizontalmente, a una determinada posicion.
+	 * */
 	public Posicion getPosicionBloqueSiguienteHorizontal(Posicion posicion) {
 		
 		return aCoordenadasDeBloque(posicion.getPosicionSiguienteHorizontal(16));
 	
 	}
 
+	/*
+	 * Devuelve la posicion central del bloque siguiente, verticalmente, a una determinada posicion.
+	 * */
 	public Posicion getPosicionBloqueSiguienteVertical(Posicion posicion) {
 		return aCoordenadasDeBloque(posicion.getPosicionSiguienteVertical(16));
 
@@ -237,15 +240,10 @@ public class Laberinto {
 		}
 		return esOcupable;
 	}
-
-	public Posicion getInterseccionMasCercana(Posicion posicionPacman,
-			Direccion direccionDePacman) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public void setPosicionFantasmaInicial(int n,Posicion posicion) {
-		//if(this.posicionFantasma==null) posicionFantasma=new ArrayList<Posicion>();
+		
 		this.posicionFantasma.add(posicion);
 		
 	}
@@ -258,6 +256,10 @@ public class Laberinto {
 		return posicionPuerta;
 	}
 
+	/*
+	 * Transporta todo objeto vivo que entre en un portal, al otro.
+	 * 
+	 * */
 	public void activarPortal(Portal portal) {
 		Posicion posicionPortalActivo= new Posicion(portal.getX(),portal.getY());
 		Posicion posicionPortalDestino=null;

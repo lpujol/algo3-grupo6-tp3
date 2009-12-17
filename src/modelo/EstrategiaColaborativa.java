@@ -31,7 +31,7 @@ public class EstrategiaColaborativa implements IEstrategia {
 	 * 
 	 * Estrategia atacar por abajo, es utilizada por la estrategia colaborativa
 	 * se trata de ubicar el bloque que este
-	 * 3 posiciones mas a la derecha del pacman, y tutilizar ese como destino
+	 * 3 posiciones mas a la derecha del pacman, y utilizar ese como destino
 	 * @see modelo.IEstrategia#getDestino()
 	 */
 	@Override
