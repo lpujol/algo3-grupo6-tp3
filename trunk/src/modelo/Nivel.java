@@ -6,6 +6,7 @@ public class Nivel {
 
 	private static final int INCREMENTO_VELOCIDAD_POR_NIVEL = 1;
 	private static final int INCREMENTO_BONUS_POR_NIVEL = 200;
+	//Numero de nivel.
 	private int numero;
 	private ArrayList<Bloque> bloques;
 	private ArrayList<Fantasma> fantasmas;
@@ -89,6 +90,8 @@ public class Nivel {
 			fantasma.estaVivo();
 		}
 	}
+	
+	//Devuelve todos los bloques a su estado inicial.
 	
 	public void resetearBloques(){
 		for(Bloque bloque:bloques){

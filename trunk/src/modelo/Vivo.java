@@ -32,6 +32,7 @@ public abstract class Vivo implements Posicionable,ObjetoVivo {
 		posicion.retrocederHorizontal(1);
 		return false;
 	}
+	
 	public boolean irHaciaArriba(){
 		posicion.retrocederVertical(1);
 		return false;
