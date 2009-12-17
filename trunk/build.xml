@@ -1,15 +1,16 @@
-<project name="TP3" default="Prueba" basedir=".">
+<project name="TP3" default="Ejecutar" basedir=".">
 
 	
     <property name="build.dir" value="build/clases"/>
     <property name="tests.dir" value="build/clases/tests"/>
     <property name="src.dir" value="src/"/>
-    <property name="lib" value="lib/" />
+	<property name="titiritero.dir" value="../titiritero/src/"/>
+    <property name="lib" value="." />
 
 	
 
 	<path id="test.classpath">
-		 <pathelement location="junit.jar"/>
+		 <pathelement location="."/>
         <fileset dir="${lib}">
             <include name="**/*.jar"/>
         </fileset>
@@ -26,6 +27,8 @@
 		
 	<target name="Compila" depends="setup">
 		<echo>Iniciando compilacion del proyecto </echo>
+		<javac srcdir="${titiritero.dir}" destdir="${build.dir}">
+		</javac>
 		<javac srcdir="src" destdir="${build.dir}">
 	    	<classpath refid="test.classpath"/>
 		</javac>
@@ -56,6 +59,16 @@
             </classpath>
 			
       	</junit>
-    </target>   
+    </target>
+	
+	<target name="CopiarRecursos" depends="Prueba">
+		<echo>Moviendo imagenes</echo>
+		<copydir dest="${build.dir}/vista/" src="${src.dir}/vista/"></copydir>
+	</target>
+	
+	<target name="Ejecutar" depends="CopiarRecursos">
+		<echo>Ejecutando Pacman</echo>
+		<java classname="Pacman.Programa" classpath="${build.dir}" />
+	</target>
 
 </project>
