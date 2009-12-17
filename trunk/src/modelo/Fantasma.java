@@ -125,7 +125,12 @@ public abstract class Fantasma extends Vivo {
 		return this.posicionInicial.clone();
 	}
 
-
+	/*
+	 * El fantasma se mueve hacia una posicion destino eligiendo el camino 
+	 * mas corto.
+	 * 
+	 * 
+	 * */
 	private void moverse(Posicion destino){
 		
 

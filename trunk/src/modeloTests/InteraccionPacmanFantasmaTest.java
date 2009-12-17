@@ -24,6 +24,12 @@ public class InteraccionPacmanFantasmaTest extends TestCase {
 		miLaberinto.getNivel().agregarFantasma(miFantasma);		
 	}
 	
+	/*
+	 * Testea que pacman , una vez comido por un fantasma que lo alcanza 
+	 * en su posicion, revive con una vida menos y con direccion 
+	 * hacia la derecha.
+	 * 
+	 * */
 	public void testPacmanComido(){
 		int vidas=pacman.getCantidadVidas();		
 		pacman.cambiarDireccion(Direccion.Izquierda);		
@@ -35,6 +41,11 @@ public class InteraccionPacmanFantasmaTest extends TestCase {
 		assertEquals(Direccion.Derecha,pacman.getDireccion());
 	}
 	
+	/*
+	 * Testea que el fantasma , una vez comido por pacman que lo alcanza 
+	 * en su posicion, muere y pacman queda con la misma cantidad de vidas.
+	 * 
+	 * */
 	public void testFantasmaComido(){
 		int vidas=pacman.getCantidadVidas();		
 		miFantasma.setEnCasa(false);
