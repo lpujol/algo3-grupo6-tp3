@@ -1,16 +1,17 @@
 <project name="TP3" default="Ejecutar" basedir=".">
 
 	
-    <property name="build.dir" value="build/clases"/>
-    <property name="tests.dir" value="build/clases/tests"/>
-    <property name="src.dir" value="src/"/>
-	<property name="titiritero.dir" value="../titiritero/src/"/>
-    <property name="lib" value="." />
+    <property name="build.dir" value="bin"/>
+    <property name="tests.dir" value="bin/tests"/>
+    <property name="src.dir" value="TP 3/src/"/>
+    <property name="root.dir" value="TP 3/" />
+    <property name="titiritero.dir" value="titiritero/src/"/>
+    <property name="lib" value="junit/" />
 
 	
 
 	<path id="test.classpath">
-		 <pathelement location="."/>
+		 <pathelement location="${lib}"/>
         <fileset dir="${lib}">
             <include name="**/*.jar"/>
         </fileset>
@@ -29,14 +30,14 @@
 		<echo>Iniciando compilacion del proyecto </echo>
 		<javac srcdir="${titiritero.dir}" destdir="${build.dir}">
 		</javac>
-		<javac srcdir="src" destdir="${build.dir}">
+		<javac srcdir="${src.dir}" destdir="${build.dir}">
 	    	<classpath refid="test.classpath"/>
 		</javac>
  	</target>
 
 	
 	
-	<target name="Prueba" depends="Compila">
+	<target name="Prueba" depends="CopiarRecursos">
 		<echo>ejecutando las  pruebas  del proyecto </echo>
 		<mkdir dir="${tests.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
@@ -61,14 +62,19 @@
       	</junit>
     </target>
 	
-	<target name="CopiarRecursos" depends="Prueba">
+	<target name="CopiarRecursos" depends="Compila">
 		<echo>Moviendo imagenes</echo>
-		<copydir dest="${build.dir}/vista/" src="${src.dir}/vista/"></copydir>
+		<copy todir="${build.dir}/vista/">
+			<fileset dir="${src.dir}/vista/" excludes="**/*.java"/>
+		</copy>
+		<echo>Moviendo extras</echo>
+		<copy tofile="nivel.txt" file="${root.dir}nivel.txt"/>
+		<copy tofile="nivelTest.txt" file="${root.dir}nivelTest.txt"/>
 	</target>
 	
-	<target name="Ejecutar" depends="CopiarRecursos">
+	<target name="Ejecutar" depends="Prueba">
 		<echo>Ejecutando Pacman</echo>
-		<java classname="Pacman.Programa" classpath="${build.dir}" />
+		<java classname="Pacman.Programa" classpath="${build.dir}" fork="true"/>
 	</target>
 
 </project>
