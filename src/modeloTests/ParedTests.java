@@ -5,6 +5,7 @@ import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Posicion;
 import modelo.Pared;
+import modelo.PosicionInvalidaException;
 import junit.framework.TestCase;
 
 public class ParedTests extends TestCase {
@@ -34,7 +35,7 @@ public class ParedTests extends TestCase {
 			@SuppressWarnings("unused")
 			Pared pared = new Pared(new Posicion(0, -1), this.laberinto);
 			fail();
-		} catch (IllegalArgumentException e) {
+		} catch (PosicionInvalidaException e) {
 			assertTrue(true);
 		}
 	}

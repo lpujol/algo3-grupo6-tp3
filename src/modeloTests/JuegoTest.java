@@ -45,7 +45,7 @@ public class JuegoTest extends TestCase {
 		public void testPuntoDePoderComido() {
 			
 			unJuego.puntoDePoderComido();
-			assertTrue(unJuego.puntoDePoderActivo());
+			assertEquals(1,unJuego.getPuntosDePoderActivos());
 			
 		}
 		
@@ -59,7 +59,7 @@ public class JuegoTest extends TestCase {
 			unJuego.comenzar();
 			assertEquals(unJuego.estaJugando(),true);
 			
-			unJuego.pasarNivel();
+			unJuego.getLaberinto().getNivel().pasarDeNivel();
 			unJuego.setPuntosAcumulados(1000);
 			unJuego.pacmanComido();
 			unJuego.pacmanComido();

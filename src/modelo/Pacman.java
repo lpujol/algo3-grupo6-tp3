@@ -40,7 +40,7 @@ public class Pacman extends Vivo{
 		moverse();
 		ArrayList<Fantasma> fantasmasEnElMismoBloque=this.laberinto.buscarFantasmasEn(posicion);
 		if (fantasmasEnElMismoBloque.isEmpty()==false){
-			if(this.laberinto.getJuego().puntoDePoderActivo()){ 
+			if(this.laberinto.getJuego().getPuntosDePoderActivos()>0){ 
 				for (int i = 0; i < fantasmasEnElMismoBloque.size(); i++) {
 					if((fantasmasEnElMismoBloque.get(i).getEstado().ordinal()==EstadoFantasma.Huyendo.ordinal()))
 						fantasmasEnElMismoBloque.get(i).comer();

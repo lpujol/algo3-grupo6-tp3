@@ -32,6 +32,7 @@ public class CargadorDeNiveles {
 	public Nivel cargar(Nivel nivel, String rutaNivel) {
 		int x;
 		int y;
+		boolean pacmanCargado=false;
 		int caracter;
 		BufferedReader input = null;
 		File nivelFile = new File(rutaNivel);
@@ -47,13 +48,19 @@ public class CargadorDeNiveles {
 				for (x = 1; x <= laberinto.getAnchoEnBloques(); x++) {
 					caracter = input.read();
 					agregarObjeto(caracter, nivel, pasarAPosicionGlobal(new Posicion(x, y)));
+					if(caracter==112)
+						pacmanCargado=true;
 				}
 				input.readLine();
 			}
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
-        return nivel;
+        
+		if(pacmanCargado==false)
+			throw new PosicionPacmanInexistenteException();
+		
+		return nivel;
         
 	}
 
