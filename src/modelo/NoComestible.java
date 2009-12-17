@@ -6,7 +6,7 @@ public abstract class NoComestible extends Bloque {
 		super(posicion, laberinto);
 	}
 	
-	public boolean esOcupable(Fantasma unFantasma) {
+	public boolean esOcupablePorFantasma(Fantasma unFantasma) {
 		return false;
 	}
 	

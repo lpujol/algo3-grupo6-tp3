@@ -7,7 +7,7 @@ public class EspacioVacio extends NoComestible {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public boolean esOcupable(Fantasma unFantasma){
+	public boolean esOcupablePorFantasma(Fantasma unFantasma){
 		return true;
 	}
 

@@ -19,7 +19,7 @@ public abstract class Bloque implements Posicionable {
 		this.laberinto = laberinto;
 	}
 
-	public abstract boolean esOcupable(Fantasma unFantasma);
+	public abstract boolean esOcupablePorFantasma(Fantasma unFantasma);
 	
 	public abstract boolean esOcupablePorPacman();
 

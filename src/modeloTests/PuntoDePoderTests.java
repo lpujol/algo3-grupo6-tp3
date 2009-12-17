@@ -1,6 +1,7 @@
 package modeloTests;
 
 import junit.framework.TestCase;
+import modelo.FantasmaRojo;
 import modelo.Juego;
 import modelo.Laberinto;
 import modelo.Posicion;
@@ -34,7 +35,7 @@ public class PuntoDePoderTests extends TestCase {
 			PuntoDePoder punto = new PuntoDePoder(new Posicion(0, -1), this.laberinto);
 			fail();
 		} catch (IllegalArgumentException e) {
-			assertNotNull(e);
+			assertTrue(true);
 		}
 	}
 	
@@ -44,10 +45,10 @@ public class PuntoDePoderTests extends TestCase {
 		assertTrue(punto.comido() == false);
 	}
 	
-	// Testea que un punto pueda ser ocupado
-	public void testPuntoEsOcupable() {
+	// Testea que un punto pueda ser ocupado por un fantasma
+	public void testPuntoEsOcupablePorFantasma() {
 		PuntoDePoder punto = new PuntoDePoder(new Posicion(1, 1), this.laberinto);
-		assertTrue(punto.esOcupable(null));
+		assertTrue(punto.esOcupablePorFantasma(new FantasmaRojo(laberinto,1) ));
 	}
 	
 	// Testea que comer un punto cambie el estado correctamente
@@ -56,5 +57,6 @@ public class PuntoDePoderTests extends TestCase {
 		punto.comer();
 		assertTrue(punto.comido() == true);
 	}
+	
 	
 }

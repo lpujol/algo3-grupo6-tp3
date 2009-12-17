@@ -11,7 +11,7 @@ public class Portal extends Comestible {
 		this.activado=false;
 	}
 
-	public boolean esOcupable(Fantasma unFantasma){
+	public boolean esOcupablePorFantasma(Fantasma unFantasma){
 		this.portalActivado();
 		this.laberinto.activarPortal(this);
 		return true;

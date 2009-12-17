@@ -6,7 +6,7 @@ public class ParedHorizontal extends NoComestible {
 		super(posicion, laberinto);
 	}
 
-	public boolean esOcupable(Fantasma unFantasma) {
+	public boolean esOcupablePorFantasma(Fantasma unFantasma) {
 		return false;
 	}
 

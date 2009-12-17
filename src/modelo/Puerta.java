@@ -6,7 +6,7 @@ public class Puerta extends NoComestible {
 		super(posicion, laberinto);
 	}
 	
-	public boolean esOcupable(Fantasma unFantasma) {
+	public boolean esOcupablePorFantasma(Fantasma unFantasma) {
 		if((
 				(unFantasma.getDireccion().ordinal()==Direccion.Arriba.ordinal())
 				&&(unFantasma.getEstado().ordinal()==EstadoFantasma.Vivo.ordinal())
@@ -14,8 +14,7 @@ public class Puerta extends NoComestible {
 				(
 						unFantasma.getEstado().ordinal()==EstadoFantasma.Muerto.ordinal()))
 		return true;
-		//if((unFantasma.getDireccion()==Direccion.Abajo)&&(unFantasma.getEstado()==EstadoFantasma.Muerto))
-		//	return true;
+		
 		return false;
 	}
 
