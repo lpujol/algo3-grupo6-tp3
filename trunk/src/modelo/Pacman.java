@@ -85,13 +85,20 @@ public class Pacman extends Vivo{
 		
 	}
 
-	public void setPosicion(Posicion posicionInicialPacman) {
-		this.posicion=posicionInicialPacman;
+	public void setPosicion(Posicion nuevaPosicionPacman) {
+		if ((nuevaPosicionPacman.getX() > 0) && (nuevaPosicionPacman.getY() > 0)) {
+			this.posicion = nuevaPosicionPacman;
+		} else {
+			throw new PosicionInvalidaException();
+		}
+		
 		
 	}
 
 	public void setEstrategia(IEstrategiaPacman nuevaEstrategia) {
-			this.estrategia=nuevaEstrategia;
+		if(nuevaEstrategia==null)
+			throw new EstrategiaNulaException();
+		this.estrategia=nuevaEstrategia;
 	}
 
 	public Laberinto getLaberinto() {
